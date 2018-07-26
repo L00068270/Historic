@@ -1,0 +1,90 @@
+﻿<Page x:Class="library.pages.dashboard"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:library.pages"
+      mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989"
+      d:DesignHeight="600" d:DesignWidth="300"
+      Title="dashboard" Width="1200" MinWidth="300">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Row="0" Grid.Column="0"/>
+        <Rectangle Grid.Row="1" Grid.Column="1" Fill="FloralWhite"/>
+        <Rectangle Grid.Row="1" Grid.Column="2" Fill="White"/>
+        <Rectangle Grid.Row="1" Grid.Column="3" Fill="White"/>
+
+        <Border Grid.Row="1" Grid.Column="1" Padding="20,20,20,20">
+            <StackPanel>
+                <TextBlock FontSize="20">
+                    Listings
+                </TextBlock>
+                <TextBlock>
+                    <Hyperlink TextDecorations="{x:Null}">Books</Hyperlink>             
+                    <LineBreak/>
+                    <Hyperlink TextDecorations="{x:Null}">Journals</Hyperlink> 
+                    <LineBreak/>
+                    <Hyperlink TextDecorations="{x:Null}">DVDs</Hyperlink> 
+                    <LineBreak/>
+                    <Hyperlink TextDecorations="{x:Null}">Conference Proceedings</Hyperlink> 
+                    <LineBreak/>
+                    <Hyperlink TextDecorations="{x:Null}">Reference Books</Hyperlink>
+                </TextBlock>
+                <TextBlock FontSize="20">
+                    Stock Tasks
+                </TextBlock>
+                <TextBlock>
+                    <Hyperlink NavigateUri="/library;component/books/book_details.xaml" TextDecorations="{x:Null}">Book Details</Hyperlink> 
+                    <LineBreak/>
+                    <Hyperlink NavigateUri="/library;component/journals/journal_details.xaml" TextDecorations="{x:Null}">Journal Details</Hyperlink> 
+                    <LineBreak/>
+                    <Hyperlink NavigateUri="/library;component/pagesdashboard/dvd.xaml" TextDecorations="{x:Null}">DVD Details</Hyperlink> 
+                    <LineBreak/>
+                    <Hyperlink NavigateUri="/library;component/pagesdashboard/conferenceproceedings.xaml" TextDecorations="{x:Null}">Conference Proceeding</Hyperlink> 
+                    <LineBreak/>
+                    <Hyperlink NavigateUri="/library;component/pagesdashboard/referencebook.xaml" TextDecorations="{x:Null}">Reference Books</Hyperlink> 
+                    <LineBreak/>
+                </TextBlock>
+                <TextBlock FontSize="20">
+                    Members
+                </TextBlock>
+                <TextBlock>
+                    <Hyperlink NavigateUri="/library;component/librarymember/librarymember.xaml" TextDecorations="{x:Null}">Member Details</Hyperlink> 
+                    <LineBreak/>
+                </TextBlock>
+                <TextBlock FontSize="20">
+                    Publisher
+                </TextBlock>
+                <TextBlock>
+                    <Hyperlink NavigateUri="/library;component/publisher/publisher_details.xaml" TextDecorations="{x:Null}">Publisher Details</Hyperlink> 
+                    <LineBreak/>
+                </TextBlock>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Padding="20,20,20,20">
+            <StackPanel>
+                <TextBlock FontSize="20">
+                    Browse Listings
+                </TextBlock>
+                <ListBox x:Name="peopleListBox" HorizontalAlignment="Left" Margin="0,10,0,0" Height="500" Width="760">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding _fullname}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

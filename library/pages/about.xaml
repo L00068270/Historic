@@ -1,0 +1,132 @@
+﻿<Page x:Class="library.pages.about"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:library.pages"
+      mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989"
+      d:DesignHeight="700" d:DesignWidth="300" 
+      Title="about" Width="1200" MinWidth="300">
+
+
+    <Grid ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Row="0" Grid.Column="0"/>
+        <Rectangle Grid.Row="1" Grid.Column="1" Fill="FloralWhite"/>
+        <Rectangle Grid.Row="1" Grid.Column="2" Fill="White"/>
+        <Rectangle Grid.Row="1" Grid.Column="3" Fill="FloralWhite"/>
+        
+        <Border Grid.Row="1" Grid.Column="1" Padding="20,20,20,20">
+            <StackPanel>
+                <TextBlock FontSize="30">
+                    About the Library
+                    <LineBreak/>
+                </TextBlock>
+
+                <TextBlock TextWrapping="Wrap" TextAlignment="Justify">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a mi rutrum, tempus dui vel, sollicitudin dolor. Nunc orci ex, 
+                    placerat quis tempus id, tempor ut ante. Ut iaculis nulla id tortor facilisis, non auctor sem vulputate. In est sem, dignissim 
+                    eu elit eu, imperdiet sollicitudin risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                    Nam pulvinar turpis eget sollicitudin tristique. Sed sodales massa sit amet nisi commodo, in blandit tortor ultrices.
+                    <LineBreak/>
+                    <LineBreak/>
+                    Nulla facilisi. Curabitur eleifend tortor risus, sit amet condimentum magna ullamcorper nec. Aliquam id iaculis mauris, sed 
+                    venenatis velit. Quisque a ante et libero cursus venenatis eu a leo. Praesent posuere luctus erat, nec condimentum justo 
+                    ultricies eu. Curabitur sodales metus odio, eu auctor enim dapibus sed. Mauris volutpat interdum magna, id tristique nunc 
+                    cursus ac. In interdum diam vel maximus facilisis. Pellentesque et quam maximus, tempus dui et, volutpat est. Curabitur 
+                    malesuada, urna sodales luctus lobortis, sem odio egestas felis, aliquet commodo elit eros quis odio.
+                    <LineBreak/>
+                    <LineBreak/>
+                    Vestibulum sagittis libero ut nisi ornare, sed lacinia nisl iaculis. Phasellus in lorem justo. Sed ut neque ullamcorper, 
+                    varius mauris aliquet, molestie nibh. Maecenas ac nulla mattis, convallis eros nec, vestibulum libero. Cras in eleifend 
+                    diam. Praesent congue diam elit, at sagittis nunc auctor non. Nullam id vestibulum nisl. Cras non lacus vel elit vestibulum 
+                    eleifend. Nullam in tortor porttitor, commodo mi suscipit, sollicitudin lectus. Sed viverra volutpat sagittis. Duis at nisl 
+                    consectetur, mollis ex sed, vestibulum orci. Integer quis varius tortor.
+                    <LineBreak/>
+                    <LineBreak/>
+                    Quisque elementum facilisis sapien sed pulvinar. Pellentesque eu ornare elit. Praesent in luctus eros. Orci varius natoque 
+                    penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus sed ante molestie, ornare dui in, vehicula lacus. 
+                    In dapibus malesuada dui, eget ultrices tortor tincidunt vitae. Nam rhoncus, neque in lacinia bibendum, mi tellus tempor 
+                    sapien, eget viverra risus dui id dolor. Mauris placerat tempor cursus. Cras vitae massa vel felis porttitor hendrerit in 
+                    quis odio. Proin vitae euismod purus. 
+                    <LineBreak/>
+                    <LineBreak/>
+                </TextBlock>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="2" Padding="20,20,20,20">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap" TextAlignment="Justify">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a mi rutrum, tempus dui vel, sollicitudin dolor. Nunc orci ex, 
+                    placerat quis tempus id, tempor ut ante. Ut iaculis nulla id tortor facilisis, non auctor sem vulputate. In est sem, dignissim 
+                    eu elit eu, imperdiet sollicitudin risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                    Nam pulvinar turpis eget sollicitudin tristique. Sed sodales massa sit amet nisi commodo, in blandit tortor ultrices.
+                    <LineBreak/>
+                    <LineBreak/>
+                    Nulla facilisi. Curabitur eleifend tortor risus, sit amet condimentum magna ullamcorper nec. Aliquam id iaculis mauris, sed 
+                    venenatis velit. Quisque a ante et libero cursus venenatis eu a leo. Praesent posuere luctus erat, nec condimentum justo 
+                    ultricies eu. Curabitur sodales metus odio, eu auctor enim dapibus sed. Mauris volutpat interdum magna, id tristique nunc 
+                    cursus ac. In interdum diam vel maximus facilisis. Pellentesque et quam maximus, tempus dui et, volutpat est. Curabitur 
+                    malesuada, urna sodales luctus lobortis, sem odio egestas felis, aliquet commodo elit eros quis odio.
+                    <LineBreak/>
+                </TextBlock>
+
+                <Image Source="C:\C# Website\Library\library\library\banners\cr20180528_103343.jpg"/>
+
+                <TextBlock TextWrapping="Wrap" TextAlignment="Justify">
+                    <LineBreak/>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a mi rutrum, tempus dui vel, sollicitudin dolor. Nunc orci ex, 
+                    placerat quis tempus id, tempor ut ante. Ut iaculis nulla id tortor facilisis, non auctor sem vulputate. In est sem, dignissim 
+                    eu elit eu, imperdiet sollicitudin risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                    Nam pulvinar turpis eget sollicitudin tristique. Sed sodales massa sit amet nisi commodo, in blandit tortor ultrices.
+                    <LineBreak/>
+                    <LineBreak/>
+                </TextBlock>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="3" Padding="20,20,20,20">
+            <StackPanel>
+                <TextBlock TextWrapping="Wrap" TextAlignment="Justify">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a mi rutrum, tempus dui vel, sollicitudin dolor. Nunc orci ex, 
+                    placerat quis tempus id, tempor ut ante. Ut iaculis nulla id tortor facilisis, non auctor sem vulputate. In est sem, dignissim 
+                    eu elit eu, imperdiet sollicitudin risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+                    Nam pulvinar turpis eget sollicitudin tristique. Sed sodales massa sit amet nisi commodo, in blandit tortor ultrices.
+                    <LineBreak/>
+                    <LineBreak/>
+                    Nulla facilisi. Curabitur eleifend tortor risus, sit amet condimentum magna ullamcorper nec. Aliquam id iaculis mauris, sed 
+                    venenatis velit. Quisque a ante et libero cursus venenatis eu a leo. Praesent posuere luctus erat, nec condimentum justo 
+                    ultricies eu. Curabitur sodales metus odio, eu auctor enim dapibus sed. Mauris volutpat interdum magna, id tristique nunc 
+                    cursus ac. In interdum diam vel maximus facilisis. Pellentesque et quam maximus, tempus dui et, volutpat est. Curabitur 
+                    malesuada, urna sodales luctus lobortis, sem odio egestas felis, aliquet commodo elit eros quis odio.
+                    <LineBreak/>
+                    <LineBreak/>
+                    Vestibulum sagittis libero ut nisi ornare, sed lacinia nisl iaculis. Phasellus in lorem justo. Sed ut neque ullamcorper, 
+                    varius mauris aliquet, molestie nibh. Maecenas ac nulla mattis, convallis eros nec, vestibulum libero. Cras in eleifend 
+                    diam. Praesent congue diam elit, at sagittis nunc auctor non. Nullam id vestibulum nisl. Cras non lacus vel elit vestibulum 
+                    eleifend. Nullam in tortor porttitor, commodo mi suscipit, sollicitudin lectus. Sed viverra volutpat sagittis. Duis at nisl 
+                    consectetur, mollis ex sed, vestibulum orci. Integer quis varius tortor.
+                    <LineBreak/>
+                    <LineBreak/>
+                    Quisque elementum facilisis sapien sed pulvinar. Pellentesque eu ornare elit. Praesent in luctus eros. Orci varius natoque 
+                    penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus sed ante molestie, ornare dui in, vehicula lacus. 
+                    In dapibus malesuada dui, eget ultrices tortor tincidunt vitae. Nam rhoncus, neque in lacinia bibendum, mi tellus tempor 
+                    sapien, eget viverra risus dui id dolor. Mauris placerat tempor cursus. Cras vitae massa vel felis porttitor hendrerit in 
+                    quis odio. Proin vitae euismod purus. 
+                    <LineBreak/>
+                    <LineBreak/>
+                </TextBlock>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

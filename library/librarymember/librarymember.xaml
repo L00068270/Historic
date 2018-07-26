@@ -1,0 +1,127 @@
+﻿<Page x:Class="library.librarymember.librarymember"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:library.librarymember"
+      xmlns:DataClassesLinqSqlLibrary="clr-namespace:MyClassesLibrary;assembly=MyClassesLibrary"
+      xmlns:library="clr-namespace:library"
+      mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989"
+      d:DesignHeight="600" d:DesignWidth="300"     
+      Title="librarymember" Width="1200" MinWidth="300">
+
+    <Page.Resources>
+        <library:LibraryMember x:Key="LibraryMember"/>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Row="0" Grid.Column="0"/>
+        <Rectangle Grid.Row="1" Grid.Column="1" Fill="White"/>
+        <Rectangle Grid.Row="1" Grid.Column="2" Fill="White"/>
+        <Rectangle Grid.Row="1" Grid.Column="3" Fill="White"/>
+        <Border Grid.Row="1" Grid.Column="1" Padding="20,20,20,20">
+        </Border>
+        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Padding="20,20,20,60">
+            <StackPanel>
+                <!--LABELS-->
+                <Label x:Name="lblSuccessful"/>
+                <Label x:Name="lblReEnter"/>
+
+                <TextBlock FontSize="20">                   
+                    Member Details
+                    <LineBreak/>
+                </TextBlock>
+
+                <TextBlock FontSize="16">
+                    Note: 
+                    Admin user can insert, update or delete Library Member by editing this table  and save the changes.
+                    <LineBreak/>
+                    Select Library Member to update or delete.
+                    <LineBreak/>
+                    Select INSERT to add a new Library Member
+                </TextBlock>
+
+                <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <Grid>
+                        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" ColumnWidth="*" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding MemberID}" Header="MemberID" Width="65"/>
+                                <DataGridTextColumn Binding="{Binding NameFirst}" Header="First Name" Width="70"/>
+                                <DataGridTextColumn Binding="{Binding NameInitial}" Header="Initials" Width="45"/>
+                                <DataGridTextColumn Binding="{Binding NameLast}" Header="Last Name" Width="70"/>
+                                <DataGridTextColumn Binding="{Binding Username}" Header="Username" Width="65"/>
+                                <DataGridTextColumn Binding="{Binding Password}" Header="Password" Width="65"/>
+                                <DataGridTextColumn Binding="{Binding Password}" Header="Re-EnterPassword" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Address}" Header="Address" Width="140"/>
+                                <DataGridTextColumn Binding="{Binding Street}" Header="Street" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Town}" Header="Town" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding County}" Header="County" Width="65"/>
+                                <DataGridTextColumn Binding="{Binding Country}" Header="Country" Width="50"/>
+                                <DataGridTextColumn Binding="{Binding Postcode}" Header="Postcode" Width="65"/>
+                                <DataGridTextColumn Binding="{Binding Classification}" Header="Classification" Width="75"/>
+
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock>
+                                            Actions
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.HeaderTemplate>
+
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+
+
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </ScrollViewer>
+
+                <!--BUTTONS-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnCancel" Content="CANCEL" Grid.Row="1" Grid.Column="9" Height="20" Width="80" Background="#374989" Foreground="White" Click="btnCancel_Click" Margin="0,14,1,16"></Button>
+                    <Button x:Name="btnDelete" Content="DELETE" Grid.Row="1" Grid.Column="10" Height="20" Width="56" Background="#374989" Foreground="White" Click="btnDelete_Click"></Button>
+                    <Button x:Name="btnUpdate" Content="UPDATE" Grid.Row="1" Grid.Column="11" Height="20" Width="56" Background="#374989" Foreground="White" Click="btnUpdate_Click"></Button>
+                    <Button x:Name="btnInsert" Content="INSERT" Grid.Row="1" Grid.Column="12" Height="20" Width="56" Background="#374989" Foreground="White" Click="btnInsert_Click"></Button>
+                    <Button x:Name="btnSave" Content="SAVE" Grid.Row="1" Grid.Column="13" Height="20" Width="80" Background="#374989" Foreground="White" Click="btnSave_Click"></Button>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

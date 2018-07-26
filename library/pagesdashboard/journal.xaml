@@ -1,0 +1,145 @@
+﻿<Page x:Class="library.pagesdashboard.journal"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:library.pagesdashboard"
+      mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989"
+      d:DesignHeight="560" d:DesignWidth="300"
+      Title="journal" Width="1200" MinWidth="300">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Row="0" Grid.Column="0"/>
+        <Rectangle Grid.Row="1" Grid.Column="1" Fill="FloralWhite"/>
+        <Rectangle Grid.Row="1" Grid.Column="2" Fill="White"/>
+        <Rectangle Grid.Row="1" Grid.Column="3" Fill="White"/>
+        <Border Grid.Row="1" Grid.Column="1" Padding="20,60,20,60">
+            <StackPanel>
+                <TextBlock FontSize="30">
+                    Library Application
+                </TextBlock>
+                <TextBlock FontSize="30">
+                    Journals
+                </TextBlock>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="2" Padding="20,60,20,60">
+            <StackPanel>
+                <TextBlock FontSize="20">
+                    Please enter a Journal
+                    <LineBreak/>
+                </TextBlock>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--LABELS-->
+                    <Label x:Name="lblJournalID" Content="JournalID" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblTitle" Content="Title" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblResearchSociety" Content="ResearchSociety" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblCopiesTotal" Content="CopiesTotal" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblCopiesAvailable" Content="CopiesAvailable" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblCopiesOut" Content="CopiesOut" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblSubjectArea" Content="SubjectArea" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblYearOfPublication" Content="YearOfPublication" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblKeyword" Content="Keyword" Grid.Row="9" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblJournalNumbers" Content="JournalNumbers" Grid.Row="10" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                    <!--TEXT BOXES-->
+                    <TextBox x:Name="tbxJournalID"  Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxTitle" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxResearchSociety" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxCopiesTotal" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxCopiesAvailable" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxCopiesOut" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxSubjectArea" Grid.Row="7" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxYearOfPublication" Grid.Row="8" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxKeyword" Grid.Row="9" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxJournalNumbers" Grid.Row="10" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
+                </Grid>
+                <!--BUTTONS-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnEnter" Content="ENTER" Grid.Row="1" Grid.Column="3" Height="20" Width="80" HorizontalAlignment="Right" Background="#374989" Foreground="White"></Button>
+                    <Button x:Name="btnCancel" Content="CANCEL" Grid.Row="1" Grid.Column="2" Height="20" Width="80" HorizontalAlignment="Right" Background="#374989" Foreground="White" Click="btnCancel_Click"></Button>
+                </Grid>
+                <!--LABELS-->
+                <Label x:Name="lblSuccessful"/>
+                <Label x:Name="lblReEnter"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="3" Padding="20,60,20,60">
+            <StackPanel>
+                <TextBlock FontSize="20">
+                    Copy Details
+                    <LineBreak/>
+                </TextBlock>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--LABELS-->
+                    <Label x:Name="lblJournalNumberID" Content="JournalNumberID" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblShelfNumber" Content="ShelfNumber" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblCondition" Content="Condition" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblFKJournalID" Content="JournalID" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                    <!--TEXT BOXES-->
+                    <TextBox x:Name="tbxJournalNumberID"  Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxShelfNumber" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxCondition" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxFKJournalID" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

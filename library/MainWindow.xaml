@@ -1,0 +1,84 @@
+﻿<Window x:Class="library.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:library"
+        mc:Ignorable="d" FontFamily="Arial" FontSize="12"
+        Title="MainWindow" Height="auto" Width="1200" MinWidth="300" Background="#FF868CC5">
+    <Window.Resources>        
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="1"></Setter>
+            <Setter Property="FontFamily" Value="Arial"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="Background" Value="#374989"></Setter>
+            <Setter Property="Foreground" Value="FloralWhite"></Setter> 
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="Height" Value="22"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        </Style>
+        <Style TargetType="ScrollBar">
+            <Setter Property="Stylus.IsPressAndHoldEnabled" Value="False"/>
+            <Setter Property="Stylus.IsFlicksEnabled" Value="false"/>
+
+            <Setter Property="Width" Value="10"/>
+            <Setter Property="MaxWidth" Value="{Binding Width, RelativeSource={RelativeSource Self}}"/>
+        </Style>
+    </Window.Resources>
+    
+    <ScrollViewer CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Grid MaxWidth="1200" Margin="0,6,0,6">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+        
+            <!--SETTING ROWS AND COLUMNS-->
+            <!--ROW 1-->
+            <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="#374989" Stroke="#374989"/>
+            <TextBlock x:Name="tbxHeader" Grid.Row="1" Grid.ColumnSpan="4" Margin="17,16,37,10" TextWrapping="Wrap" FontFamily="Arial Unicode MS" FontSize="36" Foreground="#FFF50C0C" >
+                <Run Text="Library"/>
+                <Run Text="Letterkenny" Foreground="#FFF5EEEE"/>
+            </TextBlock>
+        
+            <!--ROW 2 RED-->
+            <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Height="8" Fill="#FFF50C0C" Stroke="#374989"/>
+        
+            <!--ROW 3 BANNER-->
+            <Image x:Name="imageBanner" Grid.Row="3" Grid.ColumnSpan="4" Width="1200" Source="banners/20180528_102427-1200x200.jpg"/>
+        
+            <!--ROW 4 NAVAGATION BAR-->
+            <Rectangle Grid.Row="4" Grid.ColumnSpan="4" Height="40" Fill="#374989" Stroke="#374989"/>
+            <WrapPanel Grid.Row="4" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0">
+                <Button Content="HOME" Click="btnIndex"/>
+                <Button Content="ABOUT" Click="btnAbout"/>
+                <Button Content="REGISTER" Click="btnRegister"/>
+                <Button Content="LOGIN" Click="btnLogin"/>
+                <Button Content="DASHBOARD" Click="btnDashboard"/>
+            </WrapPanel>
+
+            <!--ROW 5 CONTENT-->
+            <Rectangle Grid.Row="5" Grid.ColumnSpan="4" Fill="White" Stroke="#374989"/>
+                <Frame x:Name="Main" Grid.Row="5" Grid.ColumnSpan="4" NavigationUIVisibility="Hidden">
+                              
+                </Frame>
+            <ContentControl Grid.Row="5" Grid.ColumnSpan="4" Content="{Binding}"/>
+            
+            <!--ROW 6 LINKS-->
+            <Rectangle Grid.Row="6" Grid.ColumnSpan="4" Height="100" Fill="#374989" Stroke="#374989"/>
+        </Grid>
+    </ScrollViewer>
+</Window>

@@ -1,0 +1,92 @@
+﻿<Page x:Class="library.pages.old_login"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:library.pages"
+      mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989"
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="old_login" Width="1200" MinWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Row="0" Grid.Column="0"/>
+        <Rectangle Grid.Row="1" Grid.Column="1" Fill="FloralWhite"/>
+        <Rectangle Grid.Row="1" Grid.Column="2" Fill="White"/>
+        <Rectangle Grid.Row="1" Grid.Column="3" Fill="FloralWhite"/>
+        
+        
+        <Border Grid.Row="1" Grid.Column="1" Padding="20,60,20,60">
+            <StackPanel>
+                <Label Content="Library Application Login" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20"/>
+                <ComboBox x:Name="comboBox1">
+                    <DataGridTextColumn Binding="{Binding Username}" Header="Username" Width="65"/>
+                    <DataGridTextColumn Binding="{Binding Password}" Header="Password" Width="65"/>
+                </ComboBox>
+                <Button x:Name="btnLogin2" Content="LOGIN 2" Grid.Row="1" Grid.Column="1" Height="20" Width="80" HorizontalAlignment="Right" Background="#374989" Foreground="White" Click="btnLogin2_Click"></Button>
+                <Button x:Name="btnLogin3" Content="LOGIN 3" Grid.Row="1" Grid.Column="1" Height="20" Width="80" HorizontalAlignment="Right" Background="#374989" Foreground="White" Click="btnLogin3_Click"></Button>
+                <Button x:Name="btnLogin4" Content="LOGIN 4" Grid.Row="1" Grid.Column="1" Height="20" Width="80" HorizontalAlignment="Right" Background="#374989" Foreground="White" Click="btnLogin4_Click"></Button>
+                <Button x:Name="btnLogin5" Content="LOGIN 5" Grid.Row="1" Grid.Column="1" Height="20" Width="80" HorizontalAlignment="Right" Background="#374989" Foreground="White" Click="btnLogin5_Click"></Button>
+                <Button x:Name="btnLogin6" Content="LOGIN 6" Grid.Row="1" Grid.Column="1" Height="20" Width="80" HorizontalAlignment="Right" Background="#374989" Foreground="White" Click="btnLogin6_Click"></Button>
+                <Button x:Name="btnLogin7" Content="LOGIN 7" Grid.Row="1" Grid.Column="1" Height="20" Width="80" HorizontalAlignment="Right" Background="#374989" Foreground="White" Click="btnLogin7_Click"></Button>
+                <Button x:Name="btnSignup" Content="SIGNUP" Grid.Row="1" Grid.Column="1" Height="20" Width="80" HorizontalAlignment="Right" Background="#374989" Foreground="White" Click="btnSignup_Click"></Button>
+
+                
+            </StackPanel>    
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="2" Padding="20,60,20,60">
+            <StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--LABELS-->
+                    <Label x:Name="lblUsername" Content="Username" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblPassword" Content="Password" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <!--TEXT BOXES-->
+                    <TextBox x:Name="tbxUsername"  Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2" Text="{Binding Username}"/>
+                    <TextBox x:Name="tbxPassword" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2" Text="{Binding Password}"/>
+                </Grid>
+                <!--PasswordChar="*" -->
+                <!--BUTTONS-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnLogin" Content="LOGIN" Grid.Row="1" Grid.Column="3" Height="20" Width="80" HorizontalAlignment="Right" Background="#374989" Foreground="White" Click="btnLogin_Click"></Button>
+                    <Button x:Name="btnCancel" Content="CANCEL" Grid.Row="1" Grid.Column="2" Height="20" Width="80" HorizontalAlignment="Right" Background="#374989" Foreground="White" Click="btnCancel_Click" Uid="library.pages.dashboard"></Button>
+                </Grid>
+
+                <!--LABELS-->
+                <Label x:Name="lblMsg" Height="30"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
