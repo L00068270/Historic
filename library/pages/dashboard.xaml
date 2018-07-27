@@ -48,7 +48,7 @@
                     <LineBreak/>
                     <Hyperlink NavigateUri="/library;component/journals/journal_details.xaml" TextDecorations="{x:Null}">Journal Details</Hyperlink> 
                     <LineBreak/>
-                    <Hyperlink NavigateUri="/library;component/pagesdashboard/dvd.xaml" TextDecorations="{x:Null}">DVD Details</Hyperlink> 
+                    <Hyperlink NavigateUri="/library;component/dvds/dvd_details.xaml" TextDecorations="{x:Null}">DVD Details</Hyperlink> 
                     <LineBreak/>
                     <Hyperlink NavigateUri="/library;component/pagesdashboard/conferenceproceedings.xaml" TextDecorations="{x:Null}">Conference Proceeding</Hyperlink> 
                     <LineBreak/>

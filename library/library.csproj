@@ -121,6 +121,15 @@
     <Compile Include="books\book_update.xaml.cs">
       <DependentUpon>book_update.xaml</DependentUpon>
     </Compile>
+    <Compile Include="conference proceedings\conference_details.xaml.cs">
+      <DependentUpon>conference_details.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="conference proceedings\conference_insert.xaml.cs">
+      <DependentUpon>conference_insert.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="conference proceedings\conference_update.xaml.cs">
+      <DependentUpon>conference_update.xaml</DependentUpon>
+    </Compile>
     <Compile Include="dvds\dvd_details.xaml.cs">
       <DependentUpon>dvd_details.xaml</DependentUpon>
     </Compile>
@@ -171,6 +180,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="books\book_update.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="conference proceedings\conference_details.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="conference proceedings\conference_insert.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="conference proceedings\conference_update.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
