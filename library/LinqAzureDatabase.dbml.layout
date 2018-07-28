@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LinqAzureDatabase">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 10.75" name="LinqAzureDatabase">
   <DataContextMoniker Name="/LinqAzureDatabaseDataContext" />
   <nestedChildShapes>
     <classShape Id="0fe32a56-c7d8-42c8-9fa2-f3adca003a64" absoluteBounds="0.5, 0.5, 2, 3.5016097005208326">
@@ -37,6 +37,18 @@
       <DataClassMoniker Name="/LinqAzureDatabaseDataContext/DVD" />
       <nestedChildShapes>
         <elementListCompartment Id="5dafdab1-1a63-40d4-9e89-22e6972436a3" absoluteBounds="5.015, 4.335, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8908ff40-793c-467d-804d-4e2af04918e8" absoluteBounds="2.75, 7.375, 2, 3.1170068359375">
+      <DataClassMoniker Name="/LinqAzureDatabaseDataContext/ConferenceProceeding" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6385b9ac-18d9-4d03-9527-e74dd2090c71" absoluteBounds="2.765, 7.8350000000000009, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="303bf2b4-f074-4b8c-84a2-25929aabf4cd" absoluteBounds="5, 7.375, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/LinqAzureDatabaseDataContext/ReferenceBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0063a02f-bd4e-4d66-a34d-9e53b91336cf" absoluteBounds="5.0150000000000006, 7.835, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

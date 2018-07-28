@@ -85,4 +85,35 @@
       <Column Name="Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.ConferenceProceeding" Member="ConferenceProceedings">
+    <Type Name="ConferenceProceeding">
+      <Column Name="ConfID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Author" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CopiesTotal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CopiesAvailable" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CopiesOut" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubjectArea" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YearOfPublication" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Keyword" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ConfNumberID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShelfNumber" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReferenceBook" Member="ReferenceBooks">
+    <Type Name="ReferenceBook">
+      <Column Name="RefBookID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Author" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CopiesTotal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CopiesAvailable" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CopiesOut" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SubjectArea" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="YearOfPublication" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Keyword" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ShelfNumber" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

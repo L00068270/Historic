@@ -24,5 +24,30 @@ namespace library.conference_proceedings
         {
             InitializeComponent();
         }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnInsert_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

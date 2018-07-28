@@ -45,6 +45,12 @@ namespace library
     partial void InsertDVD(DVD instance);
     partial void UpdateDVD(DVD instance);
     partial void DeleteDVD(DVD instance);
+    partial void InsertConferenceProceeding(ConferenceProceeding instance);
+    partial void UpdateConferenceProceeding(ConferenceProceeding instance);
+    partial void DeleteConferenceProceeding(ConferenceProceeding instance);
+    partial void InsertReferenceBook(ReferenceBook instance);
+    partial void UpdateReferenceBook(ReferenceBook instance);
+    partial void DeleteReferenceBook(ReferenceBook instance);
     #endregion
 		
 		public LinqAzureDatabaseDataContext() : 
@@ -114,6 +120,22 @@ namespace library
 			get
 			{
 				return this.GetTable<DVD>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ConferenceProceeding> ConferenceProceedings
+		{
+			get
+			{
+				return this.GetTable<ConferenceProceeding>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ReferenceBook> ReferenceBooks
+		{
+			get
+			{
+				return this.GetTable<ReferenceBook>();
 			}
 		}
 	}
@@ -1850,6 +1872,634 @@ namespace library
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(50)")]
 		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ConferenceProceeding")]
+	public partial class ConferenceProceeding : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ConfID;
+		
+		private string _Title;
+		
+		private string _Author;
+		
+		private int _CopiesTotal;
+		
+		private int _CopiesAvailable;
+		
+		private int _CopiesOut;
+		
+		private string _SubjectArea;
+		
+		private string _YearOfPublication;
+		
+		private string _Keyword;
+		
+		private System.Nullable<int> _ConfNumberID;
+		
+		private string _ShelfNumber;
+		
+		private System.Nullable<int> _Status;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnConfIDChanging(int value);
+    partial void OnConfIDChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnAuthorChanging(string value);
+    partial void OnAuthorChanged();
+    partial void OnCopiesTotalChanging(int value);
+    partial void OnCopiesTotalChanged();
+    partial void OnCopiesAvailableChanging(int value);
+    partial void OnCopiesAvailableChanged();
+    partial void OnCopiesOutChanging(int value);
+    partial void OnCopiesOutChanged();
+    partial void OnSubjectAreaChanging(string value);
+    partial void OnSubjectAreaChanged();
+    partial void OnYearOfPublicationChanging(string value);
+    partial void OnYearOfPublicationChanged();
+    partial void OnKeywordChanging(string value);
+    partial void OnKeywordChanged();
+    partial void OnConfNumberIDChanging(System.Nullable<int> value);
+    partial void OnConfNumberIDChanged();
+    partial void OnShelfNumberChanging(string value);
+    partial void OnShelfNumberChanged();
+    partial void OnStatusChanging(System.Nullable<int> value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public ConferenceProceeding()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConfID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int ConfID
+		{
+			get
+			{
+				return this._ConfID;
+			}
+			set
+			{
+				if ((this._ConfID != value))
+				{
+					this.OnConfIDChanging(value);
+					this.SendPropertyChanging();
+					this._ConfID = value;
+					this.SendPropertyChanged("ConfID");
+					this.OnConfIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author", DbType="VarChar(100)")]
+		public string Author
+		{
+			get
+			{
+				return this._Author;
+			}
+			set
+			{
+				if ((this._Author != value))
+				{
+					this.OnAuthorChanging(value);
+					this.SendPropertyChanging();
+					this._Author = value;
+					this.SendPropertyChanged("Author");
+					this.OnAuthorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CopiesTotal", DbType="Int NOT NULL")]
+		public int CopiesTotal
+		{
+			get
+			{
+				return this._CopiesTotal;
+			}
+			set
+			{
+				if ((this._CopiesTotal != value))
+				{
+					this.OnCopiesTotalChanging(value);
+					this.SendPropertyChanging();
+					this._CopiesTotal = value;
+					this.SendPropertyChanged("CopiesTotal");
+					this.OnCopiesTotalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CopiesAvailable", DbType="Int NOT NULL")]
+		public int CopiesAvailable
+		{
+			get
+			{
+				return this._CopiesAvailable;
+			}
+			set
+			{
+				if ((this._CopiesAvailable != value))
+				{
+					this.OnCopiesAvailableChanging(value);
+					this.SendPropertyChanging();
+					this._CopiesAvailable = value;
+					this.SendPropertyChanged("CopiesAvailable");
+					this.OnCopiesAvailableChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CopiesOut", DbType="Int NOT NULL")]
+		public int CopiesOut
+		{
+			get
+			{
+				return this._CopiesOut;
+			}
+			set
+			{
+				if ((this._CopiesOut != value))
+				{
+					this.OnCopiesOutChanging(value);
+					this.SendPropertyChanging();
+					this._CopiesOut = value;
+					this.SendPropertyChanged("CopiesOut");
+					this.OnCopiesOutChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubjectArea", DbType="VarChar(50)")]
+		public string SubjectArea
+		{
+			get
+			{
+				return this._SubjectArea;
+			}
+			set
+			{
+				if ((this._SubjectArea != value))
+				{
+					this.OnSubjectAreaChanging(value);
+					this.SendPropertyChanging();
+					this._SubjectArea = value;
+					this.SendPropertyChanged("SubjectArea");
+					this.OnSubjectAreaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YearOfPublication", DbType="VarChar(50)")]
+		public string YearOfPublication
+		{
+			get
+			{
+				return this._YearOfPublication;
+			}
+			set
+			{
+				if ((this._YearOfPublication != value))
+				{
+					this.OnYearOfPublicationChanging(value);
+					this.SendPropertyChanging();
+					this._YearOfPublication = value;
+					this.SendPropertyChanged("YearOfPublication");
+					this.OnYearOfPublicationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Keyword", DbType="VarChar(30)")]
+		public string Keyword
+		{
+			get
+			{
+				return this._Keyword;
+			}
+			set
+			{
+				if ((this._Keyword != value))
+				{
+					this.OnKeywordChanging(value);
+					this.SendPropertyChanging();
+					this._Keyword = value;
+					this.SendPropertyChanged("Keyword");
+					this.OnKeywordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConfNumberID", DbType="Int")]
+		public System.Nullable<int> ConfNumberID
+		{
+			get
+			{
+				return this._ConfNumberID;
+			}
+			set
+			{
+				if ((this._ConfNumberID != value))
+				{
+					this.OnConfNumberIDChanging(value);
+					this.SendPropertyChanging();
+					this._ConfNumberID = value;
+					this.SendPropertyChanged("ConfNumberID");
+					this.OnConfNumberIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShelfNumber", DbType="VarChar(30)")]
+		public string ShelfNumber
+		{
+			get
+			{
+				return this._ShelfNumber;
+			}
+			set
+			{
+				if ((this._ShelfNumber != value))
+				{
+					this.OnShelfNumberChanging(value);
+					this.SendPropertyChanging();
+					this._ShelfNumber = value;
+					this.SendPropertyChanged("ShelfNumber");
+					this.OnShelfNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ReferenceBook")]
+	public partial class ReferenceBook : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _RefBookID;
+		
+		private string _Title;
+		
+		private string _Author;
+		
+		private int _CopiesTotal;
+		
+		private int _CopiesAvailable;
+		
+		private int _CopiesOut;
+		
+		private string _SubjectArea;
+		
+		private string _YearOfPublication;
+		
+		private string _Keyword;
+		
+		private string _ShelfNumber;
+		
+		private System.Nullable<int> _Status;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRefBookIDChanging(int value);
+    partial void OnRefBookIDChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnAuthorChanging(string value);
+    partial void OnAuthorChanged();
+    partial void OnCopiesTotalChanging(int value);
+    partial void OnCopiesTotalChanged();
+    partial void OnCopiesAvailableChanging(int value);
+    partial void OnCopiesAvailableChanged();
+    partial void OnCopiesOutChanging(int value);
+    partial void OnCopiesOutChanged();
+    partial void OnSubjectAreaChanging(string value);
+    partial void OnSubjectAreaChanged();
+    partial void OnYearOfPublicationChanging(string value);
+    partial void OnYearOfPublicationChanged();
+    partial void OnKeywordChanging(string value);
+    partial void OnKeywordChanged();
+    partial void OnShelfNumberChanging(string value);
+    partial void OnShelfNumberChanged();
+    partial void OnStatusChanging(System.Nullable<int> value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public ReferenceBook()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RefBookID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int RefBookID
+		{
+			get
+			{
+				return this._RefBookID;
+			}
+			set
+			{
+				if ((this._RefBookID != value))
+				{
+					this.OnRefBookIDChanging(value);
+					this.SendPropertyChanging();
+					this._RefBookID = value;
+					this.SendPropertyChanged("RefBookID");
+					this.OnRefBookIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author", DbType="VarChar(100)")]
+		public string Author
+		{
+			get
+			{
+				return this._Author;
+			}
+			set
+			{
+				if ((this._Author != value))
+				{
+					this.OnAuthorChanging(value);
+					this.SendPropertyChanging();
+					this._Author = value;
+					this.SendPropertyChanged("Author");
+					this.OnAuthorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CopiesTotal", DbType="Int NOT NULL")]
+		public int CopiesTotal
+		{
+			get
+			{
+				return this._CopiesTotal;
+			}
+			set
+			{
+				if ((this._CopiesTotal != value))
+				{
+					this.OnCopiesTotalChanging(value);
+					this.SendPropertyChanging();
+					this._CopiesTotal = value;
+					this.SendPropertyChanged("CopiesTotal");
+					this.OnCopiesTotalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CopiesAvailable", DbType="Int NOT NULL")]
+		public int CopiesAvailable
+		{
+			get
+			{
+				return this._CopiesAvailable;
+			}
+			set
+			{
+				if ((this._CopiesAvailable != value))
+				{
+					this.OnCopiesAvailableChanging(value);
+					this.SendPropertyChanging();
+					this._CopiesAvailable = value;
+					this.SendPropertyChanged("CopiesAvailable");
+					this.OnCopiesAvailableChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CopiesOut", DbType="Int NOT NULL")]
+		public int CopiesOut
+		{
+			get
+			{
+				return this._CopiesOut;
+			}
+			set
+			{
+				if ((this._CopiesOut != value))
+				{
+					this.OnCopiesOutChanging(value);
+					this.SendPropertyChanging();
+					this._CopiesOut = value;
+					this.SendPropertyChanged("CopiesOut");
+					this.OnCopiesOutChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubjectArea", DbType="VarChar(50)")]
+		public string SubjectArea
+		{
+			get
+			{
+				return this._SubjectArea;
+			}
+			set
+			{
+				if ((this._SubjectArea != value))
+				{
+					this.OnSubjectAreaChanging(value);
+					this.SendPropertyChanging();
+					this._SubjectArea = value;
+					this.SendPropertyChanged("SubjectArea");
+					this.OnSubjectAreaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YearOfPublication", DbType="VarChar(50)")]
+		public string YearOfPublication
+		{
+			get
+			{
+				return this._YearOfPublication;
+			}
+			set
+			{
+				if ((this._YearOfPublication != value))
+				{
+					this.OnYearOfPublicationChanging(value);
+					this.SendPropertyChanging();
+					this._YearOfPublication = value;
+					this.SendPropertyChanged("YearOfPublication");
+					this.OnYearOfPublicationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Keyword", DbType="VarChar(30)")]
+		public string Keyword
+		{
+			get
+			{
+				return this._Keyword;
+			}
+			set
+			{
+				if ((this._Keyword != value))
+				{
+					this.OnKeywordChanging(value);
+					this.SendPropertyChanging();
+					this._Keyword = value;
+					this.SendPropertyChanged("Keyword");
+					this.OnKeywordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShelfNumber", DbType="VarChar(30)")]
+		public string ShelfNumber
+		{
+			get
+			{
+				return this._ShelfNumber;
+			}
+			set
+			{
+				if ((this._ShelfNumber != value))
+				{
+					this.OnShelfNumberChanging(value);
+					this.SendPropertyChanging();
+					this._ShelfNumber = value;
+					this.SendPropertyChanged("ShelfNumber");
+					this.OnShelfNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
 		{
 			get
 			{

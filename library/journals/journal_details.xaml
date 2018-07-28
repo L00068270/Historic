@@ -13,7 +13,6 @@
         <library:Journal x:Key="Book"/>
     </Page.Resources>
     
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0"/>
