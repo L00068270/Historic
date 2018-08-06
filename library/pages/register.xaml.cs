@@ -52,7 +52,6 @@ namespace library.pages
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Return");
             this.Close();
         }
     }

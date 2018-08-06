@@ -7,19 +7,19 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Data;
 
-namespace library.conference_proceedings
+namespace library.referencebooks
 {
     /// <summary>
-    /// Interaction logic for conference_details.xaml
+    /// Interaction logic for reference_details.xaml
     /// </summary>
-    public partial class conference_details : Page
+    public partial class reference_details : Page
     {
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
         public static DataGrid datagrid;
 
-        public conference_details()
+        public reference_details()
         {
             InitializeComponent();
             functionToLoadDatabaseToDataGrid();
@@ -30,14 +30,13 @@ namespace library.conference_proceedings
         //*************************************************************************************************
         public void functionToLoadDatabaseToDataGrid()
         {
-            myDataGrid.ItemsSource = dc.ConferenceProceedings.ToList();
+            myDataGrid.ItemsSource = dc.ReferenceBooks.ToList();
             datagrid = myDataGrid;
         }
 
         //*************************************************************************************************        
         // buttons here
         //*************************************************************************************************
-
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             dc.SubmitChanges();
@@ -45,24 +44,24 @@ namespace library.conference_proceedings
 
         private void btnInsert_Click(object sender, RoutedEventArgs e)
         {
-            conference_insert insert = new conference_insert();
+            reference_insert insert = new reference_insert();
             insert.ShowDialog();
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            int id = (myDataGrid.SelectedItem as ConferenceProceeding).ConfID;
-            conference_update updateconference = new conference_update(id);
-            updateconference.ShowDialog();
+            int id = (myDataGrid.SelectedItem as ReferenceBook).RefBookID;
+            reference_update updatereferencebook = new reference_update(id);
+            updatereferencebook.ShowDialog();
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            int id = (myDataGrid.SelectedItem as ConferenceProceeding).ConfID;
-            var deleteConference = dc.ConferenceProceedings.Where(conference => conference.ConfID == id).Single();
-            dc.ConferenceProceedings.DeleteOnSubmit(deleteConference);
+            int id = (myDataGrid.SelectedItem as ReferenceBook).RefBookID;
+            var deleteReferenceBook = dc.ReferenceBooks.Where(reference => reference.RefBookID == id).Single();
+            dc.ReferenceBooks.DeleteOnSubmit(deleteReferenceBook);
             dc.SubmitChanges();
-            myDataGrid.ItemsSource = dc.ConferenceProceedings.ToList();
+            myDataGrid.ItemsSource = dc.ReferenceBooks.ToList();
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)

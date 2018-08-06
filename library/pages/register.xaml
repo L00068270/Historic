@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:library.pages"
         xmlns:DataClassesLinqSqlLibrary="clr-namespace:MyClassesLibrary;assembly=MyClassesLibrary"
         xmlns:library="clr-namespace:library"
-        mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989"
+        mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989" WindowStartupLocation="CenterScreen" WindowStyle="None"
         Title="register" Height="660" Width="300">
     <Window.Resources>
         <library:LibraryMember x:Key="LibraryMember"/>

@@ -91,6 +91,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Windows" />
@@ -129,6 +130,26 @@
     </Compile>
     <Compile Include="conference proceedings\conference_update.xaml.cs">
       <DependentUpon>conference_update.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard\viewmodels\viewmodel_books.cs" />
+    <Compile Include="dashboard\viewmodels\viewmodel_conferenceproceedings.cs" />
+    <Compile Include="dashboard\viewmodels\viewmodel_dvds.cs" />
+    <Compile Include="dashboard\viewmodels\viewmodel_journals.cs" />
+    <Compile Include="dashboard\viewmodels\viewmodel_referencebooks.cs" />
+    <Compile Include="dashboard\views\viewbooks.xaml.cs">
+      <DependentUpon>viewbooks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard\views\viewconferenceproceedings.xaml.cs">
+      <DependentUpon>viewconferenceproceedings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard\views\viewdvds.xaml.cs">
+      <DependentUpon>viewdvds.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard\views\viewjournals.xaml.cs">
+      <DependentUpon>viewjournals.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard\views\viewreferencebooks.xaml.cs">
+      <DependentUpon>viewreferencebooks.xaml</DependentUpon>
     </Compile>
     <Compile Include="dvds\dvd_details.xaml.cs">
       <DependentUpon>dvd_details.xaml</DependentUpon>
@@ -171,6 +192,15 @@
     <Compile Include="publisher\publisher_update.xaml.cs">
       <DependentUpon>publisher_update.xaml</DependentUpon>
     </Compile>
+    <Compile Include="referencebooks\reference_details.xaml.cs">
+      <DependentUpon>reference_details.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="referencebooks\reference_insert.xaml.cs">
+      <DependentUpon>reference_insert.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="referencebooks\reference_update.xaml.cs">
+      <DependentUpon>reference_update.xaml</DependentUpon>
+    </Compile>
     <Page Include="books\book_details.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -192,6 +222,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="conference proceedings\conference_update.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="dashboard\views\viewbooks.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="dashboard\views\viewconferenceproceedings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="dashboard\views\viewdvds.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="dashboard\views\viewjournals.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="dashboard\views\viewreferencebooks.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -243,15 +293,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="pagesdashboard\conferenceproceedings.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="pagesdashboard\item.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="pagesdashboard\journal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -279,14 +321,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\old_login.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="pages\old_register.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="pages\register.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -307,16 +341,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="referencebooks\reference_details.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="referencebooks\reference_insert.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="referencebooks\reference_update.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="pagesdashboard\conferenceproceedings.xaml.cs">
-      <DependentUpon>conferenceproceedings.xaml</DependentUpon>
-    </Compile>
     <Compile Include="pagesdashboard\item.xaml.cs">
       <DependentUpon>item.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="pagesdashboard\journal.xaml.cs">
-      <DependentUpon>journal.xaml</DependentUpon>
     </Compile>
     <Compile Include="pagesdashboard\memberhistory.xaml.cs">
       <DependentUpon>memberhistory.xaml</DependentUpon>
@@ -335,12 +375,6 @@
     </Compile>
     <Compile Include="pages\login.xaml.cs">
       <DependentUpon>login.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="pages\old_login.xaml.cs">
-      <DependentUpon>old_login.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="pages\old_register.xaml.cs">
-      <DependentUpon>old_register.xaml</DependentUpon>
     </Compile>
     <Compile Include="pages\register.xaml.cs">
       <DependentUpon>register.xaml</DependentUpon>
@@ -385,6 +419,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="css\" />
+    <Folder Include="dashboard\models\" />
     <Folder Include="documents\" />
     <Folder Include="php\" />
     <Folder Include="resources\" />
@@ -432,6 +467,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace library.books
+namespace library.referencebooks
 {
     /// <summary>
-    /// Interaction logic for book_insert.xaml
+    /// Interaction logic for reference_insert.xaml
     /// </summary>
-    public partial class book_insert : Window
+    public partial class reference_insert : Window
     {
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
         public static DataGrid datagrid;
 
-        public book_insert()
+        public reference_insert()
         {
             InitializeComponent();
         }
@@ -26,14 +26,15 @@ namespace library.books
         //*************************************************************************************************        
         // buttons here
         //*************************************************************************************************
+
         private void btnInsert_Click(object sender, RoutedEventArgs e)
         {
-            book_insert functionToAddRowOfDataToDataGrid = new book_insert();
+            reference_insert functionToAddRowOfDataToDataGrid = new reference_insert();
             dc.SubmitChanges();
 
-            Book newBookObject = new Book()
+            ReferenceBook newReferenceObject = new ReferenceBook()
             {
-                ISBN = int.Parse(this.tbxISBN.Text),
+                RefBookID = int.Parse(this.tbxRefBookID.Text),
                 Title = tbxTitle.Text,
                 Author = tbxAuthor.Text,
                 CopiesTotal = int.Parse(this.tbxCopiesTotal.Text),
@@ -41,21 +42,19 @@ namespace library.books
                 CopiesOut = int.Parse(this.tbxCopiesOut.Text),
                 SubjectArea = tbxSubjectArea.Text,
                 YearOfPublication = tbxYearOfPublication.Text,
-                Keyword = tbxKeyword.Text,               
-                BookID = int.Parse(this.tbxBookID.Text),
+                Keyword = tbxKeyword.Text,
                 ShelfNumber = tbxShelfNumber.Text,
                 Status = tbxStatus.Text,
-                PublisherID = int.Parse(this.tbxPublisherID.Text),
             };
-            dc.Books.InsertOnSubmit(newBookObject);
+            dc.ReferenceBooks.InsertOnSubmit(newReferenceObject);
             dc.SubmitChanges();
-            book_details.datagrid.ItemsSource = dc.Books.ToList();
+            reference_details.datagrid.ItemsSource = dc.ReferenceBooks.ToList();
             this.Hide();
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show("Return to Administration Page");
+            MessageBox.Show("Return to Administration Page");
             this.Close();
         }
     }

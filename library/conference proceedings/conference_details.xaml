@@ -10,7 +10,7 @@
       d:DesignHeight="600" d:DesignWidth="300"
       Title="conference_details" Width="1200" MinWidth="300">
     <Page.Resources>
-        <library:Journal x:Key="Book"/>
+        <library:ConferenceProceeding x:Key="ConferenceProceeding"/>
     </Page.Resources>
 
     <Grid>
@@ -53,47 +53,6 @@
                     Select INSERT to add a new Conference Proceeding
                 </TextBlock>
 
-                <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    <Grid >
-                        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" ColumnWidth="*" AutoGenerateColumns="False">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{Binding JournalID}" Header="JournalID" Width="70"/>
-                                <DataGridTextColumn Binding="{Binding Title}" Header="Title" Width="200"/>
-                                <DataGridTextColumn Binding="{Binding Author}" Header="Author" Width="140"/>
-                                <DataGridTextColumn Binding="{Binding CopiesTotal}" Header="Copies" Width="50"/>
-                                <DataGridTextColumn Binding="{Binding CopiesAvailable}" Header="Available" Width="60"/>
-                                <DataGridTextColumn Binding="{Binding CopiesOut}" Header="Out" Width="50"/>
-                                <DataGridTextColumn Binding="{Binding SubjectArea}" Header="Subject" Width="100"/>
-                                <DataGridTextColumn Binding="{Binding YearOfPublication}" Header="YearOfPublication" Width="100"/>
-                                <DataGridTextColumn Binding="{Binding Keyword}" Header="Keyword" Width="60"/>
-                                <DataGridTextColumn Binding="{Binding BookID}" Header="BookID" Width="45"/>
-                                <DataGridTextColumn Binding="{Binding ShelfNumber}" Header="Shelf" Width="45"/>
-                                <DataGridTextColumn Binding="{Binding Status}" Header="Status" Width="60"/>
-                                <DataGridTextColumn Binding="{Binding PublisherID}" Header="PublisherID" Width="100"/>
-
-                                <DataGridTemplateColumn>
-                                    <DataGridTemplateColumn.HeaderTemplate>
-                                        <DataTemplate>
-                                            <TextBlock>
-                                            Actions
-                                            </TextBlock>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.HeaderTemplate>
-
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-
-
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                            </DataGrid.Columns>
-                        </DataGrid>
-                    </Grid>
-                </ScrollViewer>
-
                 <!--BUTTONS-->
                 <Grid>
                     <Grid.RowDefinitions>
@@ -122,6 +81,46 @@
                     <Button x:Name="btnInsert" Content="INSERT" Grid.Row="1" Grid.Column="12" Height="20" Width="56" Background="#374989" Foreground="White" Click="btnInsert_Click"></Button>
                     <Button x:Name="btnSave" Content="SAVE" Grid.Row="1" Grid.Column="13" Height="20" Width="80" Background="#374989" Foreground="White" Click="btnSave_Click"></Button>
                 </Grid>
+
+                <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <Grid >
+                        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" ColumnWidth="*" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding ConfID}" Header="ConfID" Width="70"/>
+                                <DataGridTextColumn Binding="{Binding Title}" Header="Title" Width="200"/>
+                                <DataGridTextColumn Binding="{Binding Author}" Header="Author" Width="140"/>
+                                <DataGridTextColumn Binding="{Binding CopiesTotal}" Header="Copies" Width="50"/>
+                                <DataGridTextColumn Binding="{Binding CopiesAvailable}" Header="Available" Width="60"/>
+                                <DataGridTextColumn Binding="{Binding CopiesOut}" Header="Out" Width="50"/>
+                                <DataGridTextColumn Binding="{Binding SubjectArea}" Header="Subject" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding YearOfPublication}" Header="YearOfPublication" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Keyword}" Header="Keyword" Width="60"/>
+                                <DataGridTextColumn Binding="{Binding ConfNumberID}" Header="ConfNumberID" Width="45"/>
+                                <DataGridTextColumn Binding="{Binding ShelfNumber}" Header="Shelf" Width="45"/>
+                                <DataGridTextColumn Binding="{Binding Status}" Header="Status" Width="60"/>
+
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock>
+                                            Actions
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.HeaderTemplate>
+
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+
+
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </ScrollViewer>
             </StackPanel>
         </Border>
     </Grid>

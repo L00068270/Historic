@@ -51,6 +51,35 @@
                     Select INSERT to add a new Library Member
                 </TextBlock>
 
+                <!--BUTTONS-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnCancel" Content="CANCEL" Grid.Row="1" Grid.Column="9" Height="20" Width="80" Background="#374989" Foreground="White" Click="btnCancel_Click" Margin="0,14,1,16"></Button>
+                    <Button x:Name="btnDelete" Content="DELETE" Grid.Row="1" Grid.Column="10" Height="20" Width="56" Background="#374989" Foreground="White" Click="btnDelete_Click"></Button>
+                    <Button x:Name="btnUpdate" Content="UPDATE" Grid.Row="1" Grid.Column="11" Height="20" Width="56" Background="#374989" Foreground="White" Click="btnUpdate_Click"></Button>
+                    <Button x:Name="btnInsert" Content="INSERT" Grid.Row="1" Grid.Column="12" Height="20" Width="56" Background="#374989" Foreground="White" Click="btnInsert_Click"></Button>
+                    <Button x:Name="btnSave" Content="SAVE" Grid.Row="1" Grid.Column="13" Height="20" Width="80" Background="#374989" Foreground="White" Click="btnSave_Click"></Button>
+                </Grid>
+
                 <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <Grid>
                         <DataGrid x:Name="myDataGrid" x:FieldModifier="public" ColumnWidth="*" AutoGenerateColumns="False">
@@ -92,35 +121,6 @@
                         </DataGrid>
                     </Grid>
                 </ScrollViewer>
-
-                <!--BUTTONS-->
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="0"/>
-                        <RowDefinition Height="50"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0"/>
-                        <ColumnDefinition Width="90"/>
-                        <ColumnDefinition Width="90"/>
-                        <ColumnDefinition Width="90"/>
-                        <ColumnDefinition Width="90"/>
-                        <ColumnDefinition Width="90"/>
-                        <ColumnDefinition Width="90"/>
-                        <ColumnDefinition Width="90"/>
-                        <ColumnDefinition Width="90"/>
-                        <ColumnDefinition Width="90"/>
-                        <ColumnDefinition Width="90"/>
-                        <ColumnDefinition Width="90"/>
-                        <ColumnDefinition Width="90"/>
-                        <ColumnDefinition Width="90"/>
-                    </Grid.ColumnDefinitions>
-                    <Button x:Name="btnCancel" Content="CANCEL" Grid.Row="1" Grid.Column="9" Height="20" Width="80" Background="#374989" Foreground="White" Click="btnCancel_Click" Margin="0,14,1,16"></Button>
-                    <Button x:Name="btnDelete" Content="DELETE" Grid.Row="1" Grid.Column="10" Height="20" Width="56" Background="#374989" Foreground="White" Click="btnDelete_Click"></Button>
-                    <Button x:Name="btnUpdate" Content="UPDATE" Grid.Row="1" Grid.Column="11" Height="20" Width="56" Background="#374989" Foreground="White" Click="btnUpdate_Click"></Button>
-                    <Button x:Name="btnInsert" Content="INSERT" Grid.Row="1" Grid.Column="12" Height="20" Width="56" Background="#374989" Foreground="White" Click="btnInsert_Click"></Button>
-                    <Button x:Name="btnSave" Content="SAVE" Grid.Row="1" Grid.Column="13" Height="20" Width="80" Background="#374989" Foreground="White" Click="btnSave_Click"></Button>
-                </Grid>
             </StackPanel>
         </Border>
     </Grid>

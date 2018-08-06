@@ -4,10 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:library.pages"
-        xmlns:DataClassesLinqSqlLibrary="clr-namespace:MyClassesLibrary;assembly=MyClassesLibrary"
+        xmlns:LinqAzureDatabase="clr-namespace:MyClassesLibrary;assembly=MyClassesLibrary"
         xmlns:library="clr-namespace:library"
-        mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989"
-        Title="login" Height="300" Width="300">
+        xmlns:pages="clr-namespace:library.pages"
+        
+        mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989" 
+        Title="login" Height="300" Width="300" Loaded="functionWindowLoaded" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Window.Resources>
         <library:LibraryMember x:Key="LibraryMember"/>
     </Window.Resources>
@@ -27,7 +29,7 @@
         <Border Grid.Row="1" Grid.Column="2" Padding="20,20,20,60">
             <StackPanel>
                 <TextBlock FontSize="20">
-                    Login
+                    Application Login
                     <LineBreak/>
                 </TextBlock>
                 <Grid DataContext="{Binding Source={StaticResource LibraryMember}}">
@@ -47,8 +49,8 @@
                     <Label x:Name="lblPassword" Content="Password" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
                     <!--TEXT BOXES-->
-                    <TextBox x:Name="tbxUsername" Grid.Row="1" Grid.Column="3" Text="{Binding Path=Username, Mode=TwoWay}" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxPassword" Grid.Row="2" Grid.Column="3" Text="{Binding Path=Password, Mode=TwoWay}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxUsername" Grid.Row="1" Grid.Column="3" Text="{Binding Path=Username, Mode=TwoWay}" Height="25" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxPassword" Grid.Row="2" Grid.Column="3" Text="{Binding Path=Password, Mode=TwoWay}" Height="25" Width="120" Padding="2,4,2,2"/>
                 </Grid>
                 <!--BUTTONS-->
                 <Grid>

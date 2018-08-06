@@ -4,87 +4,207 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:library.pages"
+      xmlns:viewmodels="clr-namespace:library.dashboard.viewmodels"
+      xmlns:views="clr-namespace:library.dashboard.views"
+      xmlns:LinqAzureDatabase="clr-namespace:MyClassesLibrary;assembly=MyClassesLibrary"
+      xmlns:library="clr-namespace:library"
       mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989"
-      d:DesignHeight="600" d:DesignWidth="300"
-      Title="dashboard" Width="1200" MinWidth="300">
+      d:DesignHeight="1300" d:DesignWidth="300"
+      Title="dashboard" Width="1200" MinWidth="300" Loaded="functionWindowLoaded">
+
+    <Page.Resources>
+        <library:LibraryMember x:Key="LibraryMember"/>
+        <DataTemplate x:Name="templatebooks" DataType="{x:Type viewmodels:viewmodel_books}">
+            <views:viewbooks DataContext="{Binding Path=viewmodel_books}"></views:viewbooks>
+        </DataTemplate>
+        <DataTemplate x:Name="templateconferenceproceedings" DataType="{x:Type viewmodels:viewmodel_conferenceproceedings}">
+            <views:viewconferenceproceedings DataContext="{Binding Path=viewmodel_conferenceproceedings}"></views:viewconferenceproceedings>
+        </DataTemplate>
+        <DataTemplate x:Name="templatedvds" DataType="{x:Type viewmodels:viewmodel_dvds}">
+            <views:viewdvds DataContext="{Binding Path=viewmodel_dvds}"></views:viewdvds>
+        </DataTemplate>
+        <DataTemplate x:Name="templatejournals" DataType="{x:Type viewmodels:viewmodel_journals}">
+            <views:viewjournals DataContext="{Binding Path=viewmodel_journals}"></views:viewjournals>
+        </DataTemplate>
+        <DataTemplate x:Name="templatereferencebooks" DataType="{x:Type viewmodels:viewmodel_referencebooks}">
+            <views:viewreferencebooks DataContext="{Binding Path=viewmodel_referencebooks}"></views:viewreferencebooks>
+        </DataTemplate>
+    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0"/>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Rectangle Grid.Row="0" Grid.Column="0"/>
         <Rectangle Grid.Row="1" Grid.Column="1" Fill="FloralWhite"/>
-        <Rectangle Grid.Row="1" Grid.Column="2" Fill="White"/>
-        <Rectangle Grid.Row="1" Grid.Column="3" Fill="White"/>
+        <Rectangle Grid.Row="2" Grid.Column="1" Fill="White"/>
+        <Rectangle Grid.Row="3" Grid.Column="1" Fill="White"/>
+        <Rectangle Grid.Row="4" Grid.Column="1" Fill="White"/>
 
+        <!--NAVAGATION-->
         <Border Grid.Row="1" Grid.Column="1" Padding="20,20,20,20">
-            <StackPanel>
-                <TextBlock FontSize="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle Grid.Row="0" Grid.Column="0"/>
+                <Rectangle Grid.Row="1" Grid.Column="1"/>
+                <Rectangle Grid.Row="1" Grid.Column="2"/>
+                <Rectangle Grid.Row="1" Grid.Column="3"/>
+                <Rectangle Grid.Row="1" Grid.Column="4"/>
+
+                <StackPanel Grid.Row="1" Grid.Column="1">
+                    <TextBlock FontSize="20">
                     Listings
-                </TextBlock>
-                <TextBlock>
-                    <Hyperlink TextDecorations="{x:Null}">Books</Hyperlink>             
+                    </TextBlock>
+                    <TextBlock>
+                    <Hyperlink x:Name="books" TextDecorations="{x:Null}" Click="books_Click">Books</Hyperlink>             
                     <LineBreak/>
-                    <Hyperlink TextDecorations="{x:Null}">Journals</Hyperlink> 
+                    <Hyperlink x:Name="journals" TextDecorations="{x:Null}" Click="journals_Click">Journals</Hyperlink> 
                     <LineBreak/>
-                    <Hyperlink TextDecorations="{x:Null}">DVDs</Hyperlink> 
+                    <Hyperlink x:Name="dvds" TextDecorations="{x:Null}" Click="dvds_Click">DVDs</Hyperlink> 
                     <LineBreak/>
-                    <Hyperlink TextDecorations="{x:Null}">Conference Proceedings</Hyperlink> 
+                    <Hyperlink x:Name="conferenceproceedings" TextDecorations="{x:Null}" Click="conferenceproceedings_Click">Conference Proceedings</Hyperlink> 
                     <LineBreak/>
-                    <Hyperlink TextDecorations="{x:Null}">Reference Books</Hyperlink>
-                </TextBlock>
-                <TextBlock FontSize="20">
+                    <Hyperlink x:Name="referencebooks" TextDecorations="{x:Null}" Click="referencebooks_Click">Reference Books</Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="2">
+                    <TextBlock FontSize="20">
                     Stock Tasks
-                </TextBlock>
-                <TextBlock>
+                    </TextBlock>
+                    <TextBlock>
                     <Hyperlink NavigateUri="/library;component/books/book_details.xaml" TextDecorations="{x:Null}">Book Details</Hyperlink> 
                     <LineBreak/>
                     <Hyperlink NavigateUri="/library;component/journals/journal_details.xaml" TextDecorations="{x:Null}">Journal Details</Hyperlink> 
                     <LineBreak/>
                     <Hyperlink NavigateUri="/library;component/dvds/dvd_details.xaml" TextDecorations="{x:Null}">DVD Details</Hyperlink> 
                     <LineBreak/>
-                    <Hyperlink NavigateUri="/library;component/pagesdashboard/conferenceproceedings.xaml" TextDecorations="{x:Null}">Conference Proceeding</Hyperlink> 
+                    <Hyperlink NavigateUri="/library;component/conference proceedings/conference_details.xaml" TextDecorations="{x:Null}">Conference Proceeding</Hyperlink> 
                     <LineBreak/>
-                    <Hyperlink NavigateUri="/library;component/pagesdashboard/referencebook.xaml" TextDecorations="{x:Null}">Reference Books</Hyperlink> 
-                    <LineBreak/>
-                </TextBlock>
-                <TextBlock FontSize="20">
+                    <Hyperlink NavigateUri="/library;component/referencebooks/reference_details.xaml" TextDecorations="{x:Null}">Reference Books</Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="3">
+                    <TextBlock FontSize="20">
                     Members
-                </TextBlock>
-                <TextBlock>
-                    <Hyperlink NavigateUri="/library;component/librarymember/librarymember.xaml" TextDecorations="{x:Null}">Member Details</Hyperlink> 
-                    <LineBreak/>
-                </TextBlock>
-                <TextBlock FontSize="20">
+                    </TextBlock>
+                    <TextBlock>
+                    <Hyperlink NavigateUri="/library;component/librarymember/librarymember.xaml" TextDecorations="{x:Null}">Member Details</Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Grid.Column="4">
+                    <TextBlock FontSize="20">
                     Publisher
-                </TextBlock>
-                <TextBlock>
-                    <Hyperlink NavigateUri="/library;component/publisher/publisher_details.xaml" TextDecorations="{x:Null}">Publisher Details</Hyperlink> 
-                    <LineBreak/>
-                </TextBlock>
+                    </TextBlock>
+                    <TextBlock>
+                    <Hyperlink NavigateUri="/library;component/publisher/publisher_details.xaml" TextDecorations="{x:Null}">Publisher Details</Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="2" Grid.Column="1" Padding="20,20,20,20">
+            <StackPanel>
+                <!--MAIN AREA DOC PANEL-->
+                <DockPanel x:Name="docMainArea">
+                    <!--LIBRARY MEMBER DETAILS AREA-->
+                    <DockPanel x:Name="dockLibraryMemberDetails">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0" />
+                                <RowDefinition Height="50*" />
+                                <RowDefinition Height="50*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0" />
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="50" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="1" Grid.Column="1" Content="User : "></Label>
+                            <Label Grid.Row="1" Grid.Column="2" Name="lblCurrentUser"></Label>
+                            <Label Grid.Row="2" Grid.Column="1" Content="Version : "></Label>
+                            <Label Grid.Row="2" Grid.Column="2" Name="lblVersion" Content="3.0"></Label>
+                        </Grid>
+                    </DockPanel>
+
+                    <!--SEARCH SECTION AND BUTTONS-->
+                    <DockPanel x:Name="dockSearch" HorizontalAlignment="Stretch">
+                        <Grid Margin="0,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0"/>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition Height="25"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0" />
+                                <ColumnDefinition Width="200" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                            </Grid.ColumnDefinitions>
+
+                            <!--SEARCH INCLUDING SEARCH BOX-->
+                            <TextBox x:Name="tbxSearchText" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" BorderBrush="Black" Height="25" Width="160"></TextBox>
+                            <Label x:Name="lblSearch" Content="SEARCH" Grid.Row="2" Grid.Column="1"></Label>
+
+                            <!--BUTTONS-->
+                            <Button x:Name="btnSearchText" Content="SEARCH" Grid.Row="1" Grid.Column="3" Height="20" Width="80" Background="#374989" Foreground="White" Click="btnSearchText_Click"></Button>
+                            <Button x:Name="btnResetSearch" Content="RESET" Grid.Row="1" Grid.Column="4" Height="20" Width="80" Background="#374989" Foreground="White" Click="btnResetSearch_Click"></Button>
+                        </Grid>
+                    </DockPanel>
+
+                    <!--USER OPTION BUTTONS-->
+                    <DockPanel x:Name="dockOptions" HorizontalAlignment="Stretch">
+                        <Grid Margin="0,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0"/>
+                                <RowDefinition Height="25"/>
+                                <RowDefinition Height="25"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                                <ColumnDefinition Width="100" />
+                            </Grid.ColumnDefinitions>
+
+                            <Button x:Name="btnAdmin" Content="ADMIN" Grid.Row="1" Grid.Column="1" Height="20" Width="80" Background="#374989" Foreground="White" Click="btnAdmin_Click"></Button>
+                            <Button x:Name="btnBuilding" Content="BUILDING" Grid.Row="1" Grid.Column="2" Height="20" Width="80" Background="#374989" Foreground="White" Click="btnBuilding_Click"></Button>
+                            <Button x:Name="btnExit" Content="EXIT" Grid.Row="1" Grid.Column="3" Height="20" Width="80" Background="#374989" Foreground="White" Click="btnExit_Click"></Button>
+                        </Grid>
+                    </DockPanel>
+                </DockPanel>
             </StackPanel>
         </Border>
 
-        <Border Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Padding="20,20,20,20">
-            <StackPanel>
-                <TextBlock FontSize="20">
-                    Browse Listings
-                </TextBlock>
-                <ListBox x:Name="peopleListBox" HorizontalAlignment="Left" Margin="0,10,0,0" Height="500" Width="760">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding _fullname}"/>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </StackPanel>
+        <Border Grid.Row="3" Grid.Column="1" Padding="20,20,20,20">
+            <!--GRID VIEWS FOR MODEL PAGES-->
+            <ContentControl Grid.Row="3" Grid.Column="1" Content="{Binding}">
+
+            </ContentControl>
         </Border>
+        
     </Grid>
 </Page>
+

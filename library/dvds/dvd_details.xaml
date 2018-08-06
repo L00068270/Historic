@@ -53,47 +53,6 @@
                     Select INSERT to add a DVD
                 </TextBlock>
 
-                <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    <Grid >
-                        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" ColumnWidth="*" AutoGenerateColumns="False">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{Binding DVDID}" Header="DVDID" Width="70"/>
-                                <DataGridTextColumn Binding="{Binding Title}" Header="Title" Width="200"/>
-                                <DataGridTextColumn Binding="{Binding Producer}" Header="Producer" Width="140"/>
-                                <DataGridTextColumn Binding="{Binding CopiesTotal}" Header="Copies" Width="50"/>
-                                <DataGridTextColumn Binding="{Binding CopiesAvailable}" Header="Available" Width="60"/>
-                                <DataGridTextColumn Binding="{Binding CopiesOut}" Header="Out" Width="50"/>
-                                <DataGridTextColumn Binding="{Binding SubjectArea}" Header="Subject" Width="100"/>
-                                <DataGridTextColumn Binding="{Binding YearOfPublication}" Header="YearOfPublication" Width="100"/>
-                                <DataGridTextColumn Binding="{Binding Keyword}" Header="Keyword" Width="60"/>
-                                <DataGridTextColumn Binding="{Binding DVDNumberID}" Header="DVDNumberID" Width="45"/>
-                                <DataGridTextColumn Binding="{Binding ShelfNumber}" Header="Shelf" Width="45"/>
-                                <DataGridTextColumn Binding="{Binding Status}" Header="Status" Width="60"/>
-                               
-
-                                <DataGridTemplateColumn>
-                                    <DataGridTemplateColumn.HeaderTemplate>
-                                        <DataTemplate>
-                                            <TextBlock>
-                                            Actions
-                                            </TextBlock>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.HeaderTemplate>
-
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-
-
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
-                            </DataGrid.Columns>
-                        </DataGrid>
-                    </Grid>
-                </ScrollViewer>
-
                 <!--BUTTONS-->
                 <Grid>
                     <Grid.RowDefinitions>
@@ -123,6 +82,47 @@
                     <Button x:Name="btnSave" Content="SAVE" Grid.Row="1" Grid.Column="13" Height="20" Width="80" Background="#374989" Foreground="White" Click="btnSave_Click"></Button>
                     <Button />
                 </Grid>
+
+                <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <Grid >
+                        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" ColumnWidth="*" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding DVDID}" Header="DVDID" Width="70"/>
+                                <DataGridTextColumn Binding="{Binding Title}" Header="Title" Width="200"/>
+                                <DataGridTextColumn Binding="{Binding Producer}" Header="Producer" Width="140"/>
+                                <DataGridTextColumn Binding="{Binding CopiesTotal}" Header="Copies" Width="50"/>
+                                <DataGridTextColumn Binding="{Binding CopiesAvailable}" Header="Available" Width="60"/>
+                                <DataGridTextColumn Binding="{Binding CopiesOut}" Header="Out" Width="50"/>
+                                <DataGridTextColumn Binding="{Binding SubjectArea}" Header="Subject" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding YearOfPublication}" Header="YearOfPublication" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding Keyword}" Header="Keyword" Width="60"/>
+                                <DataGridTextColumn Binding="{Binding DVDNumberID}" Header="DVDNumberID" Width="45"/>
+                                <DataGridTextColumn Binding="{Binding ShelfNumber}" Header="Shelf" Width="45"/>
+                                <DataGridTextColumn Binding="{Binding Status}" Header="Status" Width="60"/>
+
+
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.HeaderTemplate>
+                                        <DataTemplate>
+                                            <TextBlock>
+                                            Actions
+                                            </TextBlock>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.HeaderTemplate>
+
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+
+
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </ScrollViewer>
             </StackPanel>
         </Border>
     </Grid>

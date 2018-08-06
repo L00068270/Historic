@@ -1939,7 +1939,7 @@ namespace library
 		
 		private string _ShelfNumber;
 		
-		private System.Nullable<int> _Status;
+		private string _Status;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1967,7 +1967,7 @@ namespace library
     partial void OnConfNumberIDChanged();
     partial void OnShelfNumberChanging(string value);
     partial void OnShelfNumberChanged();
-    partial void OnStatusChanging(System.Nullable<int> value);
+    partial void OnStatusChanging(string value);
     partial void OnStatusChanged();
     #endregion
 		
@@ -2196,8 +2196,8 @@ namespace library
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
-		public System.Nullable<int> Status
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(30)")]
+		public string Status
 		{
 			get
 			{
@@ -2263,7 +2263,7 @@ namespace library
 		
 		private string _ShelfNumber;
 		
-		private System.Nullable<int> _Status;
+		private string _Status;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2289,7 +2289,7 @@ namespace library
     partial void OnKeywordChanged();
     partial void OnShelfNumberChanging(string value);
     partial void OnShelfNumberChanged();
-    partial void OnStatusChanging(System.Nullable<int> value);
+    partial void OnStatusChanging(string value);
     partial void OnStatusChanged();
     #endregion
 		
@@ -2498,8 +2498,8 @@ namespace library
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
-		public System.Nullable<int> Status
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(30)")]
+		public string Status
 		{
 			get
 			{

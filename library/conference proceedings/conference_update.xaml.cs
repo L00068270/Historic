@@ -5,12 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace library.conference_proceedings
 {
@@ -19,9 +13,47 @@ namespace library.conference_proceedings
     /// </summary>
     public partial class conference_update : Window
     {
-        public conference_update()
+        LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
+            (Properties.Settings.Default.libraryConnectionString);
+
+        public static DataGrid datagrid;
+
+        int Id;
+
+        public conference_update(int conferenceproceedingid)
         {
             InitializeComponent();
+            Id = conferenceproceedingid;
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            ConferenceProceeding _updateconferenceproceeding = (from conferenceproceeding in dc.ConferenceProceedings
+                                      where conferenceproceeding.ConfID == Id
+                                      select conferenceproceeding).Single();
+
+            _updateconferenceproceeding.ConfID = int.Parse(this.tbxConfID.Text);
+            _updateconferenceproceeding.Title = tbxTitle.Text;
+            _updateconferenceproceeding.Author = tbxAuthor.Text;
+            _updateconferenceproceeding.CopiesTotal = int.Parse(tbxCopiesTotal.Text);
+            _updateconferenceproceeding.CopiesAvailable = int.Parse(tbxCopiesAvailable.Text);
+            _updateconferenceproceeding.CopiesOut = int.Parse(tbxCopiesOut.Text);
+            _updateconferenceproceeding.SubjectArea = tbxSubjectArea.Text;
+            _updateconferenceproceeding.YearOfPublication = tbxYearOfPublication.Text;
+            _updateconferenceproceeding.Keyword = tbxKeyword.Text;
+            _updateconferenceproceeding.ConfNumberID = int.Parse(tbxConfNumberID.Text);
+            _updateconferenceproceeding.Status = tbxStatus.Text;
+
+            dc.SubmitChanges();
+            conference_details.datagrid.ItemsSource = dc.ConferenceProceedings.ToList();
+            this.Hide();
+
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Return to Administration Page");
+            this.Close();
         }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:library.publisher"
         xmlns:LinqAzureDatabase="clr-namespace:MyClassesLibrary;assembly=MyClassesLibrary"
         xmlns:library="clr-namespace:library"
-        mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989"
+        mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989" WindowStartupLocation="CenterScreen"
         Title="publisher_update" Height="660" Width="300">
     <Window.Resources>
         <library:Publisher x:Key="Publisher"/>

@@ -5,14 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using MyClassesLibrary;
+using System.Data;
+using library.dashboard.viewmodels;
 
 namespace library.pages
 {
@@ -21,34 +15,119 @@ namespace library.pages
     /// </summary>
     public partial class dashboard : Page
     {
-        public LibraryMember currentUser;
-       
+        /**************************************************************************************************
+         * database framework reference
+         *************************************************************************************************/
+
+        LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
+            (Properties.Settings.Default.libraryConnectionString);
+
+        public static ListView listview;
+
+        /**************************************************************************************************
+         * new instance of LibraryMember class so we can send the authenticated LibraryMember information 
+         * from the login form
+         *************************************************************************************************/
+        public LibraryMember _instanceLibraryMember = new LibraryMember();
+
         public dashboard()
         {
             InitializeComponent();
-            functionSetUpSampleData();
+            functionToLoadDatabaseToListView();
         }
 
-        /*all functions below*/
-        private static List<person> people = new List<person>();
+        
 
-        public login O { get; internal set; }
-
-        private void functionSetUpSampleData()
+        /**************************************************************************************************
+         * set the dashboard to load LibraryMember details into the LibraryMember information box at
+         * the top of the screen when it is opened from the login window
+         *************************************************************************************************/
+        private void functionWindowLoaded(object sender, RoutedEventArgs e)
         {
-            people.Add(new person { _firstname = "Aimee", _lastname = "Thomas", _address = "Finadoose", _town = "Donegal", _county = "County Donegal", _country = "Ireland" });
-            people.Add(new person { _firstname = "Katie", _lastname = "Thomas", _address = "Finadoose", _town = "Donegal", _county = "County Donegal", _country = "Ireland" });
-            people.Add(new person { _firstname = "Joanne", _lastname = "Thomas", _address = "Finadoose", _town = "Donegal", _county = "County Donegal", _country = "Ireland" });
-            people.Add(new person { _firstname = "Ollie", _lastname = "Thomas", _address = "Finadoose", _town = "Donegal", _county = "County Donegal", _country = "Ireland" });
-            peopleListBox.ItemsSource = people;
+            lblCurrentUser.Content = _instanceLibraryMember.NameFirst;
         }
 
-        private void functionGreetAllThePeople()
+        //*************************************************************************************************        
+        // functionToLoadDatabaseToListView
+        //*************************************************************************************************
+        public void functionToLoadDatabaseToListView()
         {
-            foreach(person person in people)
-            {
-                Console.WriteLine($"Hello {0} {1}", person._firstname, person._lastname);
-            }
+            //myListView.ItemsSource = dc.LibraryMembers.ToList();
+            //listview = myListView;
+        }
+
+
+        List<LibraryMember> _libraryMemberList = new List<LibraryMember>();
+
+        //lstLibraryMembersList.ItemsSource = _libraryMemberList;
+
+        
+        /*
+        public class LibraryMemberSummaryData
+        {
+            public string MemberID { get; set; }
+            public string NameFirst { get; set; }
+            public string NameLast { get; set; }
+            public string Username { get; set; }
+            public string Password { get; set; }
+            public string Classification { get; set; }
+        }
+        */
+
+
+
+
+
+
+        private void btnSearchText_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnResetSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAdmin_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnBuilding_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            //this.Close();
+            Environment.Exit(0);
+        }
+
+        private void books_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new viewmodel_books();
+        }
+
+        private void journals_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new viewmodel_journals();
+        }
+
+        private void dvds_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new viewmodel_dvds();
+        }
+
+        private void conferenceproceedings_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new viewmodel_conferenceproceedings();
+        }
+
+        private void referencebooks_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new viewmodel_referencebooks();
         }
     }    
 }

@@ -98,7 +98,7 @@
       <Column Name="Keyword" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="ConfNumberID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ShelfNumber" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.ReferenceBook" Member="ReferenceBooks">
@@ -113,7 +113,7 @@
       <Column Name="YearOfPublication" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Keyword" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="ShelfNumber" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

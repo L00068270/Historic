@@ -14,6 +14,10 @@ namespace library.journals
     /// </summary>
     public partial class journal_details : Page
     {
+        /**************************************************************************************************
+         * database framework reference
+         *************************************************************************************************/
+
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
