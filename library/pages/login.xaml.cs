@@ -24,7 +24,6 @@ namespace library.pages
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
-        public LibraryMember _instanceLibraryMember = new LibraryMember();
 
         /**************************************************************************************************
          * global list (_libraryMemberList) of records in the database LibraryMember table
@@ -37,13 +36,13 @@ namespace library.pages
             InitializeComponent();
         }
 
+
+
         /**************************************************************************************************
          * 1. functionToLoadLibraryMembers 
          *      - will load the SQL records from the LibraryMember table into the global _libraryMemberList
          *      
          * ***********************************************************************************************/
-
-        //private void mtdLoadUsers()
         private void functionToLoadLibraryMembers()                                                             
         {
             _libraryMemberList.Clear();  
@@ -54,19 +53,19 @@ namespace library.pages
         }
 
 
+
         /**************************************************************************************************
          * 2. functionWindowLoaded 
          *      - preload librarymembers into the global _libraryMemberList
          *      - it runs the functionToLoadLibraryMembers method once the application initialises
          *      
          *************************************************************************************************/
-
-        //private void Window_Loaded(object sender, RoutedEventArgs e)
         private void functionWindowLoaded(object sender, RoutedEventArgs e)
         //private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             functionToLoadLibraryMembers();
         }
+
 
 
         /**************************************************************************************************
@@ -80,8 +79,6 @@ namespace library.pages
          *      - return the user details  
          *          
          *************************************************************************************************/
-
-        //private User mtdGetUserDetails(string username, string password)
         private LibraryMember functionToGetLibraryMemberDetails(string username, string password)
         {
             LibraryMember _libraryMemberDetails = new LibraryMember();
@@ -96,6 +93,8 @@ namespace library.pages
             return _libraryMemberDetails;
         }
 
+
+
         /**************************************************************************************************
         *  buttons here
         * 1. create instance of librarymember class, called _libraryMemberDetails
@@ -104,34 +103,27 @@ namespace library.pages
         * 4. run the functionToGetLibraryMemberDetails method with the inputted username and password information 
         *  
         **************************************************************************************************/
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            LibraryMember _libraryMemberDetails = new LibraryMember();
+            string currentLibraryMember = tbxUsername.Text.Trim();
+            string currentPassword = tbxPassword.Text.Trim();
 
-        /*
-        LibraryMember _libraryMemberDetails = new LibraryMember();
-        string currentLibraryMember = tbxUsername.Text.Trim();                  
-        string currentPassword = tbxPassword.Text.Trim();
-        _libraryMemberDetails = functionToGetLibraryMemberDetails(currentLibraryMember, currentPassword);
-        */
+            _libraryMemberDetails = functionToGetLibraryMemberDetails(currentLibraryMember, currentPassword);
 
-
-
+            if (_libraryMemberDetails.Classification > 0)
+            {
+                dashboard.dashboard dashboard = new dashboard.dashboard();
+                dashboard.Owner = this;
+                dashboard.currentLibraryMember = _libraryMemberDetails;
+                dashboard.ShowDialog();
+                this.Hide();
+            }
+        }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-
-        private void btnRegister_Click(object sender, RoutedEventArgs e)
-        {
-            pages.register register = new pages.register();
-            register.ShowDialog();
-            //register is a Window
-        }
-
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
-        {
-            dashboard.dashboard dashboard = new dashboard.dashboard();
-            dashboard.ShowDialog();
-            //dashboard is a Window
         }
     }
 }

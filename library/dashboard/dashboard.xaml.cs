@@ -20,6 +20,8 @@ namespace library.dashboard
     /// </summary>
     public partial class dashboard : Window
     {
+        public LibraryMember currentLibraryMember;
+
         public dashboard()
         {
             InitializeComponent();
