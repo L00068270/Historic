@@ -57,8 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculator.cs" />
     <Compile Include="excel.cs" />
-    <Compile Include="librarymember.cs" />
+    <Compile Include="LibraryMember.cs" />
     <Compile Include="person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

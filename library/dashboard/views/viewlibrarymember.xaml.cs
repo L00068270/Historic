@@ -6,39 +6,42 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Data;
+using library.librarymember;
 
-namespace library.publisher
+
+namespace library.dashboard.views
 {
     /// <summary>
-    /// Interaction logic for publisher_details.xaml
+    /// Interaction logic for viewlibrarymember.xaml
     /// </summary>
-    public partial class publisher_details : Page
+    public partial class viewlibrarymember : UserControl
     {
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
         public static DataGrid datagrid;
 
-        public publisher_details()
+        public viewlibrarymember()
         {
             InitializeComponent();
             functionToLoadDatabaseToDataGrid();
         }
 
+        
         //*************************************************************************************************        
         // function here
         //*************************************************************************************************
-        public void functionToLoadDatabaseToDataGrid()
+        private void functionToLoadDatabaseToDataGrid()
         {
-            myDataGrid.ItemsSource = dc.Publishers.ToList();
+            myDataGrid.ItemsSource = dc.LibraryMembers.ToList();
             datagrid = myDataGrid;
         }
-
-
 
         //*************************************************************************************************        
         // buttons here
         //*************************************************************************************************
+        
+
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             dc.SubmitChanges();
@@ -46,32 +49,24 @@ namespace library.publisher
 
         private void btnInsert_Click(object sender, RoutedEventArgs e)
         {
-            publisher_insert insert = new publisher_insert();
+            librarymember_insert insert = new librarymember_insert();
             insert.ShowDialog();
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            int id = (myDataGrid.SelectedItem as Publisher).PublisherID;
-            publisher_update updatemember = new publisher_update(id);
+            int id = (myDataGrid.SelectedItem as LibraryMember).MemberID;
+            librarymember_update updatemember = new librarymember_update(id);
             updatemember.ShowDialog();
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            int id = (myDataGrid.SelectedItem as Publisher).PublisherID;
-            var deletePublisher = dc.Publishers.Where(publisher => publisher.PublisherID == id).Single();
-            dc.Publishers.DeleteOnSubmit(deletePublisher);
+            int id = (myDataGrid.SelectedItem as LibraryMember).MemberID;
+            var deleteMember = dc.LibraryMembers.Where(library => library.MemberID == id).Single();
+            dc.LibraryMembers.DeleteOnSubmit(deleteMember);
             dc.SubmitChanges();
-            myDataGrid.ItemsSource = dc.Publishers.ToList();
+            myDataGrid.ItemsSource = dc.LibraryMembers.ToList();
         }
-
-        
-
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            pages.dashboard dashboard = new pages.dashboard();
-            this.NavigationService.Navigate(dashboard);
-        }        
     }
 }

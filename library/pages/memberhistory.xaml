@@ -1,12 +1,12 @@
-﻿<Page x:Class="library.pagesdashboard.item"
+﻿<Page x:Class="library.pages.memberhistory"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:library.pagesdashboard"
+      xmlns:local="clr-namespace:library.pages"
       mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989"
       d:DesignHeight="480" d:DesignWidth="300"
-      Title="item" Width="1200" MinWidth="300">
+      Title="memberhistory" Width="1200" MinWidth="300">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -61,25 +61,19 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <!--LABELS-->
-                    <Label x:Name="lblItemsID" Content="ItemsID" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <Label x:Name="lblDateBorrowed" Content="DateBorrowed" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <Label x:Name="lblDateDue" Content="DateDue" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <Label x:Name="lblDateReturned" Content="DateReturned" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <Label x:Name="lblOverDueChargeDay" Content="OverDueChargeDay" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <Label x:Name="lblOverDueChargeHour" Content="OverDueChargeHour" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <Label x:Name="lblTransactionTotal" Content="TransactionTotal" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    <Label x:Name="lblDatePickup" Content="DatePickup" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                    
+                    <Label x:Name="lblHistoryID" Content="HistoryID" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblItemsID" Content="ItemsID" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblMemberID" Content="MemberID" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblISBN" Content="ISBN" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                                      
                     <!--TEXT BOXES-->
-                    <TextBox x:Name="tbxItemsID"  Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxDateBorrowed" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxDateDue" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxDateReturned" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxOverDueChargeDay" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxOverDueChargeHour" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxTransactionTotal" Grid.Row="7" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxDatePickup" Grid.Row="8" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxHistoryID"  Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxItemsID" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxMemberID" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxISBN" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Height="23" Width="120" Padding="2,4,2,2"/>
+                    
                 </Grid>
+
                 <!--BUTTONS-->
                 <Grid>
                     <Grid.RowDefinitions>

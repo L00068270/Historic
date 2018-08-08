@@ -115,5 +115,15 @@ namespace library.dashboard
         {
             DataContext = new viewmodel_referencebookdetails();
         }
+
+        private void hyperlink_librarymember_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new viewmodel_librarymember();
+        }
+
+        private void hyperlink_publisher_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new viewmodel_publisher();
+        }
     }
 }

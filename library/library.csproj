@@ -136,6 +136,8 @@
     <Compile Include="dashboard\viewmodels\viewmodel_dvds.cs" />
     <Compile Include="dashboard\viewmodels\viewmodel_journaldetails.cs" />
     <Compile Include="dashboard\viewmodels\viewmodel_journals.cs" />
+    <Compile Include="dashboard\viewmodels\viewmodel_librarymember.cs" />
+    <Compile Include="dashboard\viewmodels\viewmodel_publisher.cs" />
     <Compile Include="dashboard\viewmodels\viewmodel_referencebookdetails.cs" />
     <Compile Include="dashboard\viewmodels\viewmodel_referencebooks.cs" />
     <Compile Include="dashboard\views\viewbookdetails.xaml.cs">
@@ -162,6 +164,12 @@
     <Compile Include="dashboard\views\viewjournals.xaml.cs">
       <DependentUpon>viewjournals.xaml</DependentUpon>
     </Compile>
+    <Compile Include="dashboard\views\viewlibrarymember.xaml.cs">
+      <DependentUpon>viewlibrarymember.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard\views\viewpublisher.xaml.cs">
+      <DependentUpon>viewpublisher.xaml</DependentUpon>
+    </Compile>
     <Compile Include="dashboard\views\viewreferencebookdetails.xaml.cs">
       <DependentUpon>viewreferencebookdetails.xaml</DependentUpon>
     </Compile>
@@ -180,9 +188,6 @@
     <Compile Include="journals\journal_update.xaml.cs">
       <DependentUpon>journal_update.xaml</DependentUpon>
     </Compile>
-    <Compile Include="librarymember\librarymember.xaml.cs">
-      <DependentUpon>librarymember.xaml</DependentUpon>
-    </Compile>
     <Compile Include="librarymember\librarymember_insert.xaml.cs">
       <DependentUpon>librarymember_insert.xaml</DependentUpon>
     </Compile>
@@ -193,9 +198,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LinqAzureDatabase.dbml</DependentUpon>
-    </Compile>
-    <Compile Include="publisher\publisher_details.xaml.cs">
-      <DependentUpon>publisher_details.xaml</DependentUpon>
     </Compile>
     <Compile Include="publisher\publisher_insert.xaml.cs">
       <DependentUpon>publisher_insert.xaml</DependentUpon>
@@ -261,6 +263,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="dashboard\views\viewlibrarymember.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="dashboard\views\viewpublisher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="dashboard\views\viewreferencebookdetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -285,10 +295,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="librarymember\librarymember.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="librarymember\librarymember_insert.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -309,23 +315,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="pagesdashboard\item.xaml">
+    <Page Include="pages\item.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pagesdashboard\memberhistory.xaml">
+    <Page Include="pages\memberhistory.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="pagesdashboard\referencebook.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="pages\about.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="pages\old_dashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -338,10 +336,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="pages\register.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="publisher\publisher_details.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -363,20 +357,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="pagesdashboard\item.xaml.cs">
+    <Compile Include="pages\item.xaml.cs">
       <DependentUpon>item.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pagesdashboard\memberhistory.xaml.cs">
+    <Compile Include="pages\memberhistory.xaml.cs">
       <DependentUpon>memberhistory.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="pagesdashboard\referencebook.xaml.cs">
-      <DependentUpon>referencebook.xaml</DependentUpon>
     </Compile>
     <Compile Include="pages\about.xaml.cs">
       <DependentUpon>about.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="pages\old_dashboard.xaml.cs">
-      <DependentUpon>old_dashboard.xaml</DependentUpon>
     </Compile>
     <Compile Include="pages\index.xaml.cs">
       <DependentUpon>index.xaml</DependentUpon>

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using library.dashboard.views;
 
 namespace library.publisher
 {
@@ -48,13 +49,12 @@ namespace library.publisher
             };
             dc.Publishers.InsertOnSubmit(newPublisherObject);
             dc.SubmitChanges();
-            publisher_details.datagrid.ItemsSource = dc.Publishers.ToList();
+            viewpublisher.datagrid.ItemsSource = dc.Publishers.ToList();
             this.Hide();
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Return to Administration Page");
             this.Close();
         }
     }

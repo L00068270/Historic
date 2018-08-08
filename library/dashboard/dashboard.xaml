@@ -59,6 +59,12 @@
         <DataTemplate x:Name="template_referencebookdetails" DataType="{x:Type viewmodels:viewmodel_referencebookdetails}">
             <views:viewreferencebookdetails DataContext="{Binding Path=viewmodel_referencebookdetails}"></views:viewreferencebookdetails>
         </DataTemplate>
+        <DataTemplate x:Name="template_librarymember" DataType="{x:Type viewmodels:viewmodel_librarymember}">
+            <views:viewlibrarymember DataContext="{Binding Path=viewmodel_librarymember}"></views:viewlibrarymember>
+        </DataTemplate>
+        <DataTemplate x:Name="template_publisher" DataType="{x:Type viewmodels:viewmodel_publisher}">
+            <views:viewpublisher DataContext="{Binding Path=viewmodel_publisher}"></views:viewpublisher>
+        </DataTemplate>
     </Window.Resources>
 
     <ScrollViewer CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
@@ -174,7 +180,7 @@
                             Members
                         </TextBlock>
                         <TextBlock>
-                        <Hyperlink NavigateUri="/library;component/librarymember/librarymember.xaml" TextDecorations="{x:Null}">Member Details</Hyperlink>
+                        <Hyperlink x:Name="hyperlink_librarymember" TextDecorations="{x:Null}" Click="hyperlink_librarymember_Click">Member Details</Hyperlink>
                         </TextBlock>
                     </StackPanel>
 
@@ -183,7 +189,7 @@
                             Publisher
                         </TextBlock>
                         <TextBlock>
-                    <Hyperlink NavigateUri="/library;component/publisher/publisher_details.xaml" TextDecorations="{x:Null}">Publisher Details</Hyperlink>
+                    <Hyperlink x:Name="hyperlink_publisher" TextDecorations="{x:Null}" Click="hyperlink_publisher_Click">Publisher Details</Hyperlink>
                         </TextBlock>
                     </StackPanel>
                 </Grid>

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using library.dashboard.views;
 
 namespace library.publisher
 {
@@ -46,7 +47,7 @@ namespace library.publisher
             _updatepublisher.AccountNumber = tbxAccountNumber.Text;
 
             dc.SubmitChanges();
-            publisher_details.datagrid.ItemsSource = dc.Publishers.ToList();
+            viewpublisher.datagrid.ItemsSource = dc.Publishers.ToList();
             this.Hide();
         }
 

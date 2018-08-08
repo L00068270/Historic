@@ -129,9 +129,9 @@ namespace library.pages
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            pages.dashboard dashboard = new pages.dashboard();
-            //dashboard.ShowDialog();
-            //dashboard is a Page
+            dashboard.dashboard dashboard = new dashboard.dashboard();
+            dashboard.ShowDialog();
+            //dashboard is a Window
         }
     }
 }

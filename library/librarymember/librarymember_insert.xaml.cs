@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using library.dashboard.views;
 
 namespace library.librarymember
 {
@@ -50,13 +51,12 @@ namespace library.librarymember
             };
             dc.LibraryMembers.InsertOnSubmit(newLibraryMemberObject);
             dc.SubmitChanges();
-            librarymember.datagrid.ItemsSource = dc.LibraryMembers.ToList();
+            viewlibrarymember.datagrid.ItemsSource = dc.LibraryMembers.ToList();
             this.Hide();
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Return to Administration Page");
             this.Close();
         }
     }

@@ -13,22 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace library.pagesdashboard
+namespace library.pages
 {
     /// <summary>
-    /// Interaction logic for memberhistory.xaml
+    /// Interaction logic for item.xaml
     /// </summary>
-    public partial class memberhistory : Page
+    public partial class item : Page
     {
-        public memberhistory()
+        public item()
         {
             InitializeComponent();
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            pages.dashboard dashboard = new pages.dashboard();
-            this.NavigationService.Navigate(dashboard);
+            
         }
     }
 }
