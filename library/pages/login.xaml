@@ -3,11 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:library.pages"
-        xmlns:LinqAzureDatabase="clr-namespace:MyClassesLibrary;assembly=MyClassesLibrary"
-        xmlns:library="clr-namespace:library"
+        xmlns:local="clr-namespace:library"
         xmlns:pages="clr-namespace:library.pages"
-        
+        xmlns:LinqAzureDatabase="clr-namespace:MyClassesLibrary;assembly=MyClassesLibrary"
+        xmlns:library="clr-namespace:library"        
         mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989" 
         Title="login" Height="300" Width="300" Loaded="functionWindowLoaded" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Window.Resources>
@@ -66,6 +65,7 @@
                     </Grid.ColumnDefinitions>
                     <Button x:Name="btnLogin" Content="LOGIN" Grid.Row="1" Grid.Column="3" Height="20" Width="70" Background="#374989" Foreground="White" Click="btnLogin_Click"></Button>
                     <Button x:Name="btnCancel" Content="CANCEL" Grid.Row="1" Grid.Column="2" Height="20" Width="70" Background="#374989" Foreground="White" Click="btnCancel_Click"></Button>
+                    <Button x:Name="btnRegister" Content="REGISTER" Grid.Row="1" Grid.Column="1" Height="20" Width="70" Background="#374989" Foreground="White" Click="btnRegister_Click"></Button>
                 </Grid>
             </StackPanel>
         </Border>

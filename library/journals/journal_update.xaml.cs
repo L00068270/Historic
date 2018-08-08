@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using library.dashboard.views;
 
 namespace library.journals
 {
@@ -45,13 +46,12 @@ namespace library.journals
             _updatejournal.Status = tbxStatus.Text;
 
             dc.SubmitChanges();
-            journal_details.datagrid.ItemsSource = dc.Journals.ToList();
+            viewjournaldetails.datagrid.ItemsSource = dc.Journals.ToList();
             this.Hide();
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Return to Administration Page");
             this.Close();
         }
     }

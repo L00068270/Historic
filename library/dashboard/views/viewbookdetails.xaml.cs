@@ -6,24 +6,26 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Data;
+using library.books;
 
-namespace library.books
+namespace library.dashboard.views
 {
     /// <summary>
-    /// Interaction logic for book_details.xaml
+    /// Interaction logic for viewbookdetails.xaml
     /// </summary>
-    public partial class book_details : Page
+    public partial class viewbookdetails : UserControl
     {
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
         public static DataGrid datagrid;
 
-        public book_details()
+        public viewbookdetails()
         {
             InitializeComponent();
             functionToLoadDatabaseToDataGrid();
         }
+       
 
         //*************************************************************************************************        
         // function here
@@ -33,7 +35,6 @@ namespace library.books
             myDataGrid.ItemsSource = dc.Books.ToList();
             datagrid = myDataGrid;
         }
-
 
 
         //*************************************************************************************************        
@@ -64,12 +65,6 @@ namespace library.books
             dc.Books.DeleteOnSubmit(deleteBook);
             dc.SubmitChanges();
             myDataGrid.ItemsSource = dc.Books.ToList();
-        }
-
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            pages.dashboard dashboard = new pages.dashboard();
-            this.NavigationService.Navigate(dashboard);
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:library"
         xmlns:pages="clr-namespace:library.pages"
-        mc:Ignorable="d" FontFamily="Arial" FontSize="12" WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d" FontFamily="Arial" FontSize="12" WindowStartupLocation="CenterScreen" WindowState="Maximized"
         Title="MainWindow" Height="auto" Width="1200" MinWidth="300" Background="#FF868CC5">
     <Window.Resources>        
         <Style TargetType="Button">
@@ -21,12 +21,11 @@
         <Style TargetType="ScrollBar">
             <Setter Property="Stylus.IsPressAndHoldEnabled" Value="False"/>
             <Setter Property="Stylus.IsFlicksEnabled" Value="false"/>
-
             <Setter Property="Width" Value="10"/>
             <Setter Property="MaxWidth" Value="{Binding Width, RelativeSource={RelativeSource Self}}"/>
         </Style>
         <DataTemplate x:Name="viewDashboard" DataType="{x:Type pages:dashboard}">
-            
+
         </DataTemplate>
     </Window.Resources>
     
@@ -53,7 +52,7 @@
             <!--SETTING ROWS AND COLUMNS-->
             <!--ROW 1-->
             <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="#374989" Stroke="#374989"/>
-            <TextBlock x:Name="tbxHeader" Grid.Row="1" Grid.ColumnSpan="4" Margin="17,16,37,10" TextWrapping="Wrap" FontFamily="Arial Unicode MS" FontSize="36" Foreground="#FFF50C0C" >
+            <TextBlock x:Name="tbxHeader" Grid.Row="1" Grid.ColumnSpan="4" Margin="17,16,37,10" FontFamily="Arial Unicode MS" FontSize="36" Foreground="#FFF50C0C" >
                 <Run Text="Library"/>
                 <Run Text="Letterkenny" Foreground="#FFF5EEEE"/>
             </TextBlock>
@@ -79,7 +78,9 @@
                 <Frame x:Name="Main" Grid.Row="5" Grid.ColumnSpan="4" NavigationUIVisibility="Hidden">
                               
                 </Frame>
-            <ContentControl Grid.Row="5" Grid.ColumnSpan="4" Content="{Binding}"/>
+            <ContentControl Grid.Row="5" Grid.ColumnSpan="4" Content="{Binding}">
+                
+            </ContentControl>
             
             <!--ROW 6 LINKS-->
             <Rectangle Grid.Row="6" Grid.ColumnSpan="4" Height="100" Fill="#374989" Stroke="#374989"/>

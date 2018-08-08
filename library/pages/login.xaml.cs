@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Data;
+using library.pages;
+using System.Windows.Navigation;
+using System.Configuration;
 
 namespace library.pages
 {
@@ -21,7 +24,7 @@ namespace library.pages
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
-
+        public LibraryMember _instanceLibraryMember = new LibraryMember();
 
         /**************************************************************************************************
          * global list (_libraryMemberList) of records in the database LibraryMember table
@@ -32,7 +35,6 @@ namespace library.pages
         public login()
         {
             InitializeComponent();
-            functionToLoadLibraryMembers();
         }
 
         /**************************************************************************************************
@@ -102,40 +104,34 @@ namespace library.pages
         * 4. run the functionToGetLibraryMemberDetails method with the inputted username and password information 
         *  
         **************************************************************************************************/
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
-        {            
-            LibraryMember _libraryMemberDetails = new LibraryMember();
-            string currentLibraryMember = tbxUsername.Text.Trim();                  
-            string currentPassword = tbxPassword.Text.Trim();
-            _libraryMemberDetails = functionToGetLibraryMemberDetails(currentLibraryMember, currentPassword);
 
-            /**************************************************
-             * if user exists, close this page
-             * create a new instance of the 'dashboard' window
-             * ***********************************************/           
-            if (_libraryMemberDetails.Classification > 0)                  
-            {
-                this.Hide();
-                dashboard _instanceOfDashboard = new dashboard();
-                _instanceOfDashboard._instanceLibraryMember = _libraryMemberDetails;
-                _instanceOfDashboard.BringIntoView();
-                //_instanceOfDashboard.ShowDialog();
-                _instanceOfDashboard.BringIntoView();
-                //dashboard.ShowDialog();
+        /*
+        LibraryMember _libraryMemberDetails = new LibraryMember();
+        string currentLibraryMember = tbxUsername.Text.Trim();                  
+        string currentPassword = tbxPassword.Text.Trim();
+        _libraryMemberDetails = functionToGetLibraryMemberDetails(currentLibraryMember, currentPassword);
+        */
 
-            }
-            else
-            {               
-                MessageBox.Show("Your user details are invalid");//User does not exist, show message.
-                tbxUsername.Text = "";
-                tbxPassword.Text = "";
-                tbxUsername.Focus();
-            }
-        }
+
+
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        {
+            pages.register register = new pages.register();
+            register.ShowDialog();
+            //register is a Window
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            pages.dashboard dashboard = new pages.dashboard();
+            //dashboard.ShowDialog();
+            //dashboard is a Page
         }
     }
 }

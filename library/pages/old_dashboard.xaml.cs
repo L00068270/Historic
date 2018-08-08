@@ -24,6 +24,8 @@ namespace library.pages
 
         public static ListView listview;
 
+        List<LibraryMember> _libraryMemberList = new List<LibraryMember>();
+
         /**************************************************************************************************
          * new instance of LibraryMember class so we can send the authenticated LibraryMember information 
          * from the login form
@@ -33,50 +35,16 @@ namespace library.pages
         public dashboard()
         {
             InitializeComponent();
-            functionToLoadDatabaseToListView();
         }
-
-        
 
         /**************************************************************************************************
          * set the dashboard to load LibraryMember details into the LibraryMember information box at
          * the top of the screen when it is opened from the login window
          *************************************************************************************************/
-        private void functionWindowLoaded(object sender, RoutedEventArgs e)
+        public void functionWindowLoaded(object sender, RoutedEventArgs e)
         {
             lblCurrentUser.Content = _instanceLibraryMember.NameFirst;
         }
-
-        //*************************************************************************************************        
-        // functionToLoadDatabaseToListView
-        //*************************************************************************************************
-        public void functionToLoadDatabaseToListView()
-        {
-            //myListView.ItemsSource = dc.LibraryMembers.ToList();
-            //listview = myListView;
-        }
-
-
-        List<LibraryMember> _libraryMemberList = new List<LibraryMember>();
-
-        //lstLibraryMembersList.ItemsSource = _libraryMemberList;
-
-        
-        /*
-        public class LibraryMemberSummaryData
-        {
-            public string MemberID { get; set; }
-            public string NameFirst { get; set; }
-            public string NameLast { get; set; }
-            public string Username { get; set; }
-            public string Password { get; set; }
-            public string Classification { get; set; }
-        }
-        */
-
-
-
-
 
 
         private void btnSearchText_Click(object sender, RoutedEventArgs e)
@@ -85,11 +53,6 @@ namespace library.pages
         }
 
         private void btnResetSearch_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnAdmin_Click(object sender, RoutedEventArgs e)
         {
 
         }

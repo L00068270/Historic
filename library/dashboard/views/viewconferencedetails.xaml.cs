@@ -6,24 +6,27 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Data;
+using library.conference_proceedings;
+using library.dashboard.views;
 
-namespace library.conference_proceedings
+namespace library.dashboard.views
 {
     /// <summary>
-    /// Interaction logic for conference_details.xaml
+    /// Interaction logic for viewconferencedetails.xaml
     /// </summary>
-    public partial class conference_details : Page
+    public partial class viewconferencedetails : UserControl
     {
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
         public static DataGrid datagrid;
 
-        public conference_details()
+        public viewconferencedetails()
         {
             InitializeComponent();
             functionToLoadDatabaseToDataGrid();
         }
+        
 
         //*************************************************************************************************        
         // function here
@@ -34,10 +37,10 @@ namespace library.conference_proceedings
             datagrid = myDataGrid;
         }
 
+
         //*************************************************************************************************        
         // buttons here
         //*************************************************************************************************
-
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             dc.SubmitChanges();
@@ -63,12 +66,6 @@ namespace library.conference_proceedings
             dc.ConferenceProceedings.DeleteOnSubmit(deleteConference);
             dc.SubmitChanges();
             myDataGrid.ItemsSource = dc.ConferenceProceedings.ToList();
-        }
-
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            pages.dashboard dashboard = new pages.dashboard();
-            this.NavigationService.Navigate(dashboard);
         }
     }
 }

@@ -6,31 +6,33 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Data;
+using library.dvds;
 
-namespace library.referencebooks
+namespace library.dashboard.views
 {
     /// <summary>
-    /// Interaction logic for reference_details.xaml
+    /// Interaction logic for viewdvddetails.xaml
     /// </summary>
-    public partial class reference_details : Page
+    public partial class viewdvddetails : UserControl
     {
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
         public static DataGrid datagrid;
 
-        public reference_details()
+        public viewdvddetails()
         {
             InitializeComponent();
             functionToLoadDatabaseToDataGrid();
         }
+        
 
         //*************************************************************************************************        
         // function here
         //*************************************************************************************************
         public void functionToLoadDatabaseToDataGrid()
         {
-            myDataGrid.ItemsSource = dc.ReferenceBooks.ToList();
+            myDataGrid.ItemsSource = dc.DVDs.ToList();
             datagrid = myDataGrid;
         }
 
@@ -44,30 +46,24 @@ namespace library.referencebooks
 
         private void btnInsert_Click(object sender, RoutedEventArgs e)
         {
-            reference_insert insert = new reference_insert();
+            dvd_insert insert = new dvd_insert();
             insert.ShowDialog();
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            int id = (myDataGrid.SelectedItem as ReferenceBook).RefBookID;
-            reference_update updatereferencebook = new reference_update(id);
-            updatereferencebook.ShowDialog();
+            int id = (myDataGrid.SelectedItem as DVD).DVDID;
+            dvd_update updatedvd = new dvd_update(id);
+            updatedvd.ShowDialog();
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            int id = (myDataGrid.SelectedItem as ReferenceBook).RefBookID;
-            var deleteReferenceBook = dc.ReferenceBooks.Where(reference => reference.RefBookID == id).Single();
-            dc.ReferenceBooks.DeleteOnSubmit(deleteReferenceBook);
+            int id = (myDataGrid.SelectedItem as DVD).DVDID;
+            var deletedvd = dc.DVDs.Where(dvd => dvd.DVDID == id).Single();
+            dc.DVDs.DeleteOnSubmit(deletedvd);
             dc.SubmitChanges();
-            myDataGrid.ItemsSource = dc.ReferenceBooks.ToList();
-        }
-
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            pages.dashboard dashboard = new pages.dashboard();
-            this.NavigationService.Navigate(dashboard);
+            myDataGrid.ItemsSource = dc.DVDs.ToList();
         }
     }
 }

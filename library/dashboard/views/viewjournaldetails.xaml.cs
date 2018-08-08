@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Data;
+using library.journals;
 
-namespace library.journals
+namespace library.dashboard.views
 {
     /// <summary>
-    /// Interaction logic for journal_details.xaml
+    /// Interaction logic for viewjournaldetails.xaml
     /// </summary>
-    public partial class journal_details : Page
+    public partial class viewjournaldetails : UserControl
     {
         /**************************************************************************************************
          * database framework reference
@@ -23,12 +24,13 @@ namespace library.journals
 
         public static DataGrid datagrid;
 
-        public journal_details()
+        public viewjournaldetails()
         {
             InitializeComponent();
             functionToLoadDatabaseToDataGrid();
         }
 
+        
         //*************************************************************************************************        
         // function here
         //*************************************************************************************************
@@ -41,6 +43,8 @@ namespace library.journals
         //*************************************************************************************************        
         // buttons here
         //*************************************************************************************************
+        
+
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             dc.SubmitChanges();
@@ -66,12 +70,6 @@ namespace library.journals
             dc.Journals.DeleteOnSubmit(deleteJournal);
             dc.SubmitChanges();
             myDataGrid.ItemsSource = dc.Journals.ToList();
-        }
-
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            pages.dashboard dashboard = new pages.dashboard();
-            this.NavigationService.Navigate(dashboard);
         }
     }
 }

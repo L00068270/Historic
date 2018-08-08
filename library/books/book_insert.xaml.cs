@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using library.dashboard.viewmodels;
+using library.dashboard.views;
 
 namespace library.books
 {
@@ -49,7 +51,7 @@ namespace library.books
             };
             dc.Books.InsertOnSubmit(newBookObject);
             dc.SubmitChanges();
-            book_details.datagrid.ItemsSource = dc.Books.ToList();
+            viewbookdetails.datagrid.ItemsSource = dc.Books.ToList();
             this.Hide();
         }
 

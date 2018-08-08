@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using library.dashboard.views;
 
 namespace library.dvds
 {
@@ -48,13 +49,12 @@ namespace library.dvds
             };
             dc.DVDs.InsertOnSubmit(newDVDObject);
             dc.SubmitChanges();
-            dvd_details.datagrid.ItemsSource = dc.DVDs.ToList();
+            viewdvddetails.datagrid.ItemsSource = dc.DVDs.ToList();
             this.Hide();
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Return to Administration Page");
             this.Close();
         }
     }

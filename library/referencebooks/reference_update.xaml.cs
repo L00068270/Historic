@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using library.dashboard.views;
 
 namespace library.referencebooks
 {
@@ -44,14 +45,13 @@ namespace library.referencebooks
             _updatereferencebook.Status = tbxStatus.Text;
 
             dc.SubmitChanges();
-            reference_details.datagrid.ItemsSource = dc.ReferenceBooks.ToList();
+            viewreferencebookdetails.datagrid.ItemsSource = dc.ReferenceBooks.ToList();
             this.Hide();
 
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Return to Administration Page");
             this.Close();
         }
     }

@@ -113,17 +113,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="books\book_details.xaml.cs">
-      <DependentUpon>book_details.xaml</DependentUpon>
-    </Compile>
     <Compile Include="books\book_insert.xaml.cs">
       <DependentUpon>book_insert.xaml</DependentUpon>
     </Compile>
     <Compile Include="books\book_update.xaml.cs">
       <DependentUpon>book_update.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="conference proceedings\conference_details.xaml.cs">
-      <DependentUpon>conference_details.xaml</DependentUpon>
     </Compile>
     <Compile Include="conference proceedings\conference_insert.xaml.cs">
       <DependentUpon>conference_insert.xaml</DependentUpon>
@@ -131,37 +125,54 @@
     <Compile Include="conference proceedings\conference_update.xaml.cs">
       <DependentUpon>conference_update.xaml</DependentUpon>
     </Compile>
+    <Compile Include="dashboard\dashboard.xaml.cs">
+      <DependentUpon>dashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard\viewmodels\viewmodel_bookdetails.cs" />
     <Compile Include="dashboard\viewmodels\viewmodel_books.cs" />
+    <Compile Include="dashboard\viewmodels\viewmodel_conferencedetails.cs" />
     <Compile Include="dashboard\viewmodels\viewmodel_conferenceproceedings.cs" />
+    <Compile Include="dashboard\viewmodels\viewmodel_dvddetails.cs" />
     <Compile Include="dashboard\viewmodels\viewmodel_dvds.cs" />
+    <Compile Include="dashboard\viewmodels\viewmodel_journaldetails.cs" />
     <Compile Include="dashboard\viewmodels\viewmodel_journals.cs" />
+    <Compile Include="dashboard\viewmodels\viewmodel_referencebookdetails.cs" />
     <Compile Include="dashboard\viewmodels\viewmodel_referencebooks.cs" />
+    <Compile Include="dashboard\views\viewbookdetails.xaml.cs">
+      <DependentUpon>viewbookdetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="dashboard\views\viewbooks.xaml.cs">
       <DependentUpon>viewbooks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard\views\viewconferencedetails.xaml.cs">
+      <DependentUpon>viewconferencedetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="dashboard\views\viewconferenceproceedings.xaml.cs">
       <DependentUpon>viewconferenceproceedings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="dashboard\views\viewdvddetails.xaml.cs">
+      <DependentUpon>viewdvddetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="dashboard\views\viewdvds.xaml.cs">
       <DependentUpon>viewdvds.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard\views\viewjournaldetails.xaml.cs">
+      <DependentUpon>viewjournaldetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="dashboard\views\viewjournals.xaml.cs">
       <DependentUpon>viewjournals.xaml</DependentUpon>
     </Compile>
+    <Compile Include="dashboard\views\viewreferencebookdetails.xaml.cs">
+      <DependentUpon>viewreferencebookdetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="dashboard\views\viewreferencebooks.xaml.cs">
       <DependentUpon>viewreferencebooks.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="dvds\dvd_details.xaml.cs">
-      <DependentUpon>dvd_details.xaml</DependentUpon>
     </Compile>
     <Compile Include="dvds\dvd_insert.xaml.cs">
       <DependentUpon>dvd_insert.xaml</DependentUpon>
     </Compile>
     <Compile Include="dvds\dvd_update.xaml.cs">
       <DependentUpon>dvd_update.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="journals\journal_details.xaml.cs">
-      <DependentUpon>journal_details.xaml</DependentUpon>
     </Compile>
     <Compile Include="journals\journal_insert.xaml.cs">
       <DependentUpon>journal_insert.xaml</DependentUpon>
@@ -192,28 +203,17 @@
     <Compile Include="publisher\publisher_update.xaml.cs">
       <DependentUpon>publisher_update.xaml</DependentUpon>
     </Compile>
-    <Compile Include="referencebooks\reference_details.xaml.cs">
-      <DependentUpon>reference_details.xaml</DependentUpon>
-    </Compile>
     <Compile Include="referencebooks\reference_insert.xaml.cs">
       <DependentUpon>reference_insert.xaml</DependentUpon>
     </Compile>
     <Compile Include="referencebooks\reference_update.xaml.cs">
       <DependentUpon>reference_update.xaml</DependentUpon>
     </Compile>
-    <Page Include="books\book_details.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="books\book_insert.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="books\book_update.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="conference proceedings\conference_details.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -225,7 +225,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="dashboard\dashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="dashboard\views\viewbookdetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="dashboard\views\viewbooks.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="dashboard\views\viewconferencedetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -233,7 +245,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="dashboard\views\viewdvddetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="dashboard\views\viewdvds.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="dashboard\views\viewjournaldetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -241,11 +261,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="dashboard\views\viewreferencebooks.xaml">
+    <Page Include="dashboard\views\viewreferencebookdetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="dvds\dvd_details.xaml">
+    <Page Include="dashboard\views\viewreferencebooks.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -254,10 +274,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="dvds\dvd_update.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="journals\journal_details.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -309,7 +325,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\dashboard.xaml">
+    <Page Include="pages\old_dashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -325,10 +341,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="pages\signup.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="publisher\publisher_details.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -338,10 +350,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="publisher\publisher_update.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="referencebooks\reference_details.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -367,8 +375,8 @@
     <Compile Include="pages\about.xaml.cs">
       <DependentUpon>about.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\dashboard.xaml.cs">
-      <DependentUpon>dashboard.xaml</DependentUpon>
+    <Compile Include="pages\old_dashboard.xaml.cs">
+      <DependentUpon>old_dashboard.xaml</DependentUpon>
     </Compile>
     <Compile Include="pages\index.xaml.cs">
       <DependentUpon>index.xaml</DependentUpon>
@@ -378,9 +386,6 @@
     </Compile>
     <Compile Include="pages\register.xaml.cs">
       <DependentUpon>register.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="pages\signup.xaml.cs">
-      <DependentUpon>signup.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

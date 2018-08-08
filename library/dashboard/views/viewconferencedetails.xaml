@@ -1,17 +1,18 @@
-﻿<Page x:Class="library.books.book_details"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:library.books"
-      xmlns:LinqAzureDatabase="clr-namespace:MyClassesLibrary;assembly=MyClassesLibrary"
-      xmlns:library="clr-namespace:library"
-      mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989"
-      d:DesignHeight="600" d:DesignWidth="300"
-      Title="book_details" Width="1200" MinWidth="300">
-    <Page.Resources>
-        <library:Book x:Key="Book"/>
-    </Page.Resources>
+﻿<UserControl x:Class="library.dashboard.views.viewconferencedetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:library.dashboard.views"
+             xmlns:LinqAzureDatabase="clr-namespace:MyClassesLibrary;assembly=MyClassesLibrary"
+             xmlns:library="clr-namespace:library"
+             mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989"
+             d:DesignHeight="600" d:DesignWidth="300"
+             Width="1200" MinWidth="300">
+             
+    <UserControl.Resources>
+        <library:ConferenceProceeding x:Key="ConferenceProceeding"/>
+    </UserControl.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -38,19 +39,19 @@
                 <Label x:Name="lblReEnter"/>
 
                 <TextBlock FontSize="28">                   
-                    Books
+                    Conference Proceedings
                 </TextBlock>
 
                 <TextBlock FontSize="16">
-                    Book Details
+                    Conference Proceeding Details
                     <LineBreak/>
                     Note to user:
                     <LineBreak/>
-                    Admin user can insert, update or delete Books by editing this table and save changes.
+                    Admin User can insert, update or delete a Conference Proceeding Edition by editing this table and save changes.
                     <LineBreak/>
-                    You need to select the Book to update or delete.
+                    You need to select the Conference Proceeding to update or delete.
                     <LineBreak/>
-                    Select INSERT to add a new Book
+                    Select INSERT to add a new Conference Proceeding
                 </TextBlock>
 
                 <!--BUTTONS-->
@@ -75,18 +76,17 @@
                         <ColumnDefinition Width="90"/>
                         <ColumnDefinition Width="90"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="btnCancel" Content="CANCEL" Grid.Row="1" Grid.Column="9" Height="20" Width="80" Background="#374989" Foreground="White" Margin="0,14,1,16" Click="btnCancel_Click"></Button>
-                    <Button x:Name="btnDelete" Content="DELETE" Grid.Row="1" Grid.Column="10" Height="20" Width="56" Background="#374989" Foreground="White" Click="btnDelete_Click"></Button>
-                    <Button x:Name="btnUpdate" Content="UPDATE" Grid.Row="1" Grid.Column="11" Height="20" Width="56" Background="#374989" Foreground="White" Click="btnUpdate_Click"></Button>
-                    <Button x:Name="btnInsert" Content="INSERT" Grid.Row="1" Grid.Column="12" Height="20" Width="56" Background="#374989" Foreground="White" Click="btnInsert_Click"></Button>
-                    <Button x:Name="btnSave" Content="SAVE" Grid.Row="1" Grid.Column="13" Height="20" Width="80" Background="#374989" Foreground="White" Click="btnSave_Click"></Button>
+                    <Button x:Name="btnDelete" Content="DELETE" Grid.Row="1" Grid.Column="10" Height="20" Width="56" Background="#374989" Foreground="White" FontSize="12" Click="btnDelete_Click"></Button>
+                    <Button x:Name="btnUpdate" Content="UPDATE" Grid.Row="1" Grid.Column="11" Height="20" Width="56" Background="#374989" Foreground="White" FontSize="12" Click="btnUpdate_Click"></Button>
+                    <Button x:Name="btnInsert" Content="INSERT" Grid.Row="1" Grid.Column="12" Height="20" Width="56" Background="#374989" Foreground="White" FontSize="12" Click="btnInsert_Click"></Button>
+                    <Button x:Name="btnSave" Content="SAVE" Grid.Row="1" Grid.Column="13" Height="20" Width="80" Background="#374989" Foreground="White" FontSize="12" Click="btnSave_Click"></Button>
                 </Grid>
 
                 <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <Grid >
                         <DataGrid x:Name="myDataGrid" x:FieldModifier="public" ColumnWidth="*" AutoGenerateColumns="False">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Binding="{Binding ISBN}" Header="ISBN" Width="40"/>
+                                <DataGridTextColumn Binding="{Binding ConfID}" Header="ConfID" Width="70"/>
                                 <DataGridTextColumn Binding="{Binding Title}" Header="Title" Width="200"/>
                                 <DataGridTextColumn Binding="{Binding Author}" Header="Author" Width="140"/>
                                 <DataGridTextColumn Binding="{Binding CopiesTotal}" Header="Copies" Width="50"/>
@@ -95,29 +95,9 @@
                                 <DataGridTextColumn Binding="{Binding SubjectArea}" Header="Subject" Width="100"/>
                                 <DataGridTextColumn Binding="{Binding YearOfPublication}" Header="YearOfPublication" Width="100"/>
                                 <DataGridTextColumn Binding="{Binding Keyword}" Header="Keyword" Width="60"/>
-                                <DataGridTextColumn Binding="{Binding BookID}" Header="BookID" Width="45"/>
+                                <DataGridTextColumn Binding="{Binding ConfNumberID}" Header="ConfNumberID" Width="45"/>
                                 <DataGridTextColumn Binding="{Binding ShelfNumber}" Header="Shelf" Width="45"/>
                                 <DataGridTextColumn Binding="{Binding Status}" Header="Status" Width="60"/>
-                                <DataGridTextColumn Binding="{Binding PublisherID}" Header="PublisherID" Width="100"/>
-
-                                <DataGridTemplateColumn>
-                                    <DataGridTemplateColumn.HeaderTemplate>
-                                        <DataTemplate>
-                                            <TextBlock>
-                                            Actions
-                                            </TextBlock>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.HeaderTemplate>
-
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-
-
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>
@@ -125,4 +105,4 @@
             </StackPanel>
         </Border>
     </Grid>
-</Page>
+</UserControl>

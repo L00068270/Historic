@@ -39,19 +39,23 @@ namespace library
 
         private void btnRegister(object sender, RoutedEventArgs e)
         {
+            //this is a window
             pages.register register = new pages.register();
             register.ShowDialog();
         }
 
         private void btnLogin(object sender, RoutedEventArgs e)
         {
+            //this is a window
             pages.login login = new pages.login();
             login.ShowDialog();
         }
 
         private void btnDashboard(object sender, RoutedEventArgs e)
         {
-            Main.Content = new pages.dashboard();
+            //this is a window            
+            dashboard.dashboard dashboard = new dashboard.dashboard();
+            dashboard.ShowDialog();
         }
     }
 }
