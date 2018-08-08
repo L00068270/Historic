@@ -20,7 +20,6 @@ namespace library.pages
         /**************************************************************************************************
          * database framework reference
          *************************************************************************************************/
-
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
@@ -28,7 +27,6 @@ namespace library.pages
         /**************************************************************************************************
          * global list (_libraryMemberList) of records in the database LibraryMember table
          *************************************************************************************************/
-
         List<LibraryMember> _libraryMemberList = new List<LibraryMember>();
 
         public login()
@@ -41,7 +39,8 @@ namespace library.pages
         /**************************************************************************************************
          * 1. functionToLoadLibraryMembers 
          *      - will load the SQL records from the LibraryMember table into the global _libraryMemberList
-         *      
+         *      - clears contents of _libraryMemberList
+         *      - then add all users to global list
          * ***********************************************************************************************/
         private void functionToLoadLibraryMembers()                                                             
         {
@@ -71,12 +70,12 @@ namespace library.pages
         /**************************************************************************************************
          * 3. functionToGetUserDetails
          *      - authenticate librarymember information
-         *      - create a method that will take in the username and password and verify if the 
-         *          librarymember exists in our global _libraryMemberList
+         *      - function that will take in the username and password and verify if the 
+         *          librarymember exists in global _libraryMemberList
          *      - initialises '_libraryMemberDetails'
          *      - check each user name and password in the global _libraryMemberList
          *      - if there is a match then add the details to the local librarymember account
-         *      - return the user details  
+         *      - return the library members details  
          *          
          *************************************************************************************************/
         private LibraryMember functionToGetLibraryMemberDetails(string username, string password)
@@ -97,10 +96,10 @@ namespace library.pages
 
         /**************************************************************************************************
         *  buttons here
-        * 1. create instance of librarymember class, called _libraryMemberDetails
-        * 2. get the username from the tbxUsername and emove unnecessary spaces
-        * 3. get the password from the tbxPassword and remove unnecessary spaces
-        * 4. run the functionToGetLibraryMemberDetails method with the inputted username and password information 
+        * 1. instance of librarymember class, called _libraryMemberDetails
+        * 2. gets the username from the tbxUsername and remove unnecessary spaces
+        * 3. gets the password from the tbxPassword and remove unnecessary spaces
+        * 4. runs 'functionToGetLibraryMemberDetails' method with the inputted username and password information 
         *  
         **************************************************************************************************/
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -118,6 +117,13 @@ namespace library.pages
                 dashboard.currentLibraryMember = _libraryMemberDetails;
                 dashboard.ShowDialog();
                 this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Your user details are invalid, please try again");
+                tbxUsername.Text = "";
+                tbxPassword.Text = "";
+                tbxUsername.Focus();
             }
         }
 

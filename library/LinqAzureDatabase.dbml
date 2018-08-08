@@ -1,23 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="library" Class="LinqAzureDatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=lougheske.database.windows.net;Initial Catalog=library;Persist Security Info=True;User ID=teillo" SettingsObjectName="library.Properties.Settings" SettingsPropertyName="libraryConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.LibraryMember" Member="LibraryMembers">
-    <Type Name="LibraryMember">
-      <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="NameFirst" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="NameInitial" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="NameLast" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="Username" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="EnterPassword" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Address" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="Street" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Town" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="County" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Country" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Postcode" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Classification" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.Publisher" Member="Publishers">
     <Type Name="Publisher">
       <Column Name="PublisherID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -114,6 +96,24 @@
       <Column Name="Keyword" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="ShelfNumber" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="Status" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LibraryMember" Member="LibraryMembers">
+    <Type Name="LibraryMember">
+      <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NameFirst" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="NameInitial" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="NameLast" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ConfirmPassword" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Street" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Town" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="County" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Postcode" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Classification" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

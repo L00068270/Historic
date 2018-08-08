@@ -89,7 +89,7 @@
                                 <DataGridTextColumn Binding="{Binding NameLast}" Header="Last Name" Width="70"/>
                                 <DataGridTextColumn Binding="{Binding Username}" Header="Username" Width="65"/>
                                 <DataGridTextColumn Binding="{Binding Password}" Header="Password" Width="65"/>
-                                <DataGridTextColumn Binding="{Binding Password}" Header="Re-EnterPassword" Width="100"/>
+                                <DataGridTextColumn Binding="{Binding ConfirmPassword}" Header="ConfirmPassword" Width="100"/>
                                 <DataGridTextColumn Binding="{Binding Address}" Header="Address" Width="140"/>
                                 <DataGridTextColumn Binding="{Binding Street}" Header="Street" Width="100"/>
                                 <DataGridTextColumn Binding="{Binding Town}" Header="Town" Width="100"/>

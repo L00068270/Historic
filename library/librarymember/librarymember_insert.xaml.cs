@@ -24,6 +24,7 @@ namespace library.librarymember
             InitializeComponent();
         }
 
+
         //*************************************************************************************************        
         // buttons here
         //*************************************************************************************************
@@ -40,7 +41,7 @@ namespace library.librarymember
                 NameLast = tbxNameLast.Text,
                 Username = tbxUsername.Text,
                 Password = tbxPassword.Text,
-                EnterPassword = tbxEnterPassword.Text,
+                ConfirmPassword = tbxConfirmPassword.Text,
                 Address = tbxAddress.Text,
                 Street = tbxStreet.Text,
                 Town = tbxTown.Text,

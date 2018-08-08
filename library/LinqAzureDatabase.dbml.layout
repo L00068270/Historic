@@ -2,12 +2,6 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 10.75" name="LinqAzureDatabase">
   <DataContextMoniker Name="/LinqAzureDatabaseDataContext" />
   <nestedChildShapes>
-    <classShape Id="0fe32a56-c7d8-42c8-9fa2-f3adca003a64" absoluteBounds="0.5, 0.5, 2, 3.5016097005208326">
-      <DataClassMoniker Name="/LinqAzureDatabaseDataContext/LibraryMember" />
-      <nestedChildShapes>
-        <elementListCompartment Id="d7db2c62-cdb2-4d62-8f69-78d9aee07527" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="f1ec107f-e37c-44f9-89cc-95374fb19d87" absoluteBounds="2.75, 0.5, 2, 3.1170068359375">
       <DataClassMoniker Name="/LinqAzureDatabaseDataContext/Publisher" />
       <nestedChildShapes>
@@ -20,7 +14,7 @@
         <elementListCompartment Id="c22d2a28-a9ad-401f-af26-e5b532d9f787" absoluteBounds="2.765, 4.335, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(3.75 : 3.6170068359375); (3.75 : 3.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(3.90625 : 3.6170068359375); (3.90625 : 3.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/LinqAzureDatabaseDataContext/Publisher/Publisher_Book" />
       <nodes>
         <classShapeMoniker Id="f1ec107f-e37c-44f9-89cc-95374fb19d87" />
@@ -49,6 +43,12 @@
       <DataClassMoniker Name="/LinqAzureDatabaseDataContext/ReferenceBook" />
       <nestedChildShapes>
         <elementListCompartment Id="518b51b9-bf47-49e3-bce8-2edbb1a005a8" absoluteBounds="5.015, 7.8350000000000009, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e8bd5d12-2aa8-40bb-ac9b-f736d691358f" absoluteBounds="0.5, 0.5, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/LinqAzureDatabaseDataContext/LibraryMember" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dcded122-27a8-481e-bcea-24e45e8c4c58" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

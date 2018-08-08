@@ -21,6 +21,25 @@ namespace library.librarymember
 
         int Id;
 
+        //*************************************************************************************************        
+        // functions here
+        //*************************************************************************************************
+        private void functionPopulateLibraryMemberDetails(LibraryMember selectedLibraryMember)
+        {
+            tbxNameFirst.Text = selectedLibraryMember.NameFirst;
+            tbxNameInitial.Text = selectedLibraryMember.NameFirst;
+            tbxNameLast.Text = selectedLibraryMember.NameLast;
+            tbxUsername.Text = selectedLibraryMember.Username;
+            tbxPassword.Text = selectedLibraryMember.Password;
+            tbxConfirmPassword.Text = selectedLibraryMember.ConfirmPassword;
+            tbxAddress.Text = selectedLibraryMember.Address;
+            tbxStreet.Text = selectedLibraryMember.Street;
+            tbxTown.Text = selectedLibraryMember.Town;
+            tbxCounty.Text = selectedLibraryMember.County;
+            tbxCountry.Text = selectedLibraryMember.County;
+            tbxPostcode.Text = selectedLibraryMember.Postcode;
+        }
+
         public librarymember_update(int librarymemberid)
         {
             InitializeComponent();
@@ -39,7 +58,7 @@ namespace library.librarymember
             updatemember.NameLast = tbxNameLast.Text;
             updatemember.Username = tbxUsername.Text;
             updatemember.Password = tbxPassword.Text;
-            updatemember.EnterPassword = tbxEnterPassword.Text;
+            updatemember.ConfirmPassword = tbxConfirmPassword.Text;
             updatemember.Address = tbxAddress.Text;
             updatemember.Street = tbxStreet.Text;
             updatemember.Town = tbxTown.Text;

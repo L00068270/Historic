@@ -19,5 +19,10 @@ namespace MyClassesLibrary
             int result = firstNumber + secondNumber;
             return result;
         }
+
+        public static bool IsPositive(int Number)
+        {
+            return Number > 0;
+        }
     }
 }

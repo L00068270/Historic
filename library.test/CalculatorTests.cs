@@ -7,6 +7,7 @@ namespace library.test
     public class CalculatorTests
     {
         [TestMethod]
+        [TestCategory("Calculator")]
         public void Test_Divide_PositiveNumbers_ReturnsPositiveAnswer()
         {
             // Arrange
@@ -26,6 +27,7 @@ namespace library.test
         }
 
         [TestMethod]
+        [TestCategory("Calculator")]
         public void Test_Divide_PositiveNumeratorAndNegativeDenominator_ReturnsNegativeAnswer()
         {
             // Arrange
@@ -45,6 +47,7 @@ namespace library.test
         }
 
         [TestMethod]
+        [TestCategory("Calculator")]
         public void Test_Divide_NegativeNumeratorAndNegativeDenominator_ReturnsPositiveAnswer()
         {
             // Arrange
@@ -61,6 +64,24 @@ namespace library.test
             // Assert
             // verify if the function is acting as expected
             Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        [TestCategory("Calculator")]
+        public void Test_IsPositive_PositiveNumber_ReturnsTrue()
+        {
+            // Arrange
+            // initialise objects to be passed to the Divide function being tested
+
+
+            // Act 
+            // invoke functionto be tested
+            // result will be stored in variable called 'Actual'
+            bool actual = MyClassesLibrary.Calculator.IsPositive(18);
+
+            // Assert
+            // verify if the function is acting as expected
+            Assert.IsTrue(actual);
         }
     }
 }

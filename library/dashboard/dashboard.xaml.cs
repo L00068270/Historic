@@ -22,43 +22,55 @@ namespace library.dashboard
     {
         public LibraryMember currentLibraryMember;
 
+        public LibraryMember _LibraryMember = new LibraryMember();
+
+        /**************************************************************************************************
+         * database framework reference
+         *************************************************************************************************/
+        LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
+            (Properties.Settings.Default.libraryConnectionString);
+
+
+
+
         public dashboard()
         {
             InitializeComponent();
         }
 
-       
 
-        
+
+        /***************************************************************************************************
+         * buttons here
+         * 
+         **************************************************************************************************/
 
         private void btnhome_Click(object sender, RoutedEventArgs e)
         {
-            //Main.Content = new pages.index();
+            MainWindow MainWindow = new MainWindow();
+            MainWindow.ShowDialog();
         }
 
         private void btnabout_Click(object sender, RoutedEventArgs e)
         {
-            //pages.about about = new pages.about();
-            //about.ShowDialog();
+            MainWindow MainWindow = new MainWindow();
+            MainWindow.ShowDialog();
         }
 
         private void btnregister_Click(object sender, RoutedEventArgs e)
         {
-            //this is a window
             pages.register register = new pages.register();
             register.ShowDialog();           
         }
 
         private void btnlogin_Click(object sender, RoutedEventArgs e)
         {
-            //this is a Window
             pages.login login = new pages.login();
             login.ShowDialog();            
         }
 
         private void btndashboard_Click(object sender, RoutedEventArgs e)
         {
-            //this is a Window
             dashboard dashboard = new dashboard();
             dashboard.ShowDialog();
         }
