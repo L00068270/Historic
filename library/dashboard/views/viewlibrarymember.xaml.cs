@@ -8,7 +8,6 @@ using System.Windows.Controls;
 using System.Data;
 using library.librarymember;
 
-
 namespace library.dashboard.views
 {
     /// <summary>
@@ -21,13 +20,33 @@ namespace library.dashboard.views
 
         public static DataGrid datagrid;
 
+        int Id;
+
         public viewlibrarymember()
         {
             InitializeComponent();
             functionToLoadDatabaseToDataGrid();
         }
 
-        
+        //*************************************************************************************************        
+        // functions here
+        //*************************************************************************************************
+        private void functionPopulateLibraryMemberDetails(LibraryMember selectedLibraryMember)
+        {
+            tbxNameFirst.Text = selectedLibraryMember.NameFirst;
+            tbxNameInitial.Text = selectedLibraryMember.NameFirst;
+            tbxNameLast.Text = selectedLibraryMember.NameLast;
+            tbxUsername.Text = selectedLibraryMember.Username;
+            tbxPassword.Text = selectedLibraryMember.Password;
+            tbxConfirmPassword.Text = selectedLibraryMember.ConfirmPassword;
+            tbxAddress.Text = selectedLibraryMember.Address;
+            tbxStreet.Text = selectedLibraryMember.Street;
+            tbxTown.Text = selectedLibraryMember.Town;
+            tbxCounty.Text = selectedLibraryMember.County;
+            tbxCountry.Text = selectedLibraryMember.County;
+            tbxPostcode.Text = selectedLibraryMember.Postcode;
+        }
+
         //*************************************************************************************************        
         // function here
         //*************************************************************************************************
@@ -50,15 +69,83 @@ namespace library.dashboard.views
 
         private void btnInsert_Click(object sender, RoutedEventArgs e)
         {
-            librarymember_insert insert = new librarymember_insert();
-            insert.ShowDialog();
+            LibraryMember newLibraryMemberObject = new LibraryMember()
+            {
+                MemberID = int.Parse(this.tbxMemberID.Text),
+                NameFirst = tbxNameFirst.Text,
+                NameInitial = tbxNameInitial.Text,
+                NameLast = tbxNameLast.Text,
+                Username = tbxUsername.Text,
+                Password = tbxPassword.Text,
+                ConfirmPassword = tbxConfirmPassword.Text,
+                Address = tbxAddress.Text,
+                Street = tbxStreet.Text,
+                Town = tbxTown.Text,
+                County = tbxCounty.Text,
+                Country = tbxCountry.Text,
+                Postcode = tbxPostcode.Text,
+                Classification = int.Parse(this.tbxClassification.Text)
+            };
+            dc.LibraryMembers.InsertOnSubmit(newLibraryMemberObject);
+            dc.SubmitChanges();
+            viewlibrarymember.datagrid.ItemsSource = dc.LibraryMembers.ToList();
+
+            //now clear textboxes after insert
+            tbxMemberID.Text = "";
+            tbxNameFirst.Text = "";
+            tbxNameInitial.Text = "";
+            tbxNameLast.Text = "";
+            tbxUsername.Text = "";
+            tbxPassword.Text = "";
+            tbxConfirmPassword.Text = "";
+            tbxAddress.Text = "";
+            tbxStreet.Text = "";
+            tbxTown.Text = "";
+            tbxCounty.Text = "";
+            tbxCountry.Text = "";
+            tbxPostcode.Text = "";
+            tbxClassification.Text = "";
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            int id = (myDataGrid.SelectedItem as LibraryMember).MemberID;
-            librarymember_update updatemember = new librarymember_update(id);
-            updatemember.ShowDialog();
+
+            //LibraryMember updatemember = (from library in dc.LibraryMembers
+            //                              where library.MemberID == Id
+            //                              select library).Single();
+
+            //updatemember.MemberID = int.Parse(this.tbxMemberID.Text);
+            //updatemember.NameFirst = tbxNameFirst.Text;
+            //updatemember.NameInitial = tbxNameInitial.Text;
+            //updatemember.NameLast = tbxNameLast.Text;
+            //updatemember.Username = tbxUsername.Text;
+            //updatemember.Password = tbxPassword.Text;
+            //updatemember.ConfirmPassword = tbxConfirmPassword.Text;
+            //updatemember.Address = tbxAddress.Text;
+            //updatemember.Street = tbxStreet.Text;
+            //updatemember.Town = tbxTown.Text;
+            //updatemember.County = tbxCounty.Text;
+            //updatemember.Country = tbxCountry.Text;
+            //updatemember.Postcode = tbxPostcode.Text;
+            //updatemember.Classification = int.Parse(this.tbxMemberID.Text);
+
+            dc.SubmitChanges();
+
+            //now clear textboxes after insert
+            tbxMemberID.Text = "";
+            tbxNameFirst.Text = "";
+            tbxNameInitial.Text = "";
+            tbxNameLast.Text = "";
+            tbxUsername.Text = "";
+            tbxPassword.Text = "";
+            tbxConfirmPassword.Text = "";
+            tbxAddress.Text = "";
+            tbxStreet.Text = "";
+            tbxTown.Text = "";
+            tbxCounty.Text = "";
+            tbxCountry.Text = "";
+            tbxPostcode.Text = "";
+            tbxClassification.Text = "";
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)

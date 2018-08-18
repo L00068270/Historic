@@ -99,25 +99,6 @@
                                 <DataGridTextColumn Binding="{Binding ShelfNumber}" Header="Shelf" Width="45"/>
                                 <DataGridTextColumn Binding="{Binding Status}" Header="Status" Width="60"/>
                                 <DataGridTextColumn Binding="{Binding PublisherID}" Header="PublisherID" Width="100"/>
-
-                                <DataGridTemplateColumn>
-                                    <DataGridTemplateColumn.HeaderTemplate>
-                                        <DataTemplate>
-                                            <TextBlock>
-                                            Actions
-                                            </TextBlock>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.HeaderTemplate>
-
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-
-
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>

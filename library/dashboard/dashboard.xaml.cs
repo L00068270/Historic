@@ -135,9 +135,14 @@ namespace library.dashboard
             DataContext = new viewmodel_librarymember();
         }
 
+        private void hyperlink_librarymember_crud_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new viewmodel_librymembers_crud();
+        }
+
         private void hyperlink_publisher_Click(object sender, RoutedEventArgs e)
         {
             DataContext = new viewmodel_publisher();
-        }
+        }       
     }
 }

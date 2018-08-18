@@ -58,8 +58,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculator.cs" />
+    <Compile Include="DataBase.cs" />
     <Compile Include="excel.cs" />
     <Compile Include="LibraryMember.cs" />
+    <Compile Include="LibraryMemberCompare.cs" />
+    <Compile Include="LibraryMember_AddLibraryMember.cs" />
     <Compile Include="person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

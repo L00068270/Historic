@@ -137,6 +137,7 @@
     <Compile Include="dashboard\viewmodels\viewmodel_journaldetails.cs" />
     <Compile Include="dashboard\viewmodels\viewmodel_journals.cs" />
     <Compile Include="dashboard\viewmodels\viewmodel_librarymember.cs" />
+    <Compile Include="dashboard\viewmodels\viewmodel_librymembers_crud.cs" />
     <Compile Include="dashboard\viewmodels\viewmodel_publisher.cs" />
     <Compile Include="dashboard\viewmodels\viewmodel_referencebookdetails.cs" />
     <Compile Include="dashboard\viewmodels\viewmodel_referencebooks.cs" />
@@ -175,6 +176,9 @@
     </Compile>
     <Compile Include="dashboard\views\viewreferencebooks.xaml.cs">
       <DependentUpon>viewreferencebooks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="dashboard\views\view_librarymembers_crud.xaml.cs">
+      <DependentUpon>view_librarymembers_crud.xaml</DependentUpon>
     </Compile>
     <Compile Include="dvds\dvd_insert.xaml.cs">
       <DependentUpon>dvd_insert.xaml</DependentUpon>
@@ -276,6 +280,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="dashboard\views\viewreferencebooks.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="dashboard\views\view_librarymembers_crud.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

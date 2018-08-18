@@ -29,7 +29,7 @@
                     Please enter a Library Member
                     <LineBreak/>
                 </TextBlock>
-                <Grid DataContext="{Binding Source={StaticResource LibraryMember}}">
+                <Grid DataContext="{Binding Source={StaticResource LibraryMember}}" xmlns:local="clr-namespace:library.dashboard.views">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="0"/>
                         <RowDefinition Height="30"/>
@@ -70,20 +70,20 @@
 
 
                     <!--TEXT BOXES-->
-                    <TextBox x:Name="tbxMemberID"  Grid.Row="1" Grid.Column="3" Text="{Binding Path=MemberID, Mode=TwoWay}" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxNameFirst" Grid.Row="2" Grid.Column="3" Text="{Binding Path=NameFirst, Mode=TwoWay}" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxNameInitial" Grid.Row="3" Grid.Column="3" Text="{Binding Path=NameInitial, Mode=TwoWay}" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxNameLast" Grid.Row="4" Grid.Column="3" Text="{Binding Path=NameLast, Mode=TwoWay}" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxUsername" Grid.Row="5" Grid.Column="3" Text="{Binding Path=Username, Mode=TwoWay}" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxPassword" Grid.Row="6" Grid.Column="3" Text="{Binding Path=Password, Mode=TwoWay}" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxConfirmPassword" Grid.Row="7" Grid.Column="3" Text="{Binding Path=ConfirmPassword, Mode=TwoWay}" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxAddress" Grid.Row="8" Grid.Column="3" Text="{Binding Path=Address, Mode=TwoWay}" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxStreet" Grid.Row="9" Grid.Column="3" Text="{Binding Path=Street, Mode=TwoWay}" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxTown" Grid.Row="10" Grid.Column="3" Text="{Binding Path=Town, Mode=TwoWay}" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxCounty" Grid.Row="11" Grid.Column="3" Text="{Binding Path=County, Mode=TwoWay}" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxCountry" Grid.Row="12" Grid.Column="3" Text="{Binding Path=Country, Mode=TwoWay}" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxPostcode" Grid.Row="13" Grid.Column="3" Text="{Binding Path=Postcode, Mode=TwoWay}" Height="23" Width="120" Padding="2,4,2,2"/>
-                    <TextBox x:Name="tbxClassification" Grid.Row="14" Grid.Column="3" Text="{Binding Path=Classification, Mode=TwoWay}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxMemberID"  Grid.Row="1" Grid.Column="3" Text="{Binding SelectedItem.MemberID, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxNameFirst" Grid.Row="2" Grid.Column="3" Text="{Binding SelectedItem.NameFirst, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxNameInitial" Grid.Row="3" Grid.Column="3" Text="{Binding SelectedItem.NameInitial, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxNameLast" Grid.Row="4" Grid.Column="3" Text="{Binding SelectedItem.NameLast, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxUsername" Grid.Row="5" Grid.Column="3" Text="{Binding SelectedItem.Username, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxPassword" Grid.Row="6" Grid.Column="3" Text="{Binding SelectedItem.Password, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxConfirmPassword" Grid.Row="7" Grid.Column="3" Text="{Binding SelectedItem.ConfirmPassword, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxAddress" Grid.Row="8" Grid.Column="3" Text="{Binding SelectedItem.Address, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxStreet" Grid.Row="9" Grid.Column="3" Text="{Binding SelectedItem.Street, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxTown" Grid.Row="10" Grid.Column="3" Text="{Binding SelectedItem.Town, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxCounty" Grid.Row="11" Grid.Column="3" Text="{Binding SelectedItem.County, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxCountry" Grid.Row="12" Grid.Column="3" Text="{Binding SelectedItem.Country, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxPostcode" Grid.Row="13" Grid.Column="3" Text="{Binding SelectedItem.Postcode, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxClassification" Grid.Row="14" Grid.Column="3" Text="{Binding SelectedItem.Classification, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
                 </Grid>
                 <!--BUTTONS-->
                 <Grid>

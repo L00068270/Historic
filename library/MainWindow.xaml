@@ -81,6 +81,29 @@
             
             <!--ROW 6 LINKS-->
             <Rectangle Grid.Row="6" Grid.ColumnSpan="4" Height="100" Fill="#374989" Stroke="#374989"/>
+            <TextBlock x:Name="tbxFooter" Grid.Row="6" Grid.Column="1" Margin="17,16,37,10" FontFamily="Arial Unicode MS" FontSize="10" Foreground="White" >
+                <Run Text="Links Here"/>
+                <LineBreak/>
+                <Run Text="Follow us on Twitter"/>
+                <LineBreak/>
+                <Run Text="Out and About in Donegal"/>
+                <LineBreak/>
+                <Run Text="On Campus in Letterkenny"/>
+                <LineBreak/>
+                <Run Text="Faculty"/>
+            </TextBlock>
+
+            <TextBlock Grid.Row="6" Grid.Column="2" Margin="17,16,37,10" FontFamily="Arial Unicode MS" FontSize="10" Foreground="White" >
+                <Run Text="Link 6"/>
+                <LineBreak/>
+                <Run Text="Link 7"/>
+                <LineBreak/>
+                <Run Text="Link 8"/>
+                <LineBreak/>
+                <Run Text="Link 9"/>
+                <LineBreak/>
+                <Run Text="Link 10"/>
+            </TextBlock>
         </Grid>
     </ScrollViewer>
 </Window>

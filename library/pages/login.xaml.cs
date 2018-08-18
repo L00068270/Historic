@@ -42,7 +42,7 @@ namespace library.pages
          *      - clears contents of _libraryMemberList
          *      - then add all users to global list
          * ***********************************************************************************************/
-        private void functionToLoadLibraryMembers()                                                             
+        public void functionToLoadLibraryMembers()                                                             
         {
             _libraryMemberList.Clear();  
             foreach (var librarymember in dc.LibraryMembers)
@@ -60,7 +60,6 @@ namespace library.pages
          *      
          *************************************************************************************************/
         private void functionWindowLoaded(object sender, RoutedEventArgs e)
-        //private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             functionToLoadLibraryMembers();
         }

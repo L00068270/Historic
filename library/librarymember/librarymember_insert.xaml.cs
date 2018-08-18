@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Data;
 using library.dashboard.views;
 
 namespace library.librarymember
@@ -28,7 +29,7 @@ namespace library.librarymember
         //*************************************************************************************************        
         // buttons here
         //*************************************************************************************************
-        private void btnInsert_Click(object sender, RoutedEventArgs e)
+        public void btnInsert_Click(object sender, RoutedEventArgs e)
         {
             librarymember_insert functionToAddRowOfDataToDataGrid = new librarymember_insert();
             dc.SubmitChanges();

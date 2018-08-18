@@ -21,14 +21,10 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0"/>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Rectangle Grid.Row="0" Grid.Column="0"/>
         <Rectangle Grid.Row="1" Grid.Column="1" Fill="White"/>
-        <Rectangle Grid.Row="1" Grid.Column="2" Fill="White"/>
-        <Rectangle Grid.Row="1" Grid.Column="3" Fill="White"/>
         <Border Grid.Row="1" Grid.Column="1" Padding="20,20,20,20">
         </Border>
         <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Padding="20,20,20,60">
@@ -38,19 +34,63 @@
                 <Label x:Name="lblReEnter"/>
 
                 <TextBlock FontSize="20">                   
-                    Member Details
+                    Library Members Details
                     <LineBreak/>
                 </TextBlock>
 
-                <TextBlock FontSize="16">
-                    Note: 
-                    Admin user can insert, update or delete Library Member by editing this table  and save the changes.
-                    <LineBreak/>
-                    Select Library Member to update or delete.
-                    <LineBreak/>
-                    Select INSERT to add a new Library Member
-                </TextBlock>
+                <Grid DataContext="{Binding Source={StaticResource LibraryMember}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                       
+                    </Grid.ColumnDefinitions>
+                    <!--LABELS-->
+                    <Label x:Name="lbMemberID" Content="MemberID" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblNameFirst" Content="First Name" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblNameInitial" Content="Initials" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblNameLast" Content="Last Name" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblUsername" Content="Username" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblPassword" Content="Password" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblConfirmPassword" Content="ConfirmPassword" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblAddress" Content="Address" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblStreet" Content="Street" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblTown" Content="Town" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblCounty" Content="County" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblCountry" Content="Country" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblPostcode" Content="Postcode" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblClassification" Content="Classification" Grid.Row="7" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
+
+                    <!--TEXT BOXES-->
+                    <TextBox x:Name="tbxMemberID"  Grid.Row="1" Grid.Column="2" Text="{Binding SelectedItem.MemberID, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxNameFirst" Grid.Row="2" Grid.Column="2" Text="{Binding SelectedItem.NameFirst, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxNameInitial" Grid.Row="3" Grid.Column="2" Text="{Binding SelectedItem.NameInitial, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxNameLast" Grid.Row="4" Grid.Column="2" Text="{Binding SelectedItem.NameLast, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxUsername" Grid.Row="5" Grid.Column="2" Text="{Binding SelectedItem.Username, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxPassword" Grid.Row="6" Grid.Column="2" Text="{Binding SelectedItem.Password, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxConfirmPassword" Grid.Row="7" Grid.Column="2" Text="{Binding SelectedItem.ConfirmPassword, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxAddress" Grid.Row="1" Grid.Column="4" Text="{Binding SelectedItem.Address, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxStreet" Grid.Row="2" Grid.Column="4" Text="{Binding SelectedItem.Street, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxTown" Grid.Row="3" Grid.Column="4" Text="{Binding SelectedItem.Town, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxCounty" Grid.Row="4" Grid.Column="4" Text="{Binding SelectedItem.County, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxCountry" Grid.Row="5" Grid.Column="4" Text="{Binding SelectedItem.Country, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxPostcode" Grid.Row="6" Grid.Column="4" Text="{Binding SelectedItem.Postcode, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxClassification" Grid.Row="7" Grid.Column="4" Text="{Binding SelectedItem.Classification, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                </Grid>
+               
                 <!--BUTTONS-->
                 <Grid>
                     <Grid.RowDefinitions>
@@ -81,7 +121,7 @@
 
                 <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <Grid>
-                        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" ColumnWidth="*" AutoGenerateColumns="False">
+                        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" ColumnWidth="*" AutoGenerateColumns="False" SelectionUnit="FullRow" AlternatingRowBackground="FloralWhite">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding MemberID}" Header="MemberID" Width="65"/>
                                 <DataGridTextColumn Binding="{Binding NameFirst}" Header="First Name" Width="70"/>
