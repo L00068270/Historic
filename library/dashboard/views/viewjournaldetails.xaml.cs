@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Data;
-using library.journals;
 
 namespace library.dashboard.views
 {
@@ -18,11 +17,12 @@ namespace library.dashboard.views
         /**************************************************************************************************
          * database framework reference
          *************************************************************************************************/
-
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
         public static DataGrid datagrid;
+
+        int Id;
 
         public viewjournaldetails()
         {
@@ -43,8 +43,6 @@ namespace library.dashboard.views
         //*************************************************************************************************        
         // buttons here
         //*************************************************************************************************
-        
-
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             dc.SubmitChanges();
@@ -52,15 +50,57 @@ namespace library.dashboard.views
 
         private void btnInsert_Click(object sender, RoutedEventArgs e)
         {
-            journal_insert insert = new journal_insert();
-            insert.ShowDialog();
+            Journal newJournalObject = new Journal()
+            {
+                JournalID = int.Parse(this.tbxJournalId.Text),
+                Title = tbxTitle.Text,
+                ResearchSociety = tbxResearchSociety.Text,
+                CopiesTotal = int.Parse(this.tbxCopiesTotal.Text),
+                CopiesAvailable = int.Parse(this.tbxCopiesAvailable.Text),
+                CopiesOut = int.Parse(this.tbxCopiesOut.Text),
+                SubjectArea = tbxSubjectArea.Text,
+                YearOfPublication = tbxYearOfPublication.Text,
+                Keyword = tbxKeyword.Text,
+                JournalNumberID = int.Parse(this.tbxJournalNumberID.Text),
+                ShelfNumber = tbxShelfNumber.Text,
+                Status = tbxStatus.Text,
+            };
+            dc.Journals.InsertOnSubmit(newJournalObject);
+            dc.SubmitChanges();
+            viewjournaldetails.datagrid.ItemsSource = dc.Journals.ToList();
+
+            //now clear textboxes after insert
+            tbxJournalId.Text = "";
+            tbxTitle.Text = "";
+            tbxResearchSociety.Text = "";
+            tbxCopiesTotal.Text = "";
+            tbxCopiesAvailable.Text = "";
+            tbxCopiesOut.Text = "";
+            tbxSubjectArea.Text = "";
+            tbxYearOfPublication.Text = "";
+            tbxKeyword.Text = "";
+            tbxJournalNumberID.Text = "";
+            tbxShelfNumber.Text = "";
+            tbxStatus.Text = "";
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            int id = (myDataGrid.SelectedItem as Journal).JournalID;
-            journal_update updatejournal = new journal_update(id);
-            updatejournal.ShowDialog();
+            dc.SubmitChanges();
+
+            //now clear textboxes after insert
+            tbxJournalId.Text = "";
+            tbxTitle.Text = "";
+            tbxResearchSociety.Text = "";
+            tbxCopiesTotal.Text = "";
+            tbxCopiesAvailable.Text = "";
+            tbxCopiesOut.Text = "";
+            tbxSubjectArea.Text = "";
+            tbxYearOfPublication.Text = "";
+            tbxKeyword.Text = "";
+            tbxJournalNumberID.Text = "";
+            tbxShelfNumber.Text = "";
+            tbxStatus.Text = "";
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)

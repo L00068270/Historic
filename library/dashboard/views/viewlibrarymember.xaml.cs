@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Data;
-using library.librarymember;
 
 namespace library.dashboard.views
 {
@@ -60,8 +59,6 @@ namespace library.dashboard.views
         //*************************************************************************************************        
         // buttons here
         //*************************************************************************************************
-
-
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             dc.SubmitChanges();

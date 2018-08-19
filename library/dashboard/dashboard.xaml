@@ -166,15 +166,15 @@
                             Stock Tasks
                         </TextBlock>
                         <TextBlock>                          
-                            <Hyperlink x:Name="hyperlink_booksdetails" TextDecorations="{x:Null}" Click="hyperlink_booksdetails_Click">Book Details</Hyperlink> 
+                            <Hyperlink x:Name="hyperlink_booksdetails" TextDecorations="{x:Null}" Click="hyperlink_booksdetails_Click">Book Administration</Hyperlink> 
                             <LineBreak/>
-                            <Hyperlink x:Name="hyperlink_conferencedetails" TextDecorations="{x:Null}" Click="hyperlink_conferencedetails_Click">Conference Proceedings</Hyperlink> 
+                            <Hyperlink x:Name="hyperlink_conferencedetails" TextDecorations="{x:Null}" Click="hyperlink_conferencedetails_Click">Conference Proceedings Administration</Hyperlink> 
                             <LineBreak/>
-                            <Hyperlink x:Name="hyperlink_dvddetails" TextDecorations="{x:Null}" Click="hyperlink_dvddetails_Click">DVD Details</Hyperlink> 
+                            <Hyperlink x:Name="hyperlink_dvddetails" TextDecorations="{x:Null}" Click="hyperlink_dvddetails_Click">DVD Administration</Hyperlink> 
                             <LineBreak/>
-                            <Hyperlink x:Name="hyperlink_journaldetails" TextDecorations="{x:Null}" Click="hyperlink_journaldetails_Click">Journals</Hyperlink> 
+                            <Hyperlink x:Name="hyperlink_journaldetails" TextDecorations="{x:Null}" Click="hyperlink_journaldetails_Click">Journal Administration</Hyperlink> 
                             <LineBreak/>
-                            <Hyperlink x:Name="hyperlink_referencebooksdetails" TextDecorations="{x:Null}" Click="hyperlink_referencebooksdetails_Click">Reference Books</Hyperlink>
+                            <Hyperlink x:Name="hyperlink_referencebooksdetails" TextDecorations="{x:Null}" Click="hyperlink_referencebooksdetails_Click">Reference Book Administration</Hyperlink>
                         </TextBlock>
                     </StackPanel>
 
@@ -183,9 +183,7 @@
                             Members
                         </TextBlock>
                         <TextBlock>
-                            <Hyperlink x:Name="hyperlink_librarymember" TextDecorations="{x:Null}" Click="hyperlink_librarymember_Click">Member Details</Hyperlink>
-                            <LineBreak/>
-                            <Hyperlink x:Name="hyperlink_librarymember_crud" TextDecorations="{x:Null}" Click="hyperlink_librarymember_crud_Click">Library Members CRUD</Hyperlink>
+                            <Hyperlink x:Name="hyperlink_librarymember" TextDecorations="{x:Null}" Click="hyperlink_librarymember_Click">Library Member Administration</Hyperlink>
                         </TextBlock>
                     </StackPanel>
 
@@ -194,7 +192,7 @@
                             Publisher
                         </TextBlock>
                         <TextBlock>
-                    <Hyperlink x:Name="hyperlink_publisher" TextDecorations="{x:Null}" Click="hyperlink_publisher_Click">Publisher Details</Hyperlink>
+                    <Hyperlink x:Name="hyperlink_publisher" TextDecorations="{x:Null}" Click="hyperlink_publisher_Click">Publisher Administration</Hyperlink>
                         </TextBlock>
                     </StackPanel>
                 </Grid>

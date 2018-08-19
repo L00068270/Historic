@@ -13,7 +13,7 @@
     <UserControl.Resources>
         <library:Book x:Key="Book"/>
     </UserControl.Resources>
-
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0"/>
@@ -22,39 +22,74 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0"/>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Rectangle Grid.Row="0" Grid.Column="0"/>
         <Rectangle Grid.Row="1" Grid.Column="1" Fill="White"/>
-        <Rectangle Grid.Row="1" Grid.Column="2" Fill="White"/>
-        <Rectangle Grid.Row="1" Grid.Column="3" Fill="White"/>
         <Border Grid.Row="1" Grid.Column="1" Padding="20,20,20,20">
         </Border>
         <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Padding="20,0,20,60">
             <StackPanel>
-                <!--LABELS-->
-                <Label x:Name="lblSuccessful"/>
-                <Label x:Name="lblReEnter"/>
-
                 <TextBlock FontSize="28">                   
-                    Books
+                    Book Administration
                 </TextBlock>
 
-                <TextBlock FontSize="16">
-                    Book Details
-                    <LineBreak/>
-                    Note to user:
-                    <LineBreak/>
-                    Admin user can insert, update or delete Books by editing this table and save changes.
-                    <LineBreak/>
-                    You need to select the Book to update or delete.
-                    <LineBreak/>
-                    Select INSERT to add a new Book
-                </TextBlock>
+                <Grid DataContext="{Binding Source={StaticResource Book}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="26"/>
+                        <RowDefinition Height="26"/>
+                        <RowDefinition Height="26"/>
+                        <RowDefinition Height="26"/>
+                        <RowDefinition Height="26"/>
+                        <RowDefinition Height="26"/>
+                        <RowDefinition Height="26"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
 
-                <!--BUTTONS-->
+                    </Grid.ColumnDefinitions>
+                    <!--LABELS-->
+                    <Label x:Name="lblISBN" Content="ISBN" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblTitle" Content="Title" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblAuthor" Content="Author" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblCopiesTotal" Content="Copies Total" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblCopiesAvailable" Content="Copies Available" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblCopiesOut" Content="Copies Out" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    
+                    <Label x:Name="lblSubjectArea" Content="Subject Area" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblYearOfPublication" Content="Year of Publication" Grid.Row="2" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblKeyword" Content="Keywords" Grid.Row="3" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblBookID" Content="BookID" Grid.Row="4" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblShelfNumber" Content="Shelf Number" Grid.Row="5" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblStatus" Content="Status" Grid.Row="6" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblPublisherID" Content="PublisherID" Grid.Row="7" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    
+
+
+                    <!--TEXT BOXES-->
+                    <TextBox x:Name="tbxISBN"  Grid.Row="1" Grid.Column="4" Text="{Binding SelectedItem.ISBN, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxTitle"  Grid.Row="2" Grid.Column="4" Text="{Binding SelectedItem.Title, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxAuthor" Grid.Row="3" Grid.Column="4" Text="{Binding SelectedItem.Author, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxCopiesTotal" Grid.Row="4" Grid.Column="4" Text="{Binding SelectedItem.CopiesTotal, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxCopiesAvailable" Grid.Row="5" Grid.Column="4" Text="{Binding SelectedItem.CopiesAvailable, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxCopiesOut" Grid.Row="6" Grid.Column="4" Text="{Binding SelectedItem.CopiesOut, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    
+                    <TextBox x:Name="tbxSubjectArea" Grid.Row="1" Grid.Column="6" Text="{Binding SelectedItem.SubjectArea, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxYearOfPublication" Grid.Row="2" Grid.Column="6" Text="{Binding SelectedItem.YearOfPublication, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxKeyword" Grid.Row="3" Grid.Column="6" Text="{Binding SelectedItem.Keyword, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxBookID" Grid.Row="4" Grid.Column="6" Text="{Binding SelectedItem.BookID, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxShelfNumber" Grid.Row="5" Grid.Column="6" Text="{Binding SelectedItem.ShelfNumber, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxStatus" Grid.Row="6" Grid.Column="6" Text="{Binding SelectedItem.Status, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxPublisherID" Grid.Row="7" Grid.Column="6" Text="{Binding SelectedItem.PublisherID, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                </Grid>
+               
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="0"/>
@@ -84,7 +119,7 @@
 
                 <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <Grid >
-                        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" ColumnWidth="*" AutoGenerateColumns="False">
+                        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" ColumnWidth="*" AutoGenerateColumns="False" SelectionUnit="FullRow" AlternatingRowBackground="FloralWhite">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding ISBN}" Header="ISBN" Width="40"/>
                                 <DataGridTextColumn Binding="{Binding Title}" Header="Title" Width="200"/>
