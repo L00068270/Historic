@@ -20,33 +20,64 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0"/>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Rectangle Grid.Row="0" Grid.Column="0"/>
         <Rectangle Grid.Row="1" Grid.Column="1" Fill="White"/>
-        <Rectangle Grid.Row="1" Grid.Column="2" Fill="White"/>
-        <Rectangle Grid.Row="1" Grid.Column="3" Fill="White"/>
         <Border Grid.Row="1" Grid.Column="1" Padding="20,20,20,20">
         </Border>
         <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Padding="20,0,20,60">
             <StackPanel>
-                <TextBlock FontSize="28">                   
-                    Reference Books
+                <TextBlock FontSize="28">
+                    Reference Book Administration
                 </TextBlock>
+                <Grid DataContext="{Binding Source={StaticResource ReferenceBook}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--LABELS-->
+                    <Label x:Name="lblRefBookID" Content="RefBookID" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblTitle" Content="Title" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblAuthor" Content="Author" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblCopiesTotal" Content="CopiesTotal" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblCopiesAvailable" Content="CopiesAvailable" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblCopiesOut" Content="CopiesOut" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    
+                    <Label x:Name="lblSubjectArea" Content="SubjectArea" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblYearOfPublication" Content="YearOfPublication" Grid.Row="2" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblKeyword" Content="Keyword" Grid.Row="3" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblShelfNumber" Content="ShelfNumber" Grid.Row="4" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblStatus" Content="Status" Grid.Row="5" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
-                <TextBlock FontSize="16">
-                    Reference Book Details
-                    <LineBreak/>
-                    Note to user:
-                    <LineBreak/>
-                    Admin user can insert, update or delete Reference Books by editing this table and save changes.
-                    <LineBreak/>
-                    You need to select the Reference Book to update or delete.
-                    <LineBreak/>
-                    Select INSERT to add a new Reference Book
-                </TextBlock>
+                    <!--TEXT BOXES-->
+                    <TextBox x:Name="tbxRefBookID"  Grid.Row="1" Grid.Column="4" Text="{Binding SelectedItem.Author, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxTitle" Grid.Row="2" Grid.Column="4" Text="{Binding SelectedItem.Title, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxAuthor" Grid.Row="3" Grid.Column="4" Text="{Binding SelectedItem.ResearchSociety, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxCopiesTotal" Grid.Row="4" Grid.Column="4" Text="{Binding SelectedItem.CopiesTotal, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxCopiesAvailable" Grid.Row="5" Grid.Column="4" Text="{Binding SelectedItem.CopiesAvailable, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxCopiesOut" Grid.Row="6" Grid.Column="4" Text="{Binding SelectedItem.CopiesOut, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+
+                    <TextBox x:Name="tbxSubjectArea" Grid.Row="1" Grid.Column="6" Text="{Binding SelectedItem.SubjectArea, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxYearOfPublication" Grid.Row="2" Grid.Column="6" Text="{Binding SelectedItem.YearOfPublication, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxKeyword" Grid.Row="3" Grid.Column="6" Text="{Binding SelectedItem.Keyword, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxShelfNumber" Grid.Row="4" Grid.Column="6" Text="{Binding SelectedItem.ShelfNumber, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxStatus" Grid.Row="5" Grid.Column="6" Text="{Binding SelectedItem.Status, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                </Grid>
 
                 <!--BUTTONS-->
                 <Grid>

@@ -54,15 +54,57 @@ namespace library.dashboard.views
 
         private void btnInsert_Click(object sender, RoutedEventArgs e)
         {
-            publisher_insert insert = new publisher_insert();
-            insert.ShowDialog();
+            Publisher newPublisherObject = new Publisher()
+            {
+                PublisherID = int.Parse(this.tbxPublisherID.Text),
+                PublisherName = tbxPublisherName.Text,
+                Email = tbxEmail.Text,
+                ContactNumber = tbxContactNumber.Text,
+                Address = tbxAddress.Text,
+                Street = tbxStreet.Text,
+                Town = tbxTown.Text,
+                County = tbxCounty.Text,
+                Country = tbxCountry.Text,
+                Postcode = tbxPostcode.Text,
+                Paidout = tbxPaidout.Text,
+                AccountNumber = tbxAccountNumber.Text,
+            };
+            dc.Publishers.InsertOnSubmit(newPublisherObject);
+            dc.SubmitChanges();
+            viewpublisher.datagrid.ItemsSource = dc.Publishers.ToList();
+
+            //now clear textboxes after insert
+            tbxPublisherID.Text = "";
+            tbxPublisherName.Text = "";
+            tbxEmail.Text = "";
+            tbxContactNumber.Text = "";
+            tbxAddress.Text = "";
+            tbxStreet.Text = "";
+            tbxTown.Text = "";
+            tbxCounty.Text = "";
+            tbxCountry.Text = "";
+            tbxPostcode.Text = "";
+            tbxPaidout.Text = "";
+            tbxAccountNumber.Text = "";
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            int id = (myDataGrid.SelectedItem as Publisher).PublisherID;
-            publisher_update updatemember = new publisher_update(id);
-            updatemember.ShowDialog();
+            dc.SubmitChanges();
+
+            //now clear textboxes after insert
+            tbxPublisherID.Text = "";
+            tbxPublisherName.Text = "";
+            tbxEmail.Text = "";
+            tbxContactNumber.Text = "";
+            tbxAddress.Text = "";
+            tbxStreet.Text = "";
+            tbxTown.Text = "";
+            tbxCounty.Text = "";
+            tbxCountry.Text = "";
+            tbxPostcode.Text = "";
+            tbxPaidout.Text = "";
+            tbxAccountNumber.Text = "";
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)

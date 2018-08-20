@@ -46,15 +46,54 @@ namespace library.dashboard.views
 
         private void btnInsert_Click(object sender, RoutedEventArgs e)
         {
-            reference_insert insert = new reference_insert();
-            insert.ShowDialog();
+            ReferenceBook newReferenceBookObject = new ReferenceBook()
+            {
+                RefBookID = int.Parse(this.tbxRefBookID.Text),
+                Title = tbxTitle.Text,
+                Author = tbxAuthor.Text,
+                CopiesTotal = int.Parse(this.tbxCopiesTotal.Text),
+                CopiesAvailable = int.Parse(this.tbxCopiesAvailable.Text),
+                CopiesOut = int.Parse(this.tbxCopiesOut.Text),
+                SubjectArea = tbxSubjectArea.Text,
+                YearOfPublication = tbxYearOfPublication.Text,
+                Keyword = tbxKeyword.Text,
+                ShelfNumber = tbxShelfNumber.Text,
+                Status = tbxStatus.Text,
+            };
+            dc.ReferenceBooks.InsertOnSubmit(newReferenceBookObject);
+            dc.SubmitChanges();
+            viewreferencebookdetails.datagrid.ItemsSource = dc.ReferenceBooks.ToList();
+
+            //now clear textboxes after insert
+            tbxRefBookID.Text = "";
+            tbxTitle.Text = "";
+            tbxAuthor.Text = "";
+            tbxCopiesTotal.Text = "";
+            tbxCopiesAvailable.Text = "";
+            tbxCopiesOut.Text = "";
+            tbxSubjectArea.Text = "";
+            tbxYearOfPublication.Text = "";
+            tbxKeyword.Text = "";
+            tbxShelfNumber.Text = "";
+            tbxStatus.Text = "";
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            int id = (myDataGrid.SelectedItem as ReferenceBook).RefBookID;
-            reference_update updatereferencebook = new reference_update(id);
-            updatereferencebook.ShowDialog();
+            dc.SubmitChanges();
+
+            //now clear textboxes after insert
+            tbxRefBookID.Text = "";
+            tbxTitle.Text = "";
+            tbxAuthor.Text = "";
+            tbxCopiesTotal.Text = "";
+            tbxCopiesAvailable.Text = "";
+            tbxCopiesOut.Text = "";
+            tbxSubjectArea.Text = "";
+            tbxYearOfPublication.Text = "";
+            tbxKeyword.Text = "";
+            tbxShelfNumber.Text = "";
+            tbxStatus.Text = "";
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)

@@ -29,7 +29,7 @@
         </Border>
         <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Padding="20,20,20,60">
             <StackPanel>
-                <TextBlock FontSize="20">                   
+                <TextBlock FontSize="28">                   
                     Library Members Details
                 </TextBlock>
 

@@ -21,6 +21,8 @@ namespace library.dashboard.views
 
         public static DataGrid datagrid;
 
+        int Id;
+
         public viewconferencedetails()
         {
             InitializeComponent();
@@ -48,15 +50,57 @@ namespace library.dashboard.views
 
         private void btnInsert_Click(object sender, RoutedEventArgs e)
         {
-            conference_insert insert = new conference_insert();
-            insert.ShowDialog();
+            ConferenceProceeding newConferenceProceedingObject = new ConferenceProceeding()
+            {
+                ConfID = int.Parse(this.tbxConfID.Text),
+                Title = tbxTitle.Text,
+                Author = tbxAuthor.Text,
+                CopiesTotal = int.Parse(this.tbxCopiesTotal.Text),
+                CopiesAvailable = int.Parse(this.tbxCopiesAvailable.Text),
+                CopiesOut = int.Parse(this.tbxCopiesOut.Text),
+                SubjectArea = tbxSubjectArea.Text,
+                YearOfPublication = tbxYearOfPublication.Text,
+                Keyword = tbxKeyword.Text,
+                ConfNumberID = int.Parse(this.tbxConfNumberID.Text),
+                ShelfNumber = tbxShelfNumber.Text,
+                Status = tbxStatus.Text,
+            };
+            dc.ConferenceProceedings.InsertOnSubmit(newConferenceProceedingObject);
+            dc.SubmitChanges();
+            viewconferencedetails.datagrid.ItemsSource = dc.ConferenceProceedings.ToList();
+
+            //now clear textboxes after insert
+            tbxConfID.Text = "";
+            tbxTitle.Text = "";
+            tbxAuthor.Text = "";
+            tbxCopiesTotal.Text = "";
+            tbxCopiesAvailable.Text = "";
+            tbxCopiesOut.Text = "";
+            tbxSubjectArea.Text = "";
+            tbxYearOfPublication.Text = "";
+            tbxKeyword.Text = "";
+            tbxConfNumberID.Text = "";
+            tbxShelfNumber.Text = "";
+            tbxStatus.Text = "";
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            int id = (myDataGrid.SelectedItem as ConferenceProceeding).ConfID;
-            conference_update updateconference = new conference_update(id);
-            updateconference.ShowDialog();
+            dc.SubmitChanges();
+
+            //now clear textboxes after insert
+            tbxConfID.Text = "";
+            tbxTitle.Text = "";
+            tbxAuthor.Text = "";
+            tbxCopiesTotal.Text = "";
+            tbxCopiesAvailable.Text = "";
+            tbxCopiesOut.Text = "";
+            tbxSubjectArea.Text = "";
+            tbxYearOfPublication.Text = "";
+            tbxKeyword.Text = "";
+            tbxConfNumberID.Text = "";
+            tbxShelfNumber.Text = "";
+            tbxStatus.Text = "";
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)

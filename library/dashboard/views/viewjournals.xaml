@@ -14,7 +14,7 @@
     <Grid>
         <Border Grid.Row="3" Grid.Column="1" Padding="20,20,20,20">
             <StackPanel>
-                <TextBlock FontSize="20">
+                <TextBlock FontSize="28">
                             Journals
                 </TextBlock>
                 <!--CENTRAL SCREEN AREA-->

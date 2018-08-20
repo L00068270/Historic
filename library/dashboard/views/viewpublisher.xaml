@@ -21,37 +21,67 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0"/>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Rectangle Grid.Row="0" Grid.Column="0"/>
         <Rectangle Grid.Row="1" Grid.Column="1" Fill="White"/>
-        <Rectangle Grid.Row="1" Grid.Column="2" Fill="White"/>
-        <Rectangle Grid.Row="1" Grid.Column="3" Fill="White"/>
         <Border Grid.Row="1" Grid.Column="1" Padding="20,20,20,20">
         </Border>
         <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Padding="20,0,20,60">
             <StackPanel>
-                <!--LABELS-->
-                <Label x:Name="lblSuccessful"/>
-                <Label x:Name="lblReEnter"/>
-
-                <TextBlock FontSize="28">                   
-                    Publisher
+                <TextBlock FontSize="28">
+                    Publisher Administration
                 </TextBlock>
+                <Grid DataContext="{Binding Source={StaticResource Publisher}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--LABELS-->
+                    <Label x:Name="lblPublisherID" Content="PublisherID" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblPublisherName" Content="PublisherName" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblEmail" Content="Email" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblContacyNumber" Content="ContacyNumber" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblUsername" Content="Address" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblStreet" Content="Street" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    
+                    <Label x:Name="lblTown" Content="Town" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblCounty" Content="County" Grid.Row="2" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblCountry" Content="Country" Grid.Row="3" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblPostcode" Content="Postcode" Grid.Row="4" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblPaidout" Content="Paidout" Grid.Row="5" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblAccountNumber" Content="AccountNumber" Grid.Row="6" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
 
-                <TextBlock FontSize="16">
-                    Details and Accounts
-                    <LineBreak/>
-                    Note to user:
-                    <LineBreak/>
-                    Admin user can insert, update or delete Publisher by editing this table and save changes.
-                    <LineBreak/>
-                    You need to select the Publisher to update or delete.
-                    <LineBreak/>
-                    Select INSERT to add a new Publisher
-                </TextBlock>
+
+                    <!--TEXT BOXES-->
+                    <TextBox x:Name="tbxPublisherID"  Grid.Row="1" Grid.Column="4" Text="{Binding SelectedItem.PublisherID, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxPublisherName" Grid.Row="2" Grid.Column="4" Text="{Binding SelectedItem.PublisherName, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxEmail" Grid.Row="3" Grid.Column="4" Text="{Binding SelectedItem.Email, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxContactNumber" Grid.Row="4" Grid.Column="4" Text="{Binding SelectedItem.ContactNumber, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxAddress" Grid.Row="5" Grid.Column="4" Text="{Binding SelectedItem.Address, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxStreet" Grid.Row="6" Grid.Column="4" Text="{Binding SelectedItem.Street, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    
+                    <TextBox x:Name="tbxTown" Grid.Row="1" Grid.Column="6" Text="{Binding SelectedItem.Town, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxCounty" Grid.Row="2" Grid.Column="6" Text="{Binding SelectedItem.County, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxCountry" Grid.Row="3" Grid.Column="6" Text="{Binding SelectedItem.Country, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxPostcode" Grid.Row="4" Grid.Column="6" Text="{Binding SelectedItem.Postcode, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxPaidout" Grid.Row="5" Grid.Column="6" Text="{Binding SelectedItem.Paidout, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxAccountNumber" Grid.Row="6" Grid.Column="6" Text="{Binding SelectedItem.AccountNumber, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                </Grid>
 
                 <!--BUTTONS-->
                 <Grid>
