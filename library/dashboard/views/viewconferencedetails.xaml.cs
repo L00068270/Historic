@@ -19,9 +19,9 @@ namespace library.dashboard.views
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
-        public static DataGrid datagrid;
+        //AzureLibraryEntities dc = new AzureLibraryEntities();
 
-        int Id;
+        public static DataGrid datagrid;
 
         public viewconferencedetails()
         {

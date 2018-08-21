@@ -20,9 +20,9 @@ namespace library.dashboard.views
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
-        public static DataGrid datagrid;
+        //AzureLibraryEntities dc = new AzureLibraryEntities();
 
-        int Id;
+        public static DataGrid datagrid;
 
         public viewbookdetails()
         {
@@ -45,7 +45,7 @@ namespace library.dashboard.views
         //*************************************************************************************************
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            dc.SubmitChanges();
+            dc.SubmitChanges();         
         }
 
         private void btnInsert_Click(object sender, RoutedEventArgs e)
@@ -89,6 +89,7 @@ namespace library.dashboard.views
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
             dc.SubmitChanges();
+            
 
             //now clear textboxes after insert
             tbxISBN.Text = "";

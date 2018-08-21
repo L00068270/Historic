@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:library"
         xmlns:pages="clr-namespace:library.pages"
-        xmlns:LinqAzureDatabase="clr-namespace:MyClassesLibrary;assembly=MyClassesLibrary"
         xmlns:library="clr-namespace:library"        
         mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989" 
         Title="login" Height="300" Width="300" Loaded="functionWindowLoaded" WindowStartupLocation="CenterScreen" WindowStyle="None">

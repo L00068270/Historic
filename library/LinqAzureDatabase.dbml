@@ -1,22 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="library" Class="LinqAzureDatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=lougheske.database.windows.net;Initial Catalog=library;Persist Security Info=True;User ID=teillo" SettingsObjectName="library.Properties.Settings" SettingsPropertyName="libraryConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Publisher" Member="Publishers">
-    <Type Name="Publisher">
-      <Column Name="PublisherID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="PublisherName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="ContactNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Address" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Street" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Town" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="County" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Country" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Postcode" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Paidout" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="AccountNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Publisher_Book" Member="Books" ThisKey="PublisherID" OtherKey="PublisherID" Type="Book" />
-    </Type>
-  </Table>
+  <Connection Mode="AppSettings" ConnectionString="Data Source=lougheske.database.windows.net;Initial Catalog=library;Persist Security Info=True;User ID=teillo" SettingsObjectName="library.Properties.Settings" SettingsPropertyName="libraryConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Book" Member="Books">
     <Type Name="Book">
       <Column Name="ISBN" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -35,18 +18,36 @@
       <Association Name="Publisher_Book" Member="Publisher" ThisKey="PublisherID" OtherKey="PublisherID" Type="Publisher" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Journal" Member="Journals">
-    <Type Name="Journal">
-      <Column Name="JournalID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+  <Table Name="dbo.LibraryMember" Member="LibraryMembers">
+    <Type Name="LibraryMember">
+      <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NameFirst" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="NameInitial" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="NameLast" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ConfirmPassword" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="Street" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Town" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="County" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Postcode" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Classification" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ConferenceProceeding" Member="ConferenceProceedings">
+    <Type Name="ConferenceProceeding">
+      <Column Name="ConfID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Title" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="ResearchSociety" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Author" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="CopiesTotal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CopiesAvailable" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CopiesOut" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="SubjectArea" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="YearOfPublication" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Keyword" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="JournalNumberID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ConfNumberID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ShelfNumber" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="Status" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
     </Type>
@@ -67,20 +68,44 @@
       <Column Name="Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.ConferenceProceeding" Member="ConferenceProceedings">
-    <Type Name="ConferenceProceeding">
-      <Column Name="ConfID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+  <Table Name="dbo.Journal" Member="Journals">
+    <Type Name="Journal">
+      <Column Name="JournalID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Title" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Author" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ResearchSociety" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="CopiesTotal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CopiesAvailable" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CopiesOut" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="SubjectArea" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="YearOfPublication" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="Keyword" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="ConfNumberID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JournalNumberID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ShelfNumber" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="Status" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MemberHistories" Member="MemberHistories">
+    <Type Name="MemberHistory">
+      <Column Name="HistoryID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ItemsID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Publisher" Member="Publishers">
+    <Type Name="Publisher">
+      <Column Name="PublisherID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PublisherName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ContactNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Street" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Town" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="County" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Postcode" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Paidout" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AccountNumber" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Publisher_Book" Member="Books" ThisKey="PublisherID" OtherKey="PublisherID" Type="Book" />
     </Type>
   </Table>
   <Table Name="dbo.ReferenceBook" Member="ReferenceBooks">
@@ -96,24 +121,6 @@
       <Column Name="Keyword" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="ShelfNumber" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="Status" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.LibraryMember" Member="LibraryMembers">
-    <Type Name="LibraryMember">
-      <Column Name="MemberID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="NameFirst" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="NameInitial" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="NameLast" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="Username" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Password" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="ConfirmPassword" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Address" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="Street" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Town" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="County" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Country" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Postcode" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="Classification" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

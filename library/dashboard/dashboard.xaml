@@ -62,9 +62,6 @@
         <DataTemplate x:Name="template_librarymember" DataType="{x:Type viewmodels:viewmodel_librarymember}">
             <views:viewlibrarymember DataContext="{Binding Path=viewmodel_librarymember}"></views:viewlibrarymember>
         </DataTemplate>
-        <DataTemplate x:Name="template_librarymember_crud" DataType="{x:Type viewmodels:viewmodel_librymembers_crud}">
-            <views:view_librarymembers_crud DataContext="{Binding Path=viewmodel_librarymember_crud}"></views:view_librarymembers_crud>
-        </DataTemplate>
         <DataTemplate x:Name="template_publisher" DataType="{x:Type viewmodels:viewmodel_publisher}">
             <views:viewpublisher DataContext="{Binding Path=viewmodel_publisher}"></views:viewpublisher>
         </DataTemplate>

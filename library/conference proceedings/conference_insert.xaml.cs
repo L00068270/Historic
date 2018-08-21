@@ -17,6 +17,8 @@ namespace library.conference_proceedings
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
+        //AzureLibraryEntities dc = new AzureLibraryEntities();
+
         public static DataGrid datagrid;
 
         public conference_insert()
@@ -32,6 +34,7 @@ namespace library.conference_proceedings
         {
             conference_insert functionToAddRowOfDataToDataGrid = new conference_insert();
             dc.SubmitChanges();
+            //dc.SaveChanges();
 
             ConferenceProceeding newConferenceProceedingObject = new ConferenceProceeding()
             {
@@ -50,6 +53,8 @@ namespace library.conference_proceedings
             };
             dc.ConferenceProceedings.InsertOnSubmit(newConferenceProceedingObject);
             dc.SubmitChanges();
+            //dc.ConferenceProceedings.Add(newConferenceProceedingObject);
+            //dc.SaveChanges();
             viewconferencedetails.datagrid.ItemsSource = dc.ConferenceProceedings.ToList();
             this.Hide();
         }

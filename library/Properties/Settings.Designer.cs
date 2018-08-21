@@ -26,11 +26,34 @@ namespace library.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=lougheske.database.windows.net;Initial Catalog=library;Persist Securi" +
-            "ty Info=True;User ID=teillo;Password=CumulusCl0uds")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=lougheske.database.windows.net;          Initial Catalog=library;    " +
+            "      Persist Security Info=True;          User ID=teillo;          Password=Cum" +
+            "ulusCl0uds")]
         public string libraryConnectionString {
             get {
                 return ((string)(this["libraryConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=lougheske.database.windows.net;Initial Catalog=library;Persist Securi" +
+            "ty Info=True;User ID=teillo;Password=CumulusCl0uds")]
+        public string libraryConnectionString1 {
+            get {
+                return ((string)(this["libraryConnectionString1"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=lougheske.database.windows.net;Initial Catalog=library;Persist Securi" +
+            "ty Info=True;User ID=teillo")]
+        public string libraryConnectionString2 {
+            get {
+                return ((string)(this["libraryConnectionString2"]));
             }
         }
     }

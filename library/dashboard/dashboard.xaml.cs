@@ -30,12 +30,10 @@ namespace library.dashboard
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
-
-
-
         public dashboard()
         {
             InitializeComponent();
+            DataContext = new viewmodel_books();
         }
 
 

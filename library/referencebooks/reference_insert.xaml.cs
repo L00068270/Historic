@@ -17,6 +17,7 @@ namespace library.referencebooks
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
+
         public static DataGrid datagrid;
 
         public reference_insert()

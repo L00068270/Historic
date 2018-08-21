@@ -27,6 +27,8 @@ namespace library.dashboard.views
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
+        //AzureLibraryEntities dc = new AzureLibraryEntities();
+
         public static ListView listview;
 
         /**************************************************************************************************

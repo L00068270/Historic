@@ -1,54 +1,60 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 10.75" name="LinqAzureDatabase">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.5" name="LinqAzureDatabase">
   <DataContextMoniker Name="/LinqAzureDatabaseDataContext" />
   <nestedChildShapes>
-    <classShape Id="f1ec107f-e37c-44f9-89cc-95374fb19d87" absoluteBounds="2.75, 0.5, 2, 3.1170068359375">
-      <DataClassMoniker Name="/LinqAzureDatabaseDataContext/Publisher" />
-      <nestedChildShapes>
-        <elementListCompartment Id="351ade21-deab-4ac8-80a3-755c7e91252b" absoluteBounds="2.765, 0.96, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="7dcb1b13-692e-4d51-896a-348565ce531e" absoluteBounds="2.75, 3.875, 2, 3.3093082682291666">
+    <classShape Id="cb2c18f3-9c71-41e7-a547-f652bec08193" absoluteBounds="7.25, 0.5, 2, 3.3093082682291666">
       <DataClassMoniker Name="/LinqAzureDatabaseDataContext/Book" />
       <nestedChildShapes>
-        <elementListCompartment Id="c22d2a28-a9ad-401f-af26-e5b532d9f787" absoluteBounds="2.765, 4.335, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="bf6550c5-83a6-4e37-996b-d6651b024bf6" absoluteBounds="7.2650000000000006, 0.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(3.90625 : 3.6170068359375); (3.90625 : 3.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/LinqAzureDatabaseDataContext/Publisher/Publisher_Book" />
-      <nodes>
-        <classShapeMoniker Id="f1ec107f-e37c-44f9-89cc-95374fb19d87" />
-        <classShapeMoniker Id="7dcb1b13-692e-4d51-896a-348565ce531e" />
-      </nodes>
-    </associationConnector>
-    <classShape Id="c678105e-b2d0-41ae-add2-c16020d275b6" absoluteBounds="4.875, 0.5, 2, 3.1170068359375">
-      <DataClassMoniker Name="/LinqAzureDatabaseDataContext/Journal" />
-      <nestedChildShapes>
-        <elementListCompartment Id="290049b7-8244-4f72-860c-1673ee776557" absoluteBounds="4.89, 0.96, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="995f8337-9ab9-4a28-88c5-5921d9b8c316" absoluteBounds="5, 3.875, 2, 3.1170068359375">
-      <DataClassMoniker Name="/LinqAzureDatabaseDataContext/DVD" />
-      <nestedChildShapes>
-        <elementListCompartment Id="5dafdab1-1a63-40d4-9e89-22e6972436a3" absoluteBounds="5.015, 4.335, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="0144c3ff-c921-4b09-afe1-e969f5c04bf9" absoluteBounds="2.75, 7.375, 2, 3.1170068359375">
-      <DataClassMoniker Name="/LinqAzureDatabaseDataContext/ConferenceProceeding" />
-      <nestedChildShapes>
-        <elementListCompartment Id="e2ac456e-caae-49ba-9b68-8fe480b1355d" absoluteBounds="2.765, 7.8350000000000009, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="4b46e8c7-9716-4868-9485-e7b66f17c769" absoluteBounds="5, 7.375, 2, 2.9247054036458331">
-      <DataClassMoniker Name="/LinqAzureDatabaseDataContext/ReferenceBook" />
-      <nestedChildShapes>
-        <elementListCompartment Id="518b51b9-bf47-49e3-bce8-2edbb1a005a8" absoluteBounds="5.015, 7.8350000000000009, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="e8bd5d12-2aa8-40bb-ac9b-f736d691358f" absoluteBounds="0.5, 0.5, 2, 3.5016097005208326">
+    <classShape Id="057c8eb3-dca3-4903-8292-1bc20d2e7c7b" absoluteBounds="0.5, 0.5, 2, 3.5016097005208326">
       <DataClassMoniker Name="/LinqAzureDatabaseDataContext/LibraryMember" />
       <nestedChildShapes>
-        <elementListCompartment Id="dcded122-27a8-481e-bcea-24e45e8c4c58" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="7f40c77f-c85f-4c83-b5f8-0143f2c38135" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1e554eef-b1be-487a-9221-836ce1c83031" absoluteBounds="2.75, 4.25, 2, 3.1170068359375">
+      <DataClassMoniker Name="/LinqAzureDatabaseDataContext/ConferenceProceeding" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d0c38ec0-db29-4ae4-b9d8-ae8ae9952609" absoluteBounds="2.765, 4.71, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0690891a-9ef2-4cb7-ae84-2b1fc9840ddf" absoluteBounds="7.25, 4.25, 2, 3.1170068359375">
+      <DataClassMoniker Name="/LinqAzureDatabaseDataContext/DVD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c64eeab8-bd6d-4072-bc1a-212b7a19f8b2" absoluteBounds="7.2650000000000006, 4.71, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cd4f8c78-2401-4e65-a4b2-4e165a4323c6" absoluteBounds="5, 0.5, 2, 3.1170068359375">
+      <DataClassMoniker Name="/LinqAzureDatabaseDataContext/Journal" />
+      <nestedChildShapes>
+        <elementListCompartment Id="daafcd15-6745-4962-8278-3c13273aa7c7" absoluteBounds="5.0150000000000006, 0.96, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="480b2f32-e0f5-4631-9036-2761e6351042" absoluteBounds="4.75, 7.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LinqAzureDatabaseDataContext/MemberHistory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="54c71030-d3cb-4674-a3c3-e9c4adf5681e" absoluteBounds="4.765, 8.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="576661ea-23b8-46eb-bf1c-35c8dbf73fa9" absoluteBounds="2.75, 0.5, 2, 3.1170068359375">
+      <DataClassMoniker Name="/LinqAzureDatabaseDataContext/Publisher" />
+      <nestedChildShapes>
+        <elementListCompartment Id="837276bf-3e74-4d62-a065-0797542cab38" absoluteBounds="2.7649999999999997, 0.96, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.75 : 0.5); (5.125 : 0.125); (6.875 : 0.125); (7.25 : 0.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LinqAzureDatabaseDataContext/Publisher/Publisher_Book" />
+      <nodes>
+        <classShapeMoniker Id="576661ea-23b8-46eb-bf1c-35c8dbf73fa9" />
+        <classShapeMoniker Id="cb2c18f3-9c71-41e7-a547-f652bec08193" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2565e60d-d34f-4b46-b4fa-2351ef7b1421" absoluteBounds="5, 4.25, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/LinqAzureDatabaseDataContext/ReferenceBook" />
+      <nestedChildShapes>
+        <elementListCompartment Id="312d6035-c157-46da-8b41-5e14cef23e2b" absoluteBounds="5.015, 4.71, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

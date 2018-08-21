@@ -17,6 +17,8 @@ namespace library.conference_proceedings
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
+        //AzureLibraryEntities dc = new AzureLibraryEntities();
+
         public static DataGrid datagrid;
 
         int Id;
@@ -46,6 +48,7 @@ namespace library.conference_proceedings
             _updateconferenceproceeding.Status = tbxStatus.Text;
 
             dc.SubmitChanges();
+            //dc.SaveChanges();
             viewconferencedetails.datagrid.ItemsSource = dc.ConferenceProceedings.ToList();
             this.Hide();
 

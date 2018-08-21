@@ -18,6 +18,8 @@ namespace library.librarymember
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
+        //AzureLibraryEntities dc = new AzureLibraryEntities();
+
         public static DataGrid datagrid;
 
         public librarymember_insert()

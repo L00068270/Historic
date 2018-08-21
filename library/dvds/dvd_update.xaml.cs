@@ -17,6 +17,7 @@ namespace library.dvds
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
+
         public static DataGrid datagrid;
 
         int Id;

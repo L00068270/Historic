@@ -113,7 +113,7 @@
 
                 <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <Grid>
-                        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" ColumnWidth="*" AutoGenerateColumns="False">
+                        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" ColumnWidth="*" AutoGenerateColumns="False" SelectionUnit="FullRow" AlternatingRowBackground="FloralWhite">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding PublisherID}" Header="PublisherID" Width="65"/>
                                 <DataGridTextColumn Binding="{Binding PublisherName}" Header="PublisherName" Width="120"/>

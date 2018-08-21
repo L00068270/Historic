@@ -22,6 +22,7 @@ namespace library.pages
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
+
         public register()
         {
             InitializeComponent();
@@ -45,7 +46,7 @@ namespace library.pages
                 Postcode = tbxPostcode.Text,
             };
             dc.LibraryMembers.InsertOnSubmit(newLibraryMemberObject);
-            dc.SubmitChanges();            
+            dc.SubmitChanges();
             this.Hide();
             MessageBox.Show("Regristration Complete - Thank You");
         }

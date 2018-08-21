@@ -120,7 +120,9 @@
 
                 <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <Grid>
-                        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" ColumnWidth="*" AutoGenerateColumns="False" SelectionUnit="FullRow" AlternatingRowBackground="FloralWhite">
+                        <DataGrid x:Name="myDataGrid" x:FieldModifier="public" ColumnWidth="*" 
+                                  AutoGenerateColumns="False" SelectionUnit="FullRow" 
+                                  AlternatingRowBackground="FloralWhite">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Binding="{Binding MemberID}" Header="MemberID" Width="65"/>
                                 <DataGridTextColumn Binding="{Binding NameFirst}" Header="First Name" Width="70"/>

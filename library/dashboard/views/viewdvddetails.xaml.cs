@@ -18,6 +18,8 @@ namespace library.dashboard.views
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
+        //AzureLibraryEntities dc = new AzureLibraryEntities();
+
         public static DataGrid datagrid;
 
         int Id;
@@ -85,6 +87,7 @@ namespace library.dashboard.views
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
             dc.SubmitChanges();
+
 
             //now clear textboxes after insert
             tbxDVDID.Text = "";

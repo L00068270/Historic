@@ -128,6 +128,7 @@ namespace library.dashboard.views
 
             dc.SubmitChanges();
 
+
             //now clear textboxes after insert
             tbxMemberID.Text = "";
             tbxNameFirst.Text = "";

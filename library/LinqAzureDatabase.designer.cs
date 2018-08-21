@@ -30,31 +30,34 @@ namespace library
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertPublisher(Publisher instance);
-    partial void UpdatePublisher(Publisher instance);
-    partial void DeletePublisher(Publisher instance);
     partial void InsertBook(Book instance);
     partial void UpdateBook(Book instance);
     partial void DeleteBook(Book instance);
-    partial void InsertJournal(Journal instance);
-    partial void UpdateJournal(Journal instance);
-    partial void DeleteJournal(Journal instance);
-    partial void InsertDVD(DVD instance);
-    partial void UpdateDVD(DVD instance);
-    partial void DeleteDVD(DVD instance);
-    partial void InsertConferenceProceeding(ConferenceProceeding instance);
-    partial void UpdateConferenceProceeding(ConferenceProceeding instance);
-    partial void DeleteConferenceProceeding(ConferenceProceeding instance);
-    partial void InsertReferenceBook(ReferenceBook instance);
-    partial void UpdateReferenceBook(ReferenceBook instance);
-    partial void DeleteReferenceBook(ReferenceBook instance);
     partial void InsertLibraryMember(LibraryMember instance);
     partial void UpdateLibraryMember(LibraryMember instance);
     partial void DeleteLibraryMember(LibraryMember instance);
+    partial void InsertConferenceProceeding(ConferenceProceeding instance);
+    partial void UpdateConferenceProceeding(ConferenceProceeding instance);
+    partial void DeleteConferenceProceeding(ConferenceProceeding instance);
+    partial void InsertDVD(DVD instance);
+    partial void UpdateDVD(DVD instance);
+    partial void DeleteDVD(DVD instance);
+    partial void InsertJournal(Journal instance);
+    partial void UpdateJournal(Journal instance);
+    partial void DeleteJournal(Journal instance);
+    partial void InsertMemberHistory(MemberHistory instance);
+    partial void UpdateMemberHistory(MemberHistory instance);
+    partial void DeleteMemberHistory(MemberHistory instance);
+    partial void InsertPublisher(Publisher instance);
+    partial void UpdatePublisher(Publisher instance);
+    partial void DeletePublisher(Publisher instance);
+    partial void InsertReferenceBook(ReferenceBook instance);
+    partial void UpdateReferenceBook(ReferenceBook instance);
+    partial void DeleteReferenceBook(ReferenceBook instance);
     #endregion
 		
 		public LinqAzureDatabaseDataContext() : 
-				base(global::library.Properties.Settings.Default.libraryConnectionString, mappingSource)
+				base(global::library.Properties.Settings.Default.libraryConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -83,14 +86,6 @@ namespace library
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Publisher> Publishers
-		{
-			get
-			{
-				return this.GetTable<Publisher>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Book> Books
 		{
 			get
@@ -99,19 +94,11 @@ namespace library
 			}
 		}
 		
-		public System.Data.Linq.Table<Journal> Journals
+		public System.Data.Linq.Table<LibraryMember> LibraryMembers
 		{
 			get
 			{
-				return this.GetTable<Journal>();
-			}
-		}
-		
-		public System.Data.Linq.Table<DVD> DVDs
-		{
-			get
-			{
-				return this.GetTable<DVD>();
+				return this.GetTable<LibraryMember>();
 			}
 		}
 		
@@ -123,374 +110,44 @@ namespace library
 			}
 		}
 		
+		public System.Data.Linq.Table<DVD> DVDs
+		{
+			get
+			{
+				return this.GetTable<DVD>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Journal> Journals
+		{
+			get
+			{
+				return this.GetTable<Journal>();
+			}
+		}
+		
+		public System.Data.Linq.Table<MemberHistory> MemberHistories
+		{
+			get
+			{
+				return this.GetTable<MemberHistory>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Publisher> Publishers
+		{
+			get
+			{
+				return this.GetTable<Publisher>();
+			}
+		}
+		
 		public System.Data.Linq.Table<ReferenceBook> ReferenceBooks
 		{
 			get
 			{
 				return this.GetTable<ReferenceBook>();
 			}
-		}
-		
-		public System.Data.Linq.Table<LibraryMember> LibraryMembers
-		{
-			get
-			{
-				return this.GetTable<LibraryMember>();
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Publisher")]
-	public partial class Publisher : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _PublisherID;
-		
-		private string _PublisherName;
-		
-		private string _Email;
-		
-		private string _ContactNumber;
-		
-		private string _Address;
-		
-		private string _Street;
-		
-		private string _Town;
-		
-		private string _County;
-		
-		private string _Country;
-		
-		private string _Postcode;
-		
-		private string _Paidout;
-		
-		private string _AccountNumber;
-		
-		private EntitySet<Book> _Books;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnPublisherIDChanging(int value);
-    partial void OnPublisherIDChanged();
-    partial void OnPublisherNameChanging(string value);
-    partial void OnPublisherNameChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnContactNumberChanging(string value);
-    partial void OnContactNumberChanged();
-    partial void OnAddressChanging(string value);
-    partial void OnAddressChanged();
-    partial void OnStreetChanging(string value);
-    partial void OnStreetChanged();
-    partial void OnTownChanging(string value);
-    partial void OnTownChanged();
-    partial void OnCountyChanging(string value);
-    partial void OnCountyChanged();
-    partial void OnCountryChanging(string value);
-    partial void OnCountryChanged();
-    partial void OnPostcodeChanging(string value);
-    partial void OnPostcodeChanged();
-    partial void OnPaidoutChanging(string value);
-    partial void OnPaidoutChanged();
-    partial void OnAccountNumberChanging(string value);
-    partial void OnAccountNumberChanged();
-    #endregion
-		
-		public Publisher()
-		{
-			this._Books = new EntitySet<Book>(new Action<Book>(this.attach_Books), new Action<Book>(this.detach_Books));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PublisherID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int PublisherID
-		{
-			get
-			{
-				return this._PublisherID;
-			}
-			set
-			{
-				if ((this._PublisherID != value))
-				{
-					this.OnPublisherIDChanging(value);
-					this.SendPropertyChanging();
-					this._PublisherID = value;
-					this.SendPropertyChanged("PublisherID");
-					this.OnPublisherIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PublisherName", DbType="VarChar(50)")]
-		public string PublisherName
-		{
-			get
-			{
-				return this._PublisherName;
-			}
-			set
-			{
-				if ((this._PublisherName != value))
-				{
-					this.OnPublisherNameChanging(value);
-					this.SendPropertyChanging();
-					this._PublisherName = value;
-					this.SendPropertyChanged("PublisherName");
-					this.OnPublisherNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(30)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactNumber", DbType="VarChar(50)")]
-		public string ContactNumber
-		{
-			get
-			{
-				return this._ContactNumber;
-			}
-			set
-			{
-				if ((this._ContactNumber != value))
-				{
-					this.OnContactNumberChanging(value);
-					this.SendPropertyChanging();
-					this._ContactNumber = value;
-					this.SendPropertyChanged("ContactNumber");
-					this.OnContactNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(30)")]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this.OnAddressChanging(value);
-					this.SendPropertyChanging();
-					this._Address = value;
-					this.SendPropertyChanged("Address");
-					this.OnAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Street", DbType="VarChar(30)")]
-		public string Street
-		{
-			get
-			{
-				return this._Street;
-			}
-			set
-			{
-				if ((this._Street != value))
-				{
-					this.OnStreetChanging(value);
-					this.SendPropertyChanging();
-					this._Street = value;
-					this.SendPropertyChanged("Street");
-					this.OnStreetChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Town", DbType="VarChar(30)")]
-		public string Town
-		{
-			get
-			{
-				return this._Town;
-			}
-			set
-			{
-				if ((this._Town != value))
-				{
-					this.OnTownChanging(value);
-					this.SendPropertyChanging();
-					this._Town = value;
-					this.SendPropertyChanged("Town");
-					this.OnTownChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_County", DbType="VarChar(30)")]
-		public string County
-		{
-			get
-			{
-				return this._County;
-			}
-			set
-			{
-				if ((this._County != value))
-				{
-					this.OnCountyChanging(value);
-					this.SendPropertyChanging();
-					this._County = value;
-					this.SendPropertyChanged("County");
-					this.OnCountyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country", DbType="VarChar(30)")]
-		public string Country
-		{
-			get
-			{
-				return this._Country;
-			}
-			set
-			{
-				if ((this._Country != value))
-				{
-					this.OnCountryChanging(value);
-					this.SendPropertyChanging();
-					this._Country = value;
-					this.SendPropertyChanged("Country");
-					this.OnCountryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Postcode", DbType="VarChar(30)")]
-		public string Postcode
-		{
-			get
-			{
-				return this._Postcode;
-			}
-			set
-			{
-				if ((this._Postcode != value))
-				{
-					this.OnPostcodeChanging(value);
-					this.SendPropertyChanging();
-					this._Postcode = value;
-					this.SendPropertyChanged("Postcode");
-					this.OnPostcodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Paidout", DbType="VarChar(50)")]
-		public string Paidout
-		{
-			get
-			{
-				return this._Paidout;
-			}
-			set
-			{
-				if ((this._Paidout != value))
-				{
-					this.OnPaidoutChanging(value);
-					this.SendPropertyChanging();
-					this._Paidout = value;
-					this.SendPropertyChanged("Paidout");
-					this.OnPaidoutChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountNumber", DbType="VarChar(50)")]
-		public string AccountNumber
-		{
-			get
-			{
-				return this._AccountNumber;
-			}
-			set
-			{
-				if ((this._AccountNumber != value))
-				{
-					this.OnAccountNumberChanging(value);
-					this.SendPropertyChanging();
-					this._AccountNumber = value;
-					this.SendPropertyChanged("AccountNumber");
-					this.OnAccountNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Publisher_Book", Storage="_Books", ThisKey="PublisherID", OtherKey="PublisherID")]
-		public EntitySet<Book> Books
-		{
-			get
-			{
-				return this._Books;
-			}
-			set
-			{
-				this._Books.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Books(Book entity)
-		{
-			this.SendPropertyChanging();
-			entity.Publisher = this;
-		}
-		
-		private void detach_Books(Book entity)
-		{
-			this.SendPropertyChanging();
-			entity.Publisher = null;
 		}
 	}
 	
@@ -885,17 +542,391 @@ namespace library
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Journal")]
-	public partial class Journal : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LibraryMember")]
+	public partial class LibraryMember : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _JournalID;
+		private int _MemberID;
+		
+		private string _NameFirst;
+		
+		private string _NameInitial;
+		
+		private string _NameLast;
+		
+		private string _Username;
+		
+		private string _Password;
+		
+		private string _ConfirmPassword;
+		
+		private string _Address;
+		
+		private string _Street;
+		
+		private string _Town;
+		
+		private string _County;
+		
+		private string _Country;
+		
+		private string _Postcode;
+		
+		private int _Classification;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMemberIDChanging(int value);
+    partial void OnMemberIDChanged();
+    partial void OnNameFirstChanging(string value);
+    partial void OnNameFirstChanged();
+    partial void OnNameInitialChanging(string value);
+    partial void OnNameInitialChanged();
+    partial void OnNameLastChanging(string value);
+    partial void OnNameLastChanged();
+    partial void OnUsernameChanging(string value);
+    partial void OnUsernameChanged();
+    partial void OnPasswordChanging(string value);
+    partial void OnPasswordChanged();
+    partial void OnConfirmPasswordChanging(string value);
+    partial void OnConfirmPasswordChanged();
+    partial void OnAddressChanging(string value);
+    partial void OnAddressChanged();
+    partial void OnStreetChanging(string value);
+    partial void OnStreetChanged();
+    partial void OnTownChanging(string value);
+    partial void OnTownChanged();
+    partial void OnCountyChanging(string value);
+    partial void OnCountyChanged();
+    partial void OnCountryChanging(string value);
+    partial void OnCountryChanged();
+    partial void OnPostcodeChanging(string value);
+    partial void OnPostcodeChanged();
+    partial void OnClassificationChanging(int value);
+    partial void OnClassificationChanged();
+    #endregion
+		
+		public LibraryMember()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int MemberID
+		{
+			get
+			{
+				return this._MemberID;
+			}
+			set
+			{
+				if ((this._MemberID != value))
+				{
+					this.OnMemberIDChanging(value);
+					this.SendPropertyChanging();
+					this._MemberID = value;
+					this.SendPropertyChanged("MemberID");
+					this.OnMemberIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameFirst", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string NameFirst
+		{
+			get
+			{
+				return this._NameFirst;
+			}
+			set
+			{
+				if ((this._NameFirst != value))
+				{
+					this.OnNameFirstChanging(value);
+					this.SendPropertyChanging();
+					this._NameFirst = value;
+					this.SendPropertyChanged("NameFirst");
+					this.OnNameFirstChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameInitial", DbType="VarChar(30)")]
+		public string NameInitial
+		{
+			get
+			{
+				return this._NameInitial;
+			}
+			set
+			{
+				if ((this._NameInitial != value))
+				{
+					this.OnNameInitialChanging(value);
+					this.SendPropertyChanging();
+					this._NameInitial = value;
+					this.SendPropertyChanged("NameInitial");
+					this.OnNameInitialChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameLast", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string NameLast
+		{
+			get
+			{
+				return this._NameLast;
+			}
+			set
+			{
+				if ((this._NameLast != value))
+				{
+					this.OnNameLastChanging(value);
+					this.SendPropertyChanging();
+					this._NameLast = value;
+					this.SendPropertyChanged("NameLast");
+					this.OnNameLastChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(30)")]
+		public string Username
+		{
+			get
+			{
+				return this._Username;
+			}
+			set
+			{
+				if ((this._Username != value))
+				{
+					this.OnUsernameChanging(value);
+					this.SendPropertyChanging();
+					this._Username = value;
+					this.SendPropertyChanged("Username");
+					this.OnUsernameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(30)")]
+		public string Password
+		{
+			get
+			{
+				return this._Password;
+			}
+			set
+			{
+				if ((this._Password != value))
+				{
+					this.OnPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._Password = value;
+					this.SendPropertyChanged("Password");
+					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConfirmPassword", DbType="VarChar(30)")]
+		public string ConfirmPassword
+		{
+			get
+			{
+				return this._ConfirmPassword;
+			}
+			set
+			{
+				if ((this._ConfirmPassword != value))
+				{
+					this.OnConfirmPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._ConfirmPassword = value;
+					this.SendPropertyChanged("ConfirmPassword");
+					this.OnConfirmPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this.OnAddressChanging(value);
+					this.SendPropertyChanging();
+					this._Address = value;
+					this.SendPropertyChanged("Address");
+					this.OnAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Street", DbType="VarChar(30)")]
+		public string Street
+		{
+			get
+			{
+				return this._Street;
+			}
+			set
+			{
+				if ((this._Street != value))
+				{
+					this.OnStreetChanging(value);
+					this.SendPropertyChanging();
+					this._Street = value;
+					this.SendPropertyChanged("Street");
+					this.OnStreetChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Town", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Town
+		{
+			get
+			{
+				return this._Town;
+			}
+			set
+			{
+				if ((this._Town != value))
+				{
+					this.OnTownChanging(value);
+					this.SendPropertyChanging();
+					this._Town = value;
+					this.SendPropertyChanged("Town");
+					this.OnTownChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_County", DbType="VarChar(30)")]
+		public string County
+		{
+			get
+			{
+				return this._County;
+			}
+			set
+			{
+				if ((this._County != value))
+				{
+					this.OnCountyChanging(value);
+					this.SendPropertyChanging();
+					this._County = value;
+					this.SendPropertyChanged("County");
+					this.OnCountyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country", DbType="VarChar(30)")]
+		public string Country
+		{
+			get
+			{
+				return this._Country;
+			}
+			set
+			{
+				if ((this._Country != value))
+				{
+					this.OnCountryChanging(value);
+					this.SendPropertyChanging();
+					this._Country = value;
+					this.SendPropertyChanged("Country");
+					this.OnCountryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Postcode", DbType="VarChar(30)")]
+		public string Postcode
+		{
+			get
+			{
+				return this._Postcode;
+			}
+			set
+			{
+				if ((this._Postcode != value))
+				{
+					this.OnPostcodeChanging(value);
+					this.SendPropertyChanging();
+					this._Postcode = value;
+					this.SendPropertyChanged("Postcode");
+					this.OnPostcodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Classification", DbType="Int NOT NULL")]
+		public int Classification
+		{
+			get
+			{
+				return this._Classification;
+			}
+			set
+			{
+				if ((this._Classification != value))
+				{
+					this.OnClassificationChanging(value);
+					this.SendPropertyChanging();
+					this._Classification = value;
+					this.SendPropertyChanged("Classification");
+					this.OnClassificationChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ConferenceProceeding")]
+	public partial class ConferenceProceeding : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ConfID;
 		
 		private string _Title;
 		
-		private string _ResearchSociety;
+		private string _Author;
 		
 		private int _CopiesTotal;
 		
@@ -909,7 +940,7 @@ namespace library
 		
 		private string _Keyword;
 		
-		private System.Nullable<int> _JournalNumberID;
+		private System.Nullable<int> _ConfNumberID;
 		
 		private string _ShelfNumber;
 		
@@ -919,12 +950,12 @@ namespace library
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnJournalIDChanging(int value);
-    partial void OnJournalIDChanged();
+    partial void OnConfIDChanging(int value);
+    partial void OnConfIDChanged();
     partial void OnTitleChanging(string value);
     partial void OnTitleChanged();
-    partial void OnResearchSocietyChanging(string value);
-    partial void OnResearchSocietyChanged();
+    partial void OnAuthorChanging(string value);
+    partial void OnAuthorChanged();
     partial void OnCopiesTotalChanging(int value);
     partial void OnCopiesTotalChanged();
     partial void OnCopiesAvailableChanging(int value);
@@ -937,35 +968,35 @@ namespace library
     partial void OnYearOfPublicationChanged();
     partial void OnKeywordChanging(string value);
     partial void OnKeywordChanged();
-    partial void OnJournalNumberIDChanging(System.Nullable<int> value);
-    partial void OnJournalNumberIDChanged();
+    partial void OnConfNumberIDChanging(System.Nullable<int> value);
+    partial void OnConfNumberIDChanged();
     partial void OnShelfNumberChanging(string value);
     partial void OnShelfNumberChanged();
     partial void OnStatusChanging(string value);
     partial void OnStatusChanged();
     #endregion
 		
-		public Journal()
+		public ConferenceProceeding()
 		{
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JournalID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int JournalID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConfID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int ConfID
 		{
 			get
 			{
-				return this._JournalID;
+				return this._ConfID;
 			}
 			set
 			{
-				if ((this._JournalID != value))
+				if ((this._ConfID != value))
 				{
-					this.OnJournalIDChanging(value);
+					this.OnConfIDChanging(value);
 					this.SendPropertyChanging();
-					this._JournalID = value;
-					this.SendPropertyChanged("JournalID");
-					this.OnJournalIDChanged();
+					this._ConfID = value;
+					this.SendPropertyChanged("ConfID");
+					this.OnConfIDChanged();
 				}
 			}
 		}
@@ -990,22 +1021,22 @@ namespace library
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResearchSociety", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string ResearchSociety
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author", DbType="VarChar(100)")]
+		public string Author
 		{
 			get
 			{
-				return this._ResearchSociety;
+				return this._Author;
 			}
 			set
 			{
-				if ((this._ResearchSociety != value))
+				if ((this._Author != value))
 				{
-					this.OnResearchSocietyChanging(value);
+					this.OnAuthorChanging(value);
 					this.SendPropertyChanging();
-					this._ResearchSociety = value;
-					this.SendPropertyChanged("ResearchSociety");
-					this.OnResearchSocietyChanged();
+					this._Author = value;
+					this.SendPropertyChanged("Author");
+					this.OnAuthorChanged();
 				}
 			}
 		}
@@ -1130,22 +1161,22 @@ namespace library
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JournalNumberID", DbType="Int")]
-		public System.Nullable<int> JournalNumberID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConfNumberID", DbType="Int")]
+		public System.Nullable<int> ConfNumberID
 		{
 			get
 			{
-				return this._JournalNumberID;
+				return this._ConfNumberID;
 			}
 			set
 			{
-				if ((this._JournalNumberID != value))
+				if ((this._ConfNumberID != value))
 				{
-					this.OnJournalNumberIDChanging(value);
+					this.OnConfNumberIDChanging(value);
 					this.SendPropertyChanging();
-					this._JournalNumberID = value;
-					this.SendPropertyChanged("JournalNumberID");
-					this.OnJournalNumberIDChanged();
+					this._ConfNumberID = value;
+					this.SendPropertyChanged("ConfNumberID");
+					this.OnConfNumberIDChanged();
 				}
 			}
 		}
@@ -1537,17 +1568,17 @@ namespace library
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ConferenceProceeding")]
-	public partial class ConferenceProceeding : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Journal")]
+	public partial class Journal : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _ConfID;
+		private int _JournalID;
 		
 		private string _Title;
 		
-		private string _Author;
+		private string _ResearchSociety;
 		
 		private int _CopiesTotal;
 		
@@ -1561,7 +1592,7 @@ namespace library
 		
 		private string _Keyword;
 		
-		private System.Nullable<int> _ConfNumberID;
+		private System.Nullable<int> _JournalNumberID;
 		
 		private string _ShelfNumber;
 		
@@ -1571,12 +1602,12 @@ namespace library
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnConfIDChanging(int value);
-    partial void OnConfIDChanged();
+    partial void OnJournalIDChanging(int value);
+    partial void OnJournalIDChanged();
     partial void OnTitleChanging(string value);
     partial void OnTitleChanged();
-    partial void OnAuthorChanging(string value);
-    partial void OnAuthorChanged();
+    partial void OnResearchSocietyChanging(string value);
+    partial void OnResearchSocietyChanged();
     partial void OnCopiesTotalChanging(int value);
     partial void OnCopiesTotalChanged();
     partial void OnCopiesAvailableChanging(int value);
@@ -1589,35 +1620,35 @@ namespace library
     partial void OnYearOfPublicationChanged();
     partial void OnKeywordChanging(string value);
     partial void OnKeywordChanged();
-    partial void OnConfNumberIDChanging(System.Nullable<int> value);
-    partial void OnConfNumberIDChanged();
+    partial void OnJournalNumberIDChanging(System.Nullable<int> value);
+    partial void OnJournalNumberIDChanged();
     partial void OnShelfNumberChanging(string value);
     partial void OnShelfNumberChanged();
     partial void OnStatusChanging(string value);
     partial void OnStatusChanged();
     #endregion
 		
-		public ConferenceProceeding()
+		public Journal()
 		{
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConfID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int ConfID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JournalID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int JournalID
 		{
 			get
 			{
-				return this._ConfID;
+				return this._JournalID;
 			}
 			set
 			{
-				if ((this._ConfID != value))
+				if ((this._JournalID != value))
 				{
-					this.OnConfIDChanging(value);
+					this.OnJournalIDChanging(value);
 					this.SendPropertyChanging();
-					this._ConfID = value;
-					this.SendPropertyChanged("ConfID");
-					this.OnConfIDChanged();
+					this._JournalID = value;
+					this.SendPropertyChanged("JournalID");
+					this.OnJournalIDChanged();
 				}
 			}
 		}
@@ -1642,22 +1673,22 @@ namespace library
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author", DbType="VarChar(100)")]
-		public string Author
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ResearchSociety", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string ResearchSociety
 		{
 			get
 			{
-				return this._Author;
+				return this._ResearchSociety;
 			}
 			set
 			{
-				if ((this._Author != value))
+				if ((this._ResearchSociety != value))
 				{
-					this.OnAuthorChanging(value);
+					this.OnResearchSocietyChanging(value);
 					this.SendPropertyChanging();
-					this._Author = value;
-					this.SendPropertyChanged("Author");
-					this.OnAuthorChanged();
+					this._ResearchSociety = value;
+					this.SendPropertyChanged("ResearchSociety");
+					this.OnResearchSocietyChanged();
 				}
 			}
 		}
@@ -1782,22 +1813,22 @@ namespace library
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConfNumberID", DbType="Int")]
-		public System.Nullable<int> ConfNumberID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JournalNumberID", DbType="Int")]
+		public System.Nullable<int> JournalNumberID
 		{
 			get
 			{
-				return this._ConfNumberID;
+				return this._JournalNumberID;
 			}
 			set
 			{
-				if ((this._ConfNumberID != value))
+				if ((this._JournalNumberID != value))
 				{
-					this.OnConfNumberIDChanging(value);
+					this.OnJournalNumberIDChanging(value);
 					this.SendPropertyChanging();
-					this._ConfNumberID = value;
-					this.SendPropertyChanged("ConfNumberID");
-					this.OnConfNumberIDChanged();
+					this._JournalNumberID = value;
+					this.SendPropertyChanged("JournalNumberID");
+					this.OnJournalNumberIDChanged();
 				}
 			}
 		}
@@ -1860,6 +1891,470 @@ namespace library
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.MemberHistories")]
+	public partial class MemberHistory : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _HistoryID;
+		
+		private int _ItemsID;
+		
+		private int _OrderID;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnHistoryIDChanging(int value);
+    partial void OnHistoryIDChanged();
+    partial void OnItemsIDChanging(int value);
+    partial void OnItemsIDChanged();
+    partial void OnOrderIDChanging(int value);
+    partial void OnOrderIDChanged();
+    #endregion
+		
+		public MemberHistory()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HistoryID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int HistoryID
+		{
+			get
+			{
+				return this._HistoryID;
+			}
+			set
+			{
+				if ((this._HistoryID != value))
+				{
+					this.OnHistoryIDChanging(value);
+					this.SendPropertyChanging();
+					this._HistoryID = value;
+					this.SendPropertyChanged("HistoryID");
+					this.OnHistoryIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemsID", DbType="Int NOT NULL")]
+		public int ItemsID
+		{
+			get
+			{
+				return this._ItemsID;
+			}
+			set
+			{
+				if ((this._ItemsID != value))
+				{
+					this.OnItemsIDChanging(value);
+					this.SendPropertyChanging();
+					this._ItemsID = value;
+					this.SendPropertyChanged("ItemsID");
+					this.OnItemsIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderID", DbType="Int NOT NULL")]
+		public int OrderID
+		{
+			get
+			{
+				return this._OrderID;
+			}
+			set
+			{
+				if ((this._OrderID != value))
+				{
+					this.OnOrderIDChanging(value);
+					this.SendPropertyChanging();
+					this._OrderID = value;
+					this.SendPropertyChanged("OrderID");
+					this.OnOrderIDChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Publisher")]
+	public partial class Publisher : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _PublisherID;
+		
+		private string _PublisherName;
+		
+		private string _Email;
+		
+		private string _ContactNumber;
+		
+		private string _Address;
+		
+		private string _Street;
+		
+		private string _Town;
+		
+		private string _County;
+		
+		private string _Country;
+		
+		private string _Postcode;
+		
+		private string _Paidout;
+		
+		private string _AccountNumber;
+		
+		private EntitySet<Book> _Books;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPublisherIDChanging(int value);
+    partial void OnPublisherIDChanged();
+    partial void OnPublisherNameChanging(string value);
+    partial void OnPublisherNameChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnContactNumberChanging(string value);
+    partial void OnContactNumberChanged();
+    partial void OnAddressChanging(string value);
+    partial void OnAddressChanged();
+    partial void OnStreetChanging(string value);
+    partial void OnStreetChanged();
+    partial void OnTownChanging(string value);
+    partial void OnTownChanged();
+    partial void OnCountyChanging(string value);
+    partial void OnCountyChanged();
+    partial void OnCountryChanging(string value);
+    partial void OnCountryChanged();
+    partial void OnPostcodeChanging(string value);
+    partial void OnPostcodeChanged();
+    partial void OnPaidoutChanging(string value);
+    partial void OnPaidoutChanged();
+    partial void OnAccountNumberChanging(string value);
+    partial void OnAccountNumberChanged();
+    #endregion
+		
+		public Publisher()
+		{
+			this._Books = new EntitySet<Book>(new Action<Book>(this.attach_Books), new Action<Book>(this.detach_Books));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PublisherID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int PublisherID
+		{
+			get
+			{
+				return this._PublisherID;
+			}
+			set
+			{
+				if ((this._PublisherID != value))
+				{
+					this.OnPublisherIDChanging(value);
+					this.SendPropertyChanging();
+					this._PublisherID = value;
+					this.SendPropertyChanged("PublisherID");
+					this.OnPublisherIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PublisherName", DbType="VarChar(50)")]
+		public string PublisherName
+		{
+			get
+			{
+				return this._PublisherName;
+			}
+			set
+			{
+				if ((this._PublisherName != value))
+				{
+					this.OnPublisherNameChanging(value);
+					this.SendPropertyChanging();
+					this._PublisherName = value;
+					this.SendPropertyChanged("PublisherName");
+					this.OnPublisherNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(30)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactNumber", DbType="VarChar(50)")]
+		public string ContactNumber
+		{
+			get
+			{
+				return this._ContactNumber;
+			}
+			set
+			{
+				if ((this._ContactNumber != value))
+				{
+					this.OnContactNumberChanging(value);
+					this.SendPropertyChanging();
+					this._ContactNumber = value;
+					this.SendPropertyChanged("ContactNumber");
+					this.OnContactNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(30)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this.OnAddressChanging(value);
+					this.SendPropertyChanging();
+					this._Address = value;
+					this.SendPropertyChanged("Address");
+					this.OnAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Street", DbType="VarChar(30)")]
+		public string Street
+		{
+			get
+			{
+				return this._Street;
+			}
+			set
+			{
+				if ((this._Street != value))
+				{
+					this.OnStreetChanging(value);
+					this.SendPropertyChanging();
+					this._Street = value;
+					this.SendPropertyChanged("Street");
+					this.OnStreetChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Town", DbType="VarChar(30)")]
+		public string Town
+		{
+			get
+			{
+				return this._Town;
+			}
+			set
+			{
+				if ((this._Town != value))
+				{
+					this.OnTownChanging(value);
+					this.SendPropertyChanging();
+					this._Town = value;
+					this.SendPropertyChanged("Town");
+					this.OnTownChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_County", DbType="VarChar(30)")]
+		public string County
+		{
+			get
+			{
+				return this._County;
+			}
+			set
+			{
+				if ((this._County != value))
+				{
+					this.OnCountyChanging(value);
+					this.SendPropertyChanging();
+					this._County = value;
+					this.SendPropertyChanged("County");
+					this.OnCountyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country", DbType="VarChar(30)")]
+		public string Country
+		{
+			get
+			{
+				return this._Country;
+			}
+			set
+			{
+				if ((this._Country != value))
+				{
+					this.OnCountryChanging(value);
+					this.SendPropertyChanging();
+					this._Country = value;
+					this.SendPropertyChanged("Country");
+					this.OnCountryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Postcode", DbType="VarChar(30)")]
+		public string Postcode
+		{
+			get
+			{
+				return this._Postcode;
+			}
+			set
+			{
+				if ((this._Postcode != value))
+				{
+					this.OnPostcodeChanging(value);
+					this.SendPropertyChanging();
+					this._Postcode = value;
+					this.SendPropertyChanged("Postcode");
+					this.OnPostcodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Paidout", DbType="VarChar(50)")]
+		public string Paidout
+		{
+			get
+			{
+				return this._Paidout;
+			}
+			set
+			{
+				if ((this._Paidout != value))
+				{
+					this.OnPaidoutChanging(value);
+					this.SendPropertyChanging();
+					this._Paidout = value;
+					this.SendPropertyChanged("Paidout");
+					this.OnPaidoutChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountNumber", DbType="VarChar(50)")]
+		public string AccountNumber
+		{
+			get
+			{
+				return this._AccountNumber;
+			}
+			set
+			{
+				if ((this._AccountNumber != value))
+				{
+					this.OnAccountNumberChanging(value);
+					this.SendPropertyChanging();
+					this._AccountNumber = value;
+					this.SendPropertyChanged("AccountNumber");
+					this.OnAccountNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Publisher_Book", Storage="_Books", ThisKey="PublisherID", OtherKey="PublisherID")]
+		public EntitySet<Book> Books
+		{
+			get
+			{
+				return this._Books;
+			}
+			set
+			{
+				this._Books.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Books(Book entity)
+		{
+			this.SendPropertyChanging();
+			entity.Publisher = this;
+		}
+		
+		private void detach_Books(Book entity)
+		{
+			this.SendPropertyChanging();
+			entity.Publisher = null;
 		}
 	}
 	
@@ -2140,380 +2635,6 @@ namespace library
 					this._Status = value;
 					this.SendPropertyChanged("Status");
 					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LibraryMember")]
-	public partial class LibraryMember : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _MemberID;
-		
-		private string _NameFirst;
-		
-		private string _NameInitial;
-		
-		private string _NameLast;
-		
-		private string _Username;
-		
-		private string _Password;
-		
-		private string _ConfirmPassword;
-		
-		private string _Address;
-		
-		private string _Street;
-		
-		private string _Town;
-		
-		private string _County;
-		
-		private string _Country;
-		
-		private string _Postcode;
-		
-		private int _Classification;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMemberIDChanging(int value);
-    partial void OnMemberIDChanged();
-    partial void OnNameFirstChanging(string value);
-    partial void OnNameFirstChanged();
-    partial void OnNameInitialChanging(string value);
-    partial void OnNameInitialChanged();
-    partial void OnNameLastChanging(string value);
-    partial void OnNameLastChanged();
-    partial void OnUsernameChanging(string value);
-    partial void OnUsernameChanged();
-    partial void OnPasswordChanging(string value);
-    partial void OnPasswordChanged();
-    partial void OnConfirmPasswordChanging(string value);
-    partial void OnConfirmPasswordChanged();
-    partial void OnAddressChanging(string value);
-    partial void OnAddressChanged();
-    partial void OnStreetChanging(string value);
-    partial void OnStreetChanged();
-    partial void OnTownChanging(string value);
-    partial void OnTownChanged();
-    partial void OnCountyChanging(string value);
-    partial void OnCountyChanged();
-    partial void OnCountryChanging(string value);
-    partial void OnCountryChanged();
-    partial void OnPostcodeChanging(string value);
-    partial void OnPostcodeChanged();
-    partial void OnClassificationChanging(int value);
-    partial void OnClassificationChanged();
-    #endregion
-		
-		public LibraryMember()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int MemberID
-		{
-			get
-			{
-				return this._MemberID;
-			}
-			set
-			{
-				if ((this._MemberID != value))
-				{
-					this.OnMemberIDChanging(value);
-					this.SendPropertyChanging();
-					this._MemberID = value;
-					this.SendPropertyChanged("MemberID");
-					this.OnMemberIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameFirst", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string NameFirst
-		{
-			get
-			{
-				return this._NameFirst;
-			}
-			set
-			{
-				if ((this._NameFirst != value))
-				{
-					this.OnNameFirstChanging(value);
-					this.SendPropertyChanging();
-					this._NameFirst = value;
-					this.SendPropertyChanged("NameFirst");
-					this.OnNameFirstChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameInitial", DbType="VarChar(30)")]
-		public string NameInitial
-		{
-			get
-			{
-				return this._NameInitial;
-			}
-			set
-			{
-				if ((this._NameInitial != value))
-				{
-					this.OnNameInitialChanging(value);
-					this.SendPropertyChanging();
-					this._NameInitial = value;
-					this.SendPropertyChanged("NameInitial");
-					this.OnNameInitialChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameLast", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string NameLast
-		{
-			get
-			{
-				return this._NameLast;
-			}
-			set
-			{
-				if ((this._NameLast != value))
-				{
-					this.OnNameLastChanging(value);
-					this.SendPropertyChanging();
-					this._NameLast = value;
-					this.SendPropertyChanged("NameLast");
-					this.OnNameLastChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(30)")]
-		public string Username
-		{
-			get
-			{
-				return this._Username;
-			}
-			set
-			{
-				if ((this._Username != value))
-				{
-					this.OnUsernameChanging(value);
-					this.SendPropertyChanging();
-					this._Username = value;
-					this.SendPropertyChanged("Username");
-					this.OnUsernameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="VarChar(30)")]
-		public string Password
-		{
-			get
-			{
-				return this._Password;
-			}
-			set
-			{
-				if ((this._Password != value))
-				{
-					this.OnPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._Password = value;
-					this.SendPropertyChanged("Password");
-					this.OnPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConfirmPassword", DbType="VarChar(30)")]
-		public string ConfirmPassword
-		{
-			get
-			{
-				return this._ConfirmPassword;
-			}
-			set
-			{
-				if ((this._ConfirmPassword != value))
-				{
-					this.OnConfirmPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._ConfirmPassword = value;
-					this.SendPropertyChanged("ConfirmPassword");
-					this.OnConfirmPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this.OnAddressChanging(value);
-					this.SendPropertyChanging();
-					this._Address = value;
-					this.SendPropertyChanged("Address");
-					this.OnAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Street", DbType="VarChar(30)")]
-		public string Street
-		{
-			get
-			{
-				return this._Street;
-			}
-			set
-			{
-				if ((this._Street != value))
-				{
-					this.OnStreetChanging(value);
-					this.SendPropertyChanging();
-					this._Street = value;
-					this.SendPropertyChanged("Street");
-					this.OnStreetChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Town", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string Town
-		{
-			get
-			{
-				return this._Town;
-			}
-			set
-			{
-				if ((this._Town != value))
-				{
-					this.OnTownChanging(value);
-					this.SendPropertyChanging();
-					this._Town = value;
-					this.SendPropertyChanged("Town");
-					this.OnTownChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_County", DbType="VarChar(30)")]
-		public string County
-		{
-			get
-			{
-				return this._County;
-			}
-			set
-			{
-				if ((this._County != value))
-				{
-					this.OnCountyChanging(value);
-					this.SendPropertyChanging();
-					this._County = value;
-					this.SendPropertyChanged("County");
-					this.OnCountyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country", DbType="VarChar(30)")]
-		public string Country
-		{
-			get
-			{
-				return this._Country;
-			}
-			set
-			{
-				if ((this._Country != value))
-				{
-					this.OnCountryChanging(value);
-					this.SendPropertyChanging();
-					this._Country = value;
-					this.SendPropertyChanged("Country");
-					this.OnCountryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Postcode", DbType="VarChar(30)")]
-		public string Postcode
-		{
-			get
-			{
-				return this._Postcode;
-			}
-			set
-			{
-				if ((this._Postcode != value))
-				{
-					this.OnPostcodeChanging(value);
-					this.SendPropertyChanging();
-					this._Postcode = value;
-					this.SendPropertyChanged("Postcode");
-					this.OnPostcodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Classification", DbType="Int NOT NULL")]
-		public int Classification
-		{
-			get
-			{
-				return this._Classification;
-			}
-			set
-			{
-				if ((this._Classification != value))
-				{
-					this.OnClassificationChanging(value);
-					this.SendPropertyChanging();
-					this._Classification = value;
-					this.SendPropertyChanged("Classification");
-					this.OnClassificationChanged();
 				}
 			}
 		}

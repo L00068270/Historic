@@ -177,9 +177,6 @@
     <Compile Include="dashboard\views\viewreferencebooks.xaml.cs">
       <DependentUpon>viewreferencebooks.xaml</DependentUpon>
     </Compile>
-    <Compile Include="dashboard\views\view_librarymembers_crud.xaml.cs">
-      <DependentUpon>view_librarymembers_crud.xaml</DependentUpon>
-    </Compile>
     <Compile Include="dvds\dvd_insert.xaml.cs">
       <DependentUpon>dvd_insert.xaml</DependentUpon>
     </Compile>
@@ -280,10 +277,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="dashboard\views\viewreferencebooks.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="dashboard\views\view_librarymembers_crud.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -444,15 +437,6 @@
     <Resource Include="banners\cr20180528_102107.jpg" />
     <Resource Include="banners\cr20180528_103312.jpg" />
     <Resource Include="banners\cr20180528_103343.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="library.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="library_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>library.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
