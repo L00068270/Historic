@@ -1,0 +1,223 @@
+﻿<UserControl x:Class="CRUD_Database.pages.view.view_libMember"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CRUD_Database.pages.view"
+             xmlns:uri="clr-namespace:CRUD_Database.pages.viewmodel"
+             xmlns:LinqAzureDatabase="clr-namespace:MyClassesLibrary;assembly=MyClassesLibrary"
+             mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989"
+             Width="1200" MinWidth="300" Background="Beige" Loaded="Window_Loaded">
+    <Grid>
+        <Border Grid.Row="3" Grid.Column="1" Padding="20,20,20,20">
+            <StackPanel>
+                <TextBlock FontSize="28">                   
+                    Library Members Details
+                </TextBlock>
+
+                <DockPanel x:Name="dockUserPanel">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0"/>
+                            <RowDefinition Height="26"/>
+                            <RowDefinition Height="26"/>
+                            <RowDefinition Height="26"/>
+                            <RowDefinition Height="26"/>
+                            <RowDefinition Height="26"/>
+                            <RowDefinition Height="26"/>
+                            <RowDefinition Height="26"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <!--LABELS-->
+                        <Label x:Name="lbMemberID" Content="MemberID" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <Label x:Name="lblNameFirst" Content="First Name" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <Label x:Name="lblNameInitial" Content="Initials" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <Label x:Name="lblNameLast" Content="Last Name" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <Label x:Name="lblUsername" Content="Username" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <Label x:Name="lblPassword" Content="Password" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <Label x:Name="lblConfirmPassword" Content="ConfirmPassword" Grid.Row="7" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                        <Label x:Name="lblAddress" Content="Address" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <Label x:Name="lblStreet" Content="Street" Grid.Row="2" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <Label x:Name="lblTown" Content="Town" Grid.Row="3" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <Label x:Name="lblCounty" Content="County" Grid.Row="4" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <Label x:Name="lblCountry" Content="Country" Grid.Row="5" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <Label x:Name="lblPostcode" Content="Postcode" Grid.Row="6" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                        <Label x:Name="lblClassification" Content="Classification" Grid.Row="7" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+
+                        <!--TEXT BOXES-->
+                        <TextBox x:Name="tbxMemberID"  Grid.Row="1" Grid.Column="4" Text="{Binding SelectedItem.MemberID, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                        <TextBox x:Name="tbxNameFirst" Grid.Row="2" Grid.Column="4" Text="{Binding SelectedItem.NameFirst, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                        <TextBox x:Name="tbxNameInitial" Grid.Row="3" Grid.Column="4" Text="{Binding SelectedItem.NameInitial, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                        <TextBox x:Name="tbxNameLast" Grid.Row="4" Grid.Column="4" Text="{Binding SelectedItem.NameLast, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                        <TextBox x:Name="tbxUsername" Grid.Row="5" Grid.Column="4" Text="{Binding SelectedItem.Username, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                        <TextBox x:Name="tbxPassword" Grid.Row="6" Grid.Column="4" Text="{Binding SelectedItem.Password, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                        <TextBox x:Name="tbxConfirmPassword" Grid.Row="7" Grid.Column="4" Text="{Binding SelectedItem.ConfirmPassword, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+
+                        <TextBox x:Name="tbxAddress" Grid.Row="1" Grid.Column="6" Text="{Binding SelectedItem.Address, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                        <TextBox x:Name="tbxStreet" Grid.Row="2" Grid.Column="6" Text="{Binding SelectedItem.Street, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                        <TextBox x:Name="tbxTown" Grid.Row="3" Grid.Column="6" Text="{Binding SelectedItem.Town, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                        <TextBox x:Name="tbxCounty" Grid.Row="4" Grid.Column="6" Text="{Binding SelectedItem.County, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                        <TextBox x:Name="tbxCountry" Grid.Row="5" Grid.Column="6" Text="{Binding SelectedItem.Country, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                        <TextBox x:Name="tbxPostcode" Grid.Row="6" Grid.Column="6" Text="{Binding SelectedItem.Postcode, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                        <ComboBox x:Name="cboClassification" Grid.Row="7" Grid.Column="6" Text="{Binding SelectedItem.Classification, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    </Grid>
+                </DockPanel>
+                
+                <!--BUTTONS-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnDelete" Content="DELETE" Grid.Row="1" Grid.Column="10" Height="20" Width="56" Foreground="White" Background="#FF374989" Click="btnDelete_Click" ></Button>
+                    <Button x:Name="btnUpdate" Content="UPDATE" Grid.Row="1" Grid.Column="11" Height="20" Width="56" Background="#374989" Foreground="White" Click="btnUpdate_Click" ></Button>
+                    <Button x:Name="btnAdd" Content="ADD" Grid.Row="1" Grid.Column="12" Height="20" Width="56" Background="#374989" Foreground="White" Click="btnAddLibraryMember_Click"></Button>
+                </Grid>
+
+                <!--CENTRAL SCREEN AREA-->
+                <DockPanel x:Name="dockMainPanel">
+                    <Grid Margin="0,0,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0"/>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ListView x:Name="myListView" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" SelectionChanged="myListView_SelectionChanged">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="MemberID" Width="60">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding MemberID}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="NameFirst" Width="80">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding NameFirst}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="NameInitials" Width="80">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding NameInitial}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="NameLast" Width="80">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding NameLast}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Username" Width="60">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding Username}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Password" Width="100">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding Password}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="ConfirmPassword" Width="100">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding ConfirmPassword}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Address" Width="120">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding Address}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Street" Width="70">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding Street}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Town" Width="70">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding Town}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="County" Width="70">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding County}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Country" Width="80">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding Country}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Postcode" Width="60">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding Postcode}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Classification" Width="90">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding Classification}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </DockPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

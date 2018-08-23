@@ -28,7 +28,7 @@
             <Setter Property="Width" Value="10"/>
             <Setter Property="MaxWidth" Value="{Binding Width, RelativeSource={RelativeSource Self}}"/>
         </Style>
-        
+
         <!--DATA TEMPLATES - THIS TELL CONTENT CONTROL WHAT VIEW TO ACCESS BASED ON DATA CONTEXT IT IS BOUND TO-->
         <DataTemplate x:Name="template_books" DataType="{x:Type viewmodels:viewmodel_books}">
             <views:viewbooks DataContext="{Binding Path=viewmodel_books}"></views:viewbooks>
@@ -67,11 +67,14 @@
             <views:viewpublisher DataContext="{Binding Path=viewmodel_publisher}"></views:viewpublisher>
         </DataTemplate>
         <DataTemplate x:Name="template_book" DataType="{x:Type viewmodel:viewmodel_book}">
-            <view:book DataContext="{Binding Path=viewmodel_book}"></view:book>
+            <view:view_book DataContext="{Binding Path=viewmodel_book}"></view:view_book>
         </DataTemplate>
-        
-        
-        
+        <DataTemplate x:Name="template_libMember" DataType="{x:Type viewmodel:viewmodel_libMember}">
+            <view:view_libMember DataContext="{Binding Path=viewmodel_book}"></view:view_libMember>
+        </DataTemplate>
+
+
+
     </Window.Resources>
 
     <ScrollViewer CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
@@ -85,7 +88,8 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="80*"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -94,33 +98,33 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            
+
             <!--SETTING ROWS AND COLUMNS-->
-            <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="#374989" Stroke="#374989"/>
-            <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Height="8" Fill="#FFF50C0C" Stroke="#374989"/>
-            <Rectangle Grid.Row="4" Grid.ColumnSpan="4" Height="40" Fill="#374989" Stroke="#374989"/>
-            <Rectangle Grid.Row="5" Grid.ColumnSpan="4" Fill="FloralWhite"/>
-            <Rectangle Grid.Row="6" Grid.ColumnSpan="4" Fill="White"/>
-            <Rectangle Grid.Row="7" Grid.ColumnSpan="4" Fill="White"/>
-            <Rectangle Grid.Row="8" Grid.ColumnSpan="4" Height="80" Fill="#374989" Stroke="#374989" VerticalAlignment="Bottom"/>
+            <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="#374989" Stroke="#374989" Margin="0,0,0.333,0"/>
+            <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Height="8" Fill="#FFF50C0C" Stroke="#374989" Margin="0,0,0.333,0"/>
+            <Rectangle Grid.Row="4" Grid.ColumnSpan="4" Height="40" Fill="#374989" Stroke="#374989" Margin="0,0,0.333,0"/>
+            <Rectangle Grid.Row="5" Grid.ColumnSpan="4" Fill="FloralWhite" Margin="0,0,0.333,0"/>
+            <Rectangle Grid.Row="6" Grid.ColumnSpan="4" Fill="White" Margin="0,0,0.333,0"/>
+            <Rectangle Grid.Row="7" Grid.ColumnSpan="4" Fill="White" Margin="0,0,0.333,80" Grid.RowSpan="2"/>
+            <Rectangle Grid.Row="8" Grid.ColumnSpan="4" Height="80" Fill="#374989" Stroke="#374989" VerticalAlignment="Bottom" Margin="0,0,0.333,0"/>
 
             <!--ROW 1 HEADER-->
-            <Border Grid.Row="1" Grid.Column="4">
+            <Border Grid.Row="1" Grid.Column="3" Margin="0.333,0,-0.667,0">
                 <TextBlock x:Name="tbxHeader" Margin="17,16,37,10" FontFamily="Arial Unicode MS" FontSize="36" Foreground="#FFF50C0C" >
                     <Run Text="Library"/>
                     <Run Text="Letterkenny" Foreground="#FFF5EEEE"/>
                 </TextBlock>
             </Border>
-            
+
 
             <!--ROW 3 BANNER-->
-            <Border Grid.Row="3" Grid.ColumnSpan="4">
+            <Border Grid.Row="3" Grid.ColumnSpan="4" Margin="0,0,0.333,0">
                 <Image x:Name="imageBanner" Width="1200" Source="C:\C# Website\Library\library\library\banners\20180528_102427-1200x200.jpg"/>
             </Border>
-            
+
 
             <!--ROW 4 MAIN NAVAGATION BAR-->
-            <WrapPanel Grid.Row="4" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0">
+            <WrapPanel Grid.Row="4" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,8,20.333,8" Grid.Column="2">
                 <Button x:Name="btnhome" Content="HOME" Click="btnhome_Click"/>
                 <Button x:Name="btnabout" Content="ABOUT" Click="btnabout_Click"/>
                 <Button x:Name="btnregister" Content="REGISTER" Click="btnregister_Click"/>
@@ -128,11 +132,11 @@
             </WrapPanel>
 
             <!--ROW 5 CONTENT NAVAGATION HYPERLINKS-->
-            <Border Grid.Row="5" Grid.ColumnSpan="4" Padding="20,20,20,20">
+            <Border Grid.Row="5" Grid.ColumnSpan="4" Padding="20,20,20,20" Margin="0,0,0.333,0">
                 <Border.InputBindings>
                     <!--CLICK TO OPEN MESSAGE-->
                     <MouseBinding MouseAction="LeftClick" Command="{Binding OpenMessageCommand}">
-                        
+
                     </MouseBinding>
                 </Border.InputBindings>
                 <Grid>
@@ -190,7 +194,9 @@
                         <TextBlock FontSize="20">
                             Stock Tasks - DataEntities
                         </TextBlock>
-                        <TextBlock>                          
+                        <TextBlock> 
+                            <Hyperlink x:Name="hyperlink_libMember" TextDecorations="{x:Null}" Click="hyperlink_libMember_Click">LibraryMember Administration</Hyperlink> 
+                            <LineBreak/>
                             <Hyperlink x:Name="hyperlink_book" TextDecorations="{x:Null}" Click="hyperlink_book_Click">Book Administration</Hyperlink> 
                             <LineBreak/>
                         </TextBlock>
@@ -217,8 +223,8 @@
                 </Grid>
             </Border>
 
-            <!--ROW 6 CONTENT NAVAGATION-->           
-            <Border Grid.Row="6" Grid.ColumnSpan="4" Padding="20,20,20,20">
+            <!--ROW 6 CONTENT NAVAGATION-->
+            <Border Grid.Row="6" Grid.ColumnSpan="4" Padding="20,20,20,20" Margin="0,0,0.333,0">
                 <StackPanel>
                     <!--MAIN AREA DOC PANEL-->
                     <DockPanel x:Name="docMainArea">
@@ -292,7 +298,7 @@
                 </StackPanel>
             </Border>
 
-            <Border Grid.Row="6" Grid.ColumnSpan="4" Padding="20,20,20,20">
+            <Border Grid.Row="6" Grid.ColumnSpan="4" Padding="20,20,20,20" Margin="0,0,0.333,0">
                 <StackPanel>
                     <DockPanel x:Name="docMainPanel">
                         <Frame x:Name="frameMainFrame">
@@ -303,7 +309,7 @@
             </Border>
 
             <!--GRID VIEWS FOR MODEL PAGES-->
-            <ContentControl Grid.Row="7" Grid.ColumnSpan="4" Content="{Binding}">
+            <ContentControl Grid.Row="7" Grid.ColumnSpan="4" Content="{Binding}" Margin="0,0,0.333,80" Grid.RowSpan="2">
 
             </ContentControl>
         </Grid>

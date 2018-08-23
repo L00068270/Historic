@@ -45,6 +45,7 @@ namespace library.dashboard
         public dashboard()
         {
             InitializeComponent();
+            //default screen will be books
             DataContext = new viewmodel_books();
         }
 
@@ -143,6 +144,11 @@ namespace library.dashboard
             DataContext = new viewmodel_publisher();
         }
 
+        private void hyperlink_libMember_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new viewmodel_libMember();
+        }
+
         private void hyperlink_book_Click(object sender, RoutedEventArgs e)
         {
             DataContext = new viewmodel_book();           
@@ -179,5 +185,7 @@ namespace library.dashboard
             this.Close();
             Environment.Exit(0);
         }
+
+        
     }
 }
