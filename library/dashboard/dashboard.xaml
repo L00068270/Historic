@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:library.dashboard"
         xmlns:viewmodels="clr-namespace:library.dashboard.viewmodels"
+        xmlns:viewmodel="clr-namespace:CRUD_Database.pages.viewmodel;assembly=CRUD-Database"
         xmlns:views="clr-namespace:library.dashboard.views"
-        xmlns:book="clr-namespace:library.books"
+        xmlns:view="clr-namespace:CRUD_Database.pages.view;assembly=CRUD-Database"
         xmlns:pages="clr-namespace:library.pages"
         mc:Ignorable="d" FontFamily="Arial" FontSize="12" WindowStartupLocation="CenterScreen" WindowState="Maximized"      
-        Title="dashboard" Width="1200" MinWidth="300" Background="#FF868CC5" d:DesignHeight="688">
+        Title="dashboard" Width="1200" MinWidth="300" Loaded="Window_Loaded" Background="#FF868CC5">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Margin" Value="1"></Setter>
@@ -65,6 +66,12 @@
         <DataTemplate x:Name="template_publisher" DataType="{x:Type viewmodels:viewmodel_publisher}">
             <views:viewpublisher DataContext="{Binding Path=viewmodel_publisher}"></views:viewpublisher>
         </DataTemplate>
+        <DataTemplate x:Name="template_book" DataType="{x:Type viewmodel:viewmodel_book}">
+            <view:book DataContext="{Binding Path=viewmodel_book}"></view:book>
+        </DataTemplate>
+        
+        
+        
     </Window.Resources>
 
     <ScrollViewer CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
@@ -118,11 +125,16 @@
                 <Button x:Name="btnabout" Content="ABOUT" Click="btnabout_Click"/>
                 <Button x:Name="btnregister" Content="REGISTER" Click="btnregister_Click"/>
                 <Button x:Name="btnlogin" Content="LOGIN" Click="btnlogin_Click"/>
-                <Button x:Name="btndashboard" Content="DASHBOARD" Click="btndashboard_Click"/>
             </WrapPanel>
 
-            <!--ROW 5 CONTENT NAVAGATION-->
+            <!--ROW 5 CONTENT NAVAGATION HYPERLINKS-->
             <Border Grid.Row="5" Grid.ColumnSpan="4" Padding="20,20,20,20">
+                <Border.InputBindings>
+                    <!--CLICK TO OPEN MESSAGE-->
+                    <MouseBinding MouseAction="LeftClick" Command="{Binding OpenMessageCommand}">
+                        
+                    </MouseBinding>
+                </Border.InputBindings>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="0"/>
@@ -130,6 +142,7 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -173,7 +186,16 @@
                             <LineBreak/>
                             <Hyperlink x:Name="hyperlink_referencebooksdetails" TextDecorations="{x:Null}" Click="hyperlink_referencebooksdetails_Click">Reference Book Administration</Hyperlink>
                         </TextBlock>
+
+                        <TextBlock FontSize="20">
+                            Stock Tasks - DataEntities
+                        </TextBlock>
+                        <TextBlock>                          
+                            <Hyperlink x:Name="hyperlink_book" TextDecorations="{x:Null}" Click="hyperlink_book_Click">Book Administration</Hyperlink> 
+                            <LineBreak/>
+                        </TextBlock>
                     </StackPanel>
+
 
                     <StackPanel Grid.Row="1" Grid.Column="3">
                         <TextBlock FontSize="20">
@@ -201,7 +223,7 @@
                     <!--MAIN AREA DOC PANEL-->
                     <DockPanel x:Name="docMainArea">
                         <!--LIBRARY MEMBER DETAILS AREA-->
-                        <DockPanel x:Name="dockLibraryMemberDetails">
+                        <DockPanel x:Name="dockUserDetails">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="0" />
@@ -242,8 +264,8 @@
                                 <Label x:Name="lblSearch" Content="SEARCH" Grid.Row="2" Grid.Column="1"></Label>
 
                                 <!--BUTTONS-->
-                                <Button x:Name="btnSearchText" Content="SEARCH" Grid.Row="1" Grid.Column="3" Height="20" Width="80" Background="#374989" Foreground="White" FontSize="12"></Button>
-                                <Button x:Name="btnResetSearch" Content="RESET" Grid.Row="1" Grid.Column="4" Height="20" Width="80" Background="#374989" Foreground="White" FontSize="12"></Button>
+                                <Button x:Name="btnSearchText" Content="SEARCH" Grid.Row="1" Grid.Column="3" Height="20" Width="80" Background="#374989" Foreground="White" FontSize="12" Click="btnSearchText_Click"></Button>
+                                <Button x:Name="btnResetSearch" Content="RESET" Grid.Row="1" Grid.Column="4" Height="20" Width="80" Background="#374989" Foreground="White" FontSize="12" Click="btnResetSearch_Click"></Button>
                             </Grid>
                         </DockPanel>
 
@@ -261,10 +283,21 @@
                                     <ColumnDefinition Width="100" />
                                     <ColumnDefinition Width="100" />
                                 </Grid.ColumnDefinitions>
-                                <Button x:Name="btnBuilding" Content="BUILDING" Grid.Row="1" Grid.Column="1" Height="20" Width="80" Background="#374989" Foreground="White" FontSize="12"></Button>
-                                <Button x:Name="btnExit" Content="EXIT" Grid.Row="1" Grid.Column="2" Height="20" Width="80" Background="#374989" Foreground="White" FontSize="12"></Button>
+                                <Button x:Name="btnAdmin" Content="ADMIN" Grid.Row="1" Grid.Column="1" Height="20" Width="80" Background="#374989" Foreground="White" FontSize="12" Click="btnAdmin_Click"></Button>
+                                <Button x:Name="btnBuilding" Content="BUILDING" Grid.Row="1" Grid.Column="1" Height="20" Width="80" Background="#374989" Foreground="White" FontSize="12" Click="btnBuilding_Click"></Button>
+                                <Button x:Name="btnExit" Content="EXIT" Grid.Row="1" Grid.Column="2" Height="20" Width="80" Background="#374989" Foreground="White" FontSize="12" Click="btnExit_Click"></Button>
                             </Grid>
                         </DockPanel>
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Row="6" Grid.ColumnSpan="4" Padding="20,20,20,20">
+                <StackPanel>
+                    <DockPanel x:Name="docMainPanel">
+                        <Frame x:Name="frameMainFrame">
+
+                        </Frame>
                     </DockPanel>
                 </StackPanel>
             </Border>

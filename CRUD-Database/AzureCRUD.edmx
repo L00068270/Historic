@@ -1,0 +1,723 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AzureLibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="ISBN" />
+          </Key>
+          <Property Name="ISBN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Author" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CopiesTotal" Type="int" Nullable="false" />
+          <Property Name="CopiesAvailable" Type="int" Nullable="false" />
+          <Property Name="CopiesOut" Type="int" Nullable="false" />
+          <Property Name="SubjectArea" Type="varchar" MaxLength="50" />
+          <Property Name="YearOfPublication" Type="varchar" MaxLength="50" />
+          <Property Name="Keyword" Type="varchar" MaxLength="30" />
+          <Property Name="BookID" Type="int" />
+          <Property Name="ShelfNumber" Type="varchar" MaxLength="30" />
+          <Property Name="Status" Type="varchar" MaxLength="30" />
+          <Property Name="PublisherID" Type="int" />
+        </EntityType>
+        <EntityType Name="BookNumber">
+          <Key>
+            <PropertyRef Name="BookID" />
+          </Key>
+          <Property Name="BookID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ShelfNumber" Type="int" Nullable="false" />
+          <Property Name="Condition" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="PublisherID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ConferenceProceeding">
+          <Key>
+            <PropertyRef Name="ConfID" />
+          </Key>
+          <Property Name="ConfID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Author" Type="varchar" MaxLength="100" />
+          <Property Name="CopiesTotal" Type="int" Nullable="false" />
+          <Property Name="CopiesAvailable" Type="int" Nullable="false" />
+          <Property Name="CopiesOut" Type="int" Nullable="false" />
+          <Property Name="SubjectArea" Type="varchar" MaxLength="50" />
+          <Property Name="YearOfPublication" Type="varchar" MaxLength="50" />
+          <Property Name="Keyword" Type="varchar" MaxLength="30" />
+          <Property Name="ConfNumberID" Type="int" />
+          <Property Name="ShelfNumber" Type="varchar" MaxLength="30" />
+          <Property Name="Status" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="DVD">
+          <Key>
+            <PropertyRef Name="DVDID" />
+          </Key>
+          <Property Name="DVDID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Producer" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CopiesTotal" Type="int" Nullable="false" />
+          <Property Name="CopiesAvailable" Type="int" Nullable="false" />
+          <Property Name="CopiesOut" Type="int" Nullable="false" />
+          <Property Name="SubjectArea" Type="varchar" MaxLength="50" />
+          <Property Name="YearOfPublication" Type="varchar" MaxLength="50" />
+          <Property Name="Keyword" Type="varchar" MaxLength="30" />
+          <Property Name="DVDNumberID" Type="int" />
+          <Property Name="ShelfNumber" Type="int" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Items">
+          <Key>
+            <PropertyRef Name="ItemsID" />
+          </Key>
+          <Property Name="ItemsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateBorrowed" Type="date" Nullable="false" />
+          <Property Name="DateDue" Type="date" Nullable="false" />
+          <Property Name="DateReturned" Type="date" Nullable="false" />
+          <Property Name="OverDueChargeDay" Type="money" Nullable="false" />
+          <Property Name="OverDueChargeHour" Type="money" Nullable="false" />
+          <Property Name="TransactionTotal" Type="money" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Journal">
+          <Key>
+            <PropertyRef Name="JournalID" />
+          </Key>
+          <Property Name="JournalID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ResearchSociety" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CopiesTotal" Type="int" Nullable="false" />
+          <Property Name="CopiesAvailable" Type="int" Nullable="false" />
+          <Property Name="CopiesOut" Type="int" Nullable="false" />
+          <Property Name="SubjectArea" Type="varchar" MaxLength="50" />
+          <Property Name="YearOfPublication" Type="varchar" MaxLength="50" />
+          <Property Name="Keyword" Type="varchar" MaxLength="30" />
+          <Property Name="JournalNumberID" Type="int" />
+          <Property Name="ShelfNumber" Type="varchar" MaxLength="30" />
+          <Property Name="Status" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="LibraryMember">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameFirst" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="NameInitial" Type="varchar" MaxLength="30" />
+          <Property Name="NameLast" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="30" />
+          <Property Name="Password" Type="varchar" MaxLength="30" />
+          <Property Name="ConfirmPassword" Type="varchar" MaxLength="30" />
+          <Property Name="Address" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Street" Type="varchar" MaxLength="30" />
+          <Property Name="Town" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="County" Type="varchar" MaxLength="30" />
+          <Property Name="Country" Type="varchar" MaxLength="30" />
+          <Property Name="Postcode" Type="varchar" MaxLength="30" />
+          <Property Name="Classification" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemberHistories">
+          <Key>
+            <PropertyRef Name="HistoryID" />
+          </Key>
+          <Property Name="HistoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemsID" Type="int" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MemberID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Publisher">
+          <Key>
+            <PropertyRef Name="PublisherID" />
+          </Key>
+          <Property Name="PublisherID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PublisherName" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="30" />
+          <Property Name="ContactNumber" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="30" />
+          <Property Name="Street" Type="varchar" MaxLength="30" />
+          <Property Name="Town" Type="varchar" MaxLength="30" />
+          <Property Name="County" Type="varchar" MaxLength="30" />
+          <Property Name="Country" Type="varchar" MaxLength="30" />
+          <Property Name="Postcode" Type="varchar" MaxLength="30" />
+          <Property Name="Paidout" Type="varchar" MaxLength="50" />
+          <Property Name="AccountNumber" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ReferenceBook">
+          <Key>
+            <PropertyRef Name="RefBookID" />
+          </Key>
+          <Property Name="RefBookID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Author" Type="varchar" MaxLength="100" />
+          <Property Name="CopiesTotal" Type="int" Nullable="false" />
+          <Property Name="CopiesAvailable" Type="int" Nullable="false" />
+          <Property Name="CopiesOut" Type="int" Nullable="false" />
+          <Property Name="SubjectArea" Type="varchar" MaxLength="50" />
+          <Property Name="YearOfPublication" Type="varchar" MaxLength="50" />
+          <Property Name="Keyword" Type="varchar" MaxLength="30" />
+          <Property Name="ShelfNumber" Type="varchar" MaxLength="30" />
+          <Property Name="Status" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <Association Name="FK__Book__PublisherI__123EB7A3">
+          <End Role="Publisher" Type="Self.Publisher" Multiplicity="0..1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publisher">
+              <PropertyRef Name="PublisherID" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="PublisherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BookNumbe__Publi__04E4BC85">
+          <End Role="Publisher" Type="Self.Publisher" Multiplicity="1" />
+          <End Role="BookNumber" Type="Self.BookNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publisher">
+              <PropertyRef Name="PublisherID" />
+            </Principal>
+            <Dependent Role="BookNumber">
+              <PropertyRef Name="PublisherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Items__OrderID__52593CB8">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Items" Type="Self.Items" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MemberHis__Items__5629CD9C">
+          <End Role="Items" Type="Self.Items" Multiplicity="1" />
+          <End Role="MemberHistories" Type="Self.MemberHistories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemsID" />
+            </Principal>
+            <Dependent Role="MemberHistories">
+              <PropertyRef Name="ItemsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MemberHis__Order__5535A963">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="MemberHistories" Type="Self.MemberHistories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="MemberHistories">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AzureLibraryModelStoreContainer">
+          <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookNumber" EntityType="Self.BookNumber" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConferenceProceeding" EntityType="Self.ConferenceProceeding" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DVD" EntityType="Self.DVD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Items" EntityType="Self.Items" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Journal" EntityType="Self.Journal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LibraryMember" EntityType="Self.LibraryMember" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberHistories" EntityType="Self.MemberHistories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Publisher" EntityType="Self.Publisher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReferenceBook" EntityType="Self.ReferenceBook" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Book__PublisherI__123EB7A3" Association="Self.FK__Book__PublisherI__123EB7A3">
+            <End Role="Publisher" EntitySet="Publisher" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BookNumbe__Publi__04E4BC85" Association="Self.FK__BookNumbe__Publi__04E4BC85">
+            <End Role="Publisher" EntitySet="Publisher" />
+            <End Role="BookNumber" EntitySet="BookNumber" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Items__OrderID__52593CB8" Association="Self.FK__Items__OrderID__52593CB8">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MemberHis__Items__5629CD9C" Association="Self.FK__MemberHis__Items__5629CD9C">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="MemberHistories" EntitySet="MemberHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MemberHis__Order__5535A963" Association="Self.FK__MemberHis__Order__5535A963">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="MemberHistories" EntitySet="MemberHistories" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AzureLibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="ISBN" />
+          </Key>
+          <Property Name="ISBN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Author" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CopiesTotal" Type="Int32" Nullable="false" />
+          <Property Name="CopiesAvailable" Type="Int32" Nullable="false" />
+          <Property Name="CopiesOut" Type="Int32" Nullable="false" />
+          <Property Name="SubjectArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YearOfPublication" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Keyword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="BookID" Type="Int32" />
+          <Property Name="ShelfNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PublisherID" Type="Int32" />
+          <NavigationProperty Name="Publisher" Relationship="Self.FK__Book__PublisherI__123EB7A3" FromRole="Book" ToRole="Publisher" />
+        </EntityType>
+        <EntityType Name="BookNumber">
+          <Key>
+            <PropertyRef Name="BookID" />
+          </Key>
+          <Property Name="BookID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ShelfNumber" Type="Int32" Nullable="false" />
+          <Property Name="Condition" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PublisherID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Publisher" Relationship="Self.FK__BookNumbe__Publi__04E4BC85" FromRole="BookNumber" ToRole="Publisher" />
+        </EntityType>
+        <EntityType Name="ConferenceProceeding">
+          <Key>
+            <PropertyRef Name="ConfID" />
+          </Key>
+          <Property Name="ConfID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Author" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CopiesTotal" Type="Int32" Nullable="false" />
+          <Property Name="CopiesAvailable" Type="Int32" Nullable="false" />
+          <Property Name="CopiesOut" Type="Int32" Nullable="false" />
+          <Property Name="SubjectArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YearOfPublication" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Keyword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ConfNumberID" Type="Int32" />
+          <Property Name="ShelfNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DVD">
+          <Key>
+            <PropertyRef Name="DVDID" />
+          </Key>
+          <Property Name="DVDID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Producer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CopiesTotal" Type="Int32" Nullable="false" />
+          <Property Name="CopiesAvailable" Type="Int32" Nullable="false" />
+          <Property Name="CopiesOut" Type="Int32" Nullable="false" />
+          <Property Name="SubjectArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YearOfPublication" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Keyword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DVDNumberID" Type="Int32" />
+          <Property Name="ShelfNumber" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="ItemsID" />
+          </Key>
+          <Property Name="ItemsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateBorrowed" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateDue" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateReturned" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="OverDueChargeDay" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="OverDueChargeHour" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TransactionTotal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="Self.FK__Items__OrderID__52593CB8" FromRole="Items" ToRole="Orders" />
+          <NavigationProperty Name="MemberHistories" Relationship="Self.FK__MemberHis__Items__5629CD9C" FromRole="Items" ToRole="MemberHistories" />
+        </EntityType>
+        <EntityType Name="Journal">
+          <Key>
+            <PropertyRef Name="JournalID" />
+          </Key>
+          <Property Name="JournalID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ResearchSociety" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CopiesTotal" Type="Int32" Nullable="false" />
+          <Property Name="CopiesAvailable" Type="Int32" Nullable="false" />
+          <Property Name="CopiesOut" Type="Int32" Nullable="false" />
+          <Property Name="SubjectArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YearOfPublication" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Keyword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="JournalNumberID" Type="Int32" />
+          <Property Name="ShelfNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LibraryMember">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameFirst" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NameInitial" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NameLast" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ConfirmPassword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Street" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Town" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="County" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Postcode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Classification" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MemberHistory">
+          <Key>
+            <PropertyRef Name="HistoryID" />
+          </Key>
+          <Property Name="HistoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemsID" Type="Int32" Nullable="false" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Item" Relationship="Self.FK__MemberHis__Items__5629CD9C" FromRole="MemberHistories" ToRole="Items" />
+          <NavigationProperty Name="Order" Relationship="Self.FK__MemberHis__Order__5535A963" FromRole="MemberHistories" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MemberID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Items" Relationship="Self.FK__Items__OrderID__52593CB8" FromRole="Orders" ToRole="Items" />
+          <NavigationProperty Name="MemberHistories" Relationship="Self.FK__MemberHis__Order__5535A963" FromRole="Orders" ToRole="MemberHistories" />
+        </EntityType>
+        <EntityType Name="Publisher">
+          <Key>
+            <PropertyRef Name="PublisherID" />
+          </Key>
+          <Property Name="PublisherID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PublisherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ContactNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Street" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Town" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="County" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Postcode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Paidout" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AccountNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Books" Relationship="Self.FK__Book__PublisherI__123EB7A3" FromRole="Publisher" ToRole="Book" />
+          <NavigationProperty Name="BookNumbers" Relationship="Self.FK__BookNumbe__Publi__04E4BC85" FromRole="Publisher" ToRole="BookNumber" />
+        </EntityType>
+        <EntityType Name="ReferenceBook">
+          <Key>
+            <PropertyRef Name="RefBookID" />
+          </Key>
+          <Property Name="RefBookID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Author" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CopiesTotal" Type="Int32" Nullable="false" />
+          <Property Name="CopiesAvailable" Type="Int32" Nullable="false" />
+          <Property Name="CopiesOut" Type="Int32" Nullable="false" />
+          <Property Name="SubjectArea" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YearOfPublication" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Keyword" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ShelfNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__Book__PublisherI__123EB7A3">
+          <End Role="Publisher" Type="Self.Publisher" Multiplicity="0..1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publisher">
+              <PropertyRef Name="PublisherID" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="PublisherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BookNumbe__Publi__04E4BC85">
+          <End Role="Publisher" Type="Self.Publisher" Multiplicity="1" />
+          <End Role="BookNumber" Type="Self.BookNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publisher">
+              <PropertyRef Name="PublisherID" />
+            </Principal>
+            <Dependent Role="BookNumber">
+              <PropertyRef Name="PublisherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Items__OrderID__52593CB8">
+          <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+          <End Role="Items" Type="Self.Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Items">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MemberHis__Items__5629CD9C">
+          <End Role="Items" Type="Self.Item" Multiplicity="1" />
+          <End Role="MemberHistories" Type="Self.MemberHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Items">
+              <PropertyRef Name="ItemsID" />
+            </Principal>
+            <Dependent Role="MemberHistories">
+              <PropertyRef Name="ItemsID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MemberHis__Order__5535A963">
+          <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+          <End Role="MemberHistories" Type="Self.MemberHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="MemberHistories">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AzureLibraryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Books" EntityType="Self.Book" />
+          <EntitySet Name="BookNumbers" EntityType="Self.BookNumber" />
+          <EntitySet Name="ConferenceProceedings" EntityType="Self.ConferenceProceeding" />
+          <EntitySet Name="DVDs" EntityType="Self.DVD" />
+          <EntitySet Name="Items" EntityType="Self.Item" />
+          <EntitySet Name="Journals" EntityType="Self.Journal" />
+          <EntitySet Name="LibraryMembers" EntityType="Self.LibraryMember" />
+          <EntitySet Name="MemberHistories" EntityType="Self.MemberHistory" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="Publishers" EntityType="Self.Publisher" />
+          <EntitySet Name="ReferenceBooks" EntityType="Self.ReferenceBook" />
+          <AssociationSet Name="FK__Book__PublisherI__123EB7A3" Association="Self.FK__Book__PublisherI__123EB7A3">
+            <End Role="Publisher" EntitySet="Publishers" />
+            <End Role="Book" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BookNumbe__Publi__04E4BC85" Association="Self.FK__BookNumbe__Publi__04E4BC85">
+            <End Role="Publisher" EntitySet="Publishers" />
+            <End Role="BookNumber" EntitySet="BookNumbers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Items__OrderID__52593CB8" Association="Self.FK__Items__OrderID__52593CB8">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Items" EntitySet="Items" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MemberHis__Items__5629CD9C" Association="Self.FK__MemberHis__Items__5629CD9C">
+            <End Role="Items" EntitySet="Items" />
+            <End Role="MemberHistories" EntitySet="MemberHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MemberHis__Order__5535A963" Association="Self.FK__MemberHis__Order__5535A963">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="MemberHistories" EntitySet="MemberHistories" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AzureLibraryModelStoreContainer" CdmEntityContainer="AzureLibraryEntities">
+          <EntitySetMapping Name="Books">
+            <EntityTypeMapping TypeName="AzureLibraryModel.Book">
+              <MappingFragment StoreEntitySet="Book">
+                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="CopiesTotal" ColumnName="CopiesTotal" />
+                <ScalarProperty Name="CopiesAvailable" ColumnName="CopiesAvailable" />
+                <ScalarProperty Name="CopiesOut" ColumnName="CopiesOut" />
+                <ScalarProperty Name="SubjectArea" ColumnName="SubjectArea" />
+                <ScalarProperty Name="YearOfPublication" ColumnName="YearOfPublication" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="ShelfNumber" ColumnName="ShelfNumber" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookNumbers">
+            <EntityTypeMapping TypeName="AzureLibraryModel.BookNumber">
+              <MappingFragment StoreEntitySet="BookNumber">
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="ShelfNumber" ColumnName="ShelfNumber" />
+                <ScalarProperty Name="Condition" ColumnName="Condition" />
+                <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConferenceProceedings">
+            <EntityTypeMapping TypeName="AzureLibraryModel.ConferenceProceeding">
+              <MappingFragment StoreEntitySet="ConferenceProceeding">
+                <ScalarProperty Name="ConfID" ColumnName="ConfID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="CopiesTotal" ColumnName="CopiesTotal" />
+                <ScalarProperty Name="CopiesAvailable" ColumnName="CopiesAvailable" />
+                <ScalarProperty Name="CopiesOut" ColumnName="CopiesOut" />
+                <ScalarProperty Name="SubjectArea" ColumnName="SubjectArea" />
+                <ScalarProperty Name="YearOfPublication" ColumnName="YearOfPublication" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="ConfNumberID" ColumnName="ConfNumberID" />
+                <ScalarProperty Name="ShelfNumber" ColumnName="ShelfNumber" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DVDs">
+            <EntityTypeMapping TypeName="AzureLibraryModel.DVD">
+              <MappingFragment StoreEntitySet="DVD">
+                <ScalarProperty Name="DVDID" ColumnName="DVDID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Producer" ColumnName="Producer" />
+                <ScalarProperty Name="CopiesTotal" ColumnName="CopiesTotal" />
+                <ScalarProperty Name="CopiesAvailable" ColumnName="CopiesAvailable" />
+                <ScalarProperty Name="CopiesOut" ColumnName="CopiesOut" />
+                <ScalarProperty Name="SubjectArea" ColumnName="SubjectArea" />
+                <ScalarProperty Name="YearOfPublication" ColumnName="YearOfPublication" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="DVDNumberID" ColumnName="DVDNumberID" />
+                <ScalarProperty Name="ShelfNumber" ColumnName="ShelfNumber" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Items">
+            <EntityTypeMapping TypeName="AzureLibraryModel.Item">
+              <MappingFragment StoreEntitySet="Items">
+                <ScalarProperty Name="ItemsID" ColumnName="ItemsID" />
+                <ScalarProperty Name="DateBorrowed" ColumnName="DateBorrowed" />
+                <ScalarProperty Name="DateDue" ColumnName="DateDue" />
+                <ScalarProperty Name="DateReturned" ColumnName="DateReturned" />
+                <ScalarProperty Name="OverDueChargeDay" ColumnName="OverDueChargeDay" />
+                <ScalarProperty Name="OverDueChargeHour" ColumnName="OverDueChargeHour" />
+                <ScalarProperty Name="TransactionTotal" ColumnName="TransactionTotal" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Journals">
+            <EntityTypeMapping TypeName="AzureLibraryModel.Journal">
+              <MappingFragment StoreEntitySet="Journal">
+                <ScalarProperty Name="JournalID" ColumnName="JournalID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ResearchSociety" ColumnName="ResearchSociety" />
+                <ScalarProperty Name="CopiesTotal" ColumnName="CopiesTotal" />
+                <ScalarProperty Name="CopiesAvailable" ColumnName="CopiesAvailable" />
+                <ScalarProperty Name="CopiesOut" ColumnName="CopiesOut" />
+                <ScalarProperty Name="SubjectArea" ColumnName="SubjectArea" />
+                <ScalarProperty Name="YearOfPublication" ColumnName="YearOfPublication" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="JournalNumberID" ColumnName="JournalNumberID" />
+                <ScalarProperty Name="ShelfNumber" ColumnName="ShelfNumber" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LibraryMembers">
+            <EntityTypeMapping TypeName="AzureLibraryModel.LibraryMember">
+              <MappingFragment StoreEntitySet="LibraryMember">
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="NameFirst" ColumnName="NameFirst" />
+                <ScalarProperty Name="NameInitial" ColumnName="NameInitial" />
+                <ScalarProperty Name="NameLast" ColumnName="NameLast" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="Town" ColumnName="Town" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="Classification" ColumnName="Classification" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberHistories">
+            <EntityTypeMapping TypeName="AzureLibraryModel.MemberHistory">
+              <MappingFragment StoreEntitySet="MemberHistories">
+                <ScalarProperty Name="HistoryID" ColumnName="HistoryID" />
+                <ScalarProperty Name="ItemsID" ColumnName="ItemsID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="AzureLibraryModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Publishers">
+            <EntityTypeMapping TypeName="AzureLibraryModel.Publisher">
+              <MappingFragment StoreEntitySet="Publisher">
+                <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
+                <ScalarProperty Name="PublisherName" ColumnName="PublisherName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="Town" ColumnName="Town" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="Paidout" ColumnName="Paidout" />
+                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReferenceBooks">
+            <EntityTypeMapping TypeName="AzureLibraryModel.ReferenceBook">
+              <MappingFragment StoreEntitySet="ReferenceBook">
+                <ScalarProperty Name="RefBookID" ColumnName="RefBookID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="CopiesTotal" ColumnName="CopiesTotal" />
+                <ScalarProperty Name="CopiesAvailable" ColumnName="CopiesAvailable" />
+                <ScalarProperty Name="CopiesOut" ColumnName="CopiesOut" />
+                <ScalarProperty Name="SubjectArea" ColumnName="SubjectArea" />
+                <ScalarProperty Name="YearOfPublication" ColumnName="YearOfPublication" />
+                <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+                <ScalarProperty Name="ShelfNumber" ColumnName="ShelfNumber" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

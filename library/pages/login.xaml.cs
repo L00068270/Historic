@@ -55,12 +55,12 @@ namespace library.pages
 
 
         /**************************************************************************************************
-         * 2. functionWindowLoaded 
+         * 2. Window_Loaded 
          *      - preload librarymembers into the global _libraryMemberList
          *      - it runs the functionToLoadLibraryMembers method once the application initialises
          *      
          *************************************************************************************************/
-        private void functionWindowLoaded(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             functionToLoadLibraryMembers();
         }
@@ -106,23 +106,28 @@ namespace library.pages
         {
             LibraryMember _libraryMemberDetails = new LibraryMember();
             string currentLibraryMember = tbxUsername.Text.Trim();
-            string currentPassword = tbxPassword.Text.Trim();
+            string currentPassword = tbxPassword.Password;
 
             _libraryMemberDetails = functionToGetLibraryMemberDetails(currentLibraryMember, currentPassword);
 
             if (_libraryMemberDetails.Classification > 0)
             {
+                this.Hide();
+                //new Dashboard page
                 dashboard.dashboard dashboard = new dashboard.dashboard();
                 dashboard.Owner = this;
-                dashboard.currentLibraryMember = _libraryMemberDetails;
+
+                //_instanceLibraryMember links user to the Dashboard
+                dashboard._instanceLibraryMember = _libraryMemberDetails;  
                 dashboard.ShowDialog();
-                this.Hide();
+                
             }
             else
             {
+                //output message if details are incorrect and clear out boxes
                 MessageBox.Show("Your user details are invalid, please try again");
                 tbxUsername.Text = "";
-                tbxPassword.Text = "";
+                tbxPassword.Password = "";
                 tbxUsername.Focus();
             }
         }

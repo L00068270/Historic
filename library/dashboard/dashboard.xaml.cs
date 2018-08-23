@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using library.dashboard.viewmodels;
+using System.Windows.Navigation;
+using CRUD_Database.pages.view;
+using CRUD_Database.pages.viewmodel;
 
 namespace library.dashboard
 {
@@ -22,13 +25,22 @@ namespace library.dashboard
     {
         public LibraryMember currentLibraryMember;
 
-        public LibraryMember _LibraryMember = new LibraryMember();
+        //new instance of library member. 'LOGIN' refers to this
+        public LibraryMember _instanceLibraryMember = new LibraryMember();
 
         /**************************************************************************************************
-         * database framework reference
+         * database framework reference. link to SQL database
          *************************************************************************************************/
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
+
+
+        //set the dashboard to load the user details
+        public void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            lblCurrentUser.Content = _instanceLibraryMember.NameFirst;
+        }
+
 
         public dashboard()
         {
@@ -36,10 +48,8 @@ namespace library.dashboard
             DataContext = new viewmodel_books();
         }
 
-
-
         /***************************************************************************************************
-         * buttons here
+         * buttons here for Main Window. This allows for navagating the website.
          * 
          **************************************************************************************************/
 
@@ -67,11 +77,6 @@ namespace library.dashboard
             login.ShowDialog();            
         }
 
-        private void btndashboard_Click(object sender, RoutedEventArgs e)
-        {
-            dashboard dashboard = new dashboard();
-            dashboard.ShowDialog();
-        }
 
         /***************************************************************************************************
          * hyperlinks here
@@ -133,14 +138,46 @@ namespace library.dashboard
             DataContext = new viewmodel_librarymember();
         }
 
-        private void hyperlink_librarymember_crud_Click(object sender, RoutedEventArgs e)
-        {
-            DataContext = new viewmodel_librymembers_crud();
-        }
-
         private void hyperlink_publisher_Click(object sender, RoutedEventArgs e)
         {
             DataContext = new viewmodel_publisher();
-        }       
+        }
+
+        private void hyperlink_book_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new viewmodel_book();           
+        }
+
+
+        /***************************************************************************************************
+         * Library Member user buttons here for Main Window. 
+         * 
+         **************************************************************************************************/
+
+        private void btnSearchText_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnResetSearch_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAdmin_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnBuilding_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            Environment.Exit(0);
+        }
     }
 }

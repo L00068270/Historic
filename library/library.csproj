@@ -428,12 +428,6 @@
     <Resource Include="banners\20180528_103343-1200x200.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyClassesLibrary\MyClassesLibrary.csproj">
-      <Project>{e5afef97-9c8f-4a71-92e9-af1266e42050}</Project>
-      <Name>MyClassesLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="banners\cr20180528_102107.jpg" />
     <Resource Include="banners\cr20180528_103312.jpg" />
     <Resource Include="banners\cr20180528_103343.jpg" />
@@ -453,6 +447,16 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CRUD-Database\CRUD-Database.csproj">
+      <Project>{90caeb78-fe16-48f0-8fbd-08bc2b5f2f03}</Project>
+      <Name>CRUD-Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyClassesLibrary\MyClassesLibrary.csproj">
+      <Project>{e5afef97-9c8f-4a71-92e9-af1266e42050}</Project>
+      <Name>MyClassesLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

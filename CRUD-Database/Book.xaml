@@ -1,0 +1,187 @@
+﻿<Page x:Class="CRUD_Database.Book"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CRUD_Database"
+      xmlns:LinqAzureDatabase="clr-namespace:MyClassesLibrary;assembly=MyClassesLibrary"
+      mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989"
+      Title="Book" Width="1200" MinWidth="300">
+
+    <Grid>
+        <Border Grid.Row="3" Grid.Column="1" Padding="20,20,20,20">
+            <StackPanel>
+                <TextBlock FontSize="28">
+                    Books
+                </TextBlock>
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="26"/>
+                        <RowDefinition Height="26"/>
+                        <RowDefinition Height="26"/>
+                        <RowDefinition Height="26"/>
+                        <RowDefinition Height="26"/>
+                        <RowDefinition Height="26"/>
+                        <RowDefinition Height="26"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+                    <!--LABELS-->
+                    <Label x:Name="lblISBN" Content="ISBN" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblTitle" Content="Title" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblAuthor" Content="Author" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblCopiesTotal" Content="Copies Total" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblCopiesAvailable" Content="Copies Available" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblCopiesOut" Content="Copies Out" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+                    <Label x:Name="lblSubjectArea" Content="Subject Area" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblYearOfPublication" Content="Year of Publication" Grid.Row="2" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblKeyword" Content="Keywords" Grid.Row="3" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblBookID" Content="BookID" Grid.Row="4" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblShelfNumber" Content="Shelf Number" Grid.Row="5" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblStatus" Content="Status" Grid.Row="6" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                    <Label x:Name="lblPublisherID" Content="PublisherID" Grid.Row="7" Grid.Column="5" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+
+
+                    <!--TEXT BOXES-->
+                    <TextBox x:Name="tbxISBN"  Grid.Row="1" Grid.Column="4" Text="{Binding SelectedItem.ISBN, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxTitle"  Grid.Row="2" Grid.Column="4" Text="{Binding SelectedItem.Title, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxAuthor" Grid.Row="3" Grid.Column="4" Text="{Binding SelectedItem.Author, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxCopiesTotal" Grid.Row="4" Grid.Column="4" Text="{Binding SelectedItem.CopiesTotal, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxCopiesAvailable" Grid.Row="5" Grid.Column="4" Text="{Binding SelectedItem.CopiesAvailable, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxCopiesOut" Grid.Row="6" Grid.Column="4" Text="{Binding SelectedItem.CopiesOut, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+
+                    <TextBox x:Name="tbxSubjectArea" Grid.Row="1" Grid.Column="6" Text="{Binding SelectedItem.SubjectArea, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxYearOfPublication" Grid.Row="2" Grid.Column="6" Text="{Binding SelectedItem.YearOfPublication, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxKeyword" Grid.Row="3" Grid.Column="6" Text="{Binding SelectedItem.Keyword, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxBookID" Grid.Row="4" Grid.Column="6" Text="{Binding SelectedItem.BookID, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxShelfNumber" Grid.Row="5" Grid.Column="6" Text="{Binding SelectedItem.ShelfNumber, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxStatus" Grid.Row="6" Grid.Column="6" Text="{Binding SelectedItem.Status, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                    <TextBox x:Name="tbxPublisherID" Grid.Row="7" Grid.Column="6" Text="{Binding SelectedItem.PublisherID, Mode=TwoWay, ElementName=myDataGrid}" Height="23" Width="120" Padding="2,4,2,2"/>
+                </Grid>
+
+                <!--CENTRAL SCREEN AREA-->
+                <DockPanel x:Name="dockMainPanel">
+                    <Grid Margin="0,0,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0"/>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ListView x:Name="myListView" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="ISBN" Width="60">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding ISBN}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Title" Width="120">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding Title}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Author" Width="120">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding Author}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="CopiesTotal" Width="60">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding CopiesTotal}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="CopiesAvailable" Width="60">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding CopiesAvailable}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="CopiesOut" Width="100">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding CopiesOut}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="SubjectArea" Width="100">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding SubjectArea}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="YearOfPublication" Width="120">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding YearOfPublication}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Keyword" Width="80">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding Keyword}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="BookID" Width="80">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding BookID}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="ShelfNumber" Width="80">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Stretch" Text="{Binding ShelfNumber}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="Status" Width="80">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock TextWrapping="Wrap" HorizontalAlignment="Stretch" Text="{Binding Status}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                    <GridViewColumn Header="PublisherID" Width="60">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock HorizontalAlignment="Stretch" Text="{Binding PublisterID}"></TextBlock>
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </DockPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
