@@ -6,16 +6,16 @@
     <edmx:Diagrams>
       <Diagram DiagramId="aba1e16453234731ba4e17c9a16bf2af" Name="Diagram1">
         <EntityTypeShape EntityType="AzureLibraryModel.Book" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AzureLibraryModel.BookNumber" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AzureLibraryModel.ConferenceProceeding" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AzureLibraryModel.DVD" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AzureLibraryModel.Item" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="AzureLibraryModel.Journal" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AzureLibraryModel.LibraryMember" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AzureLibraryModel.MemberHistory" Width="1.5" PointX="10.25" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AzureLibraryModel.Order" Width="1.5" PointX="5.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AzureLibraryModel.Publisher" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AzureLibraryModel.ReferenceBook" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureLibraryModel.BookNumber" Width="1.5" PointX="1.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureLibraryModel.ConferenceProceeding" Width="1.5" PointX="3.125" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureLibraryModel.DVD" Width="1.5" PointX="5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureLibraryModel.Item" Width="1.5" PointX="6.625" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureLibraryModel.Journal" Width="1.5" PointX="10" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureLibraryModel.LibraryMember" Width="1.5" PointX="8.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureLibraryModel.MemberHistory" Width="1.5" PointX="8.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureLibraryModel.Order" Width="1.5" PointX="4.875" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureLibraryModel.Publisher" Width="1.5" PointX="1.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AzureLibraryModel.ReferenceBook" Width="1.5" PointX="6.875" PointY="5" IsExpanded="true" />
         <AssociationConnector Association="AzureLibraryModel.FK__Book__PublisherI__123EB7A3" ManuallyRouted="false" />
         <AssociationConnector Association="AzureLibraryModel.FK__BookNumbe__Publi__04E4BC85" ManuallyRouted="false" />
         <AssociationConnector Association="AzureLibraryModel.FK__Items__OrderID__52593CB8" ManuallyRouted="false" />

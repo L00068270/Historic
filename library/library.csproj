@@ -412,11 +412,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="css\" />
     <Folder Include="dashboard\models\" />
-    <Folder Include="documents\" />
-    <Folder Include="php\" />
-    <Folder Include="resources\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="banners\20180528_102114-1200x200.jpg" />

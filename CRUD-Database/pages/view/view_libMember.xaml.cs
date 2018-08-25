@@ -173,7 +173,7 @@ namespace CRUD_Database.pages.view
             {
                 if (modifyState == "Add")
                 {
-                    //librarymember.MemberID = Guid.NewGuid().ToString();//Create new UsedID for database
+                    librarymember.MemberID = new Int32();
                     dc.Configuration.AutoDetectChangesEnabled = false;
                     dc.Configuration.ValidateOnSaveEnabled = false;
                     dc.Entry(librarymember).State = System.Data.Entity.EntityState.Added;

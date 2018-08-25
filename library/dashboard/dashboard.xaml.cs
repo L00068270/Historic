@@ -23,19 +23,32 @@ namespace library.dashboard
     /// </summary>
     public partial class dashboard : Window
     {
-        public LibraryMember currentLibraryMember;
-
-        //new instance of library member. 'LOGIN' refers to this
-        public LibraryMember _instanceLibraryMember = new LibraryMember();
-
         /**************************************************************************************************
-         * database framework reference. link to SQL database
-         *************************************************************************************************/
+        * (1)
+        * database framework reference. link to azure SQL database
+        **************************************************************************************************/
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
 
 
-        //set the dashboard to load the user details
+        /**************************************************************************************************
+        * (2)
+        * new instance of library member. 'LOGIN' refers to this
+        **************************************************************************************************/
+        public LibraryMember _instanceLibraryMember = new LibraryMember();
+
+
+        /**************************************************************************************************
+        * (3)
+        * new instance of library member. 'LOGIN' refers to this
+        **************************************************************************************************/
+        public LibraryMember currentLibraryMember;
+
+
+        /**************************************************************************************************
+        * (4)
+        * set the dashboard to load the user details
+        **************************************************************************************************/
         public void Window_Loaded(object sender, RoutedEventArgs e)
         {
             lblCurrentUser.Content = _instanceLibraryMember.NameFirst;

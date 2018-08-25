@@ -18,7 +18,8 @@ namespace library.pages
     public partial class login : Window
     {
         /**************************************************************************************************
-         * database framework reference
+         * (1)
+         * database framework reference - link to SQL azure database
          *************************************************************************************************/
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
@@ -26,6 +27,7 @@ namespace library.pages
 
 
         /**************************************************************************************************
+         * (2)
          * global list (_libraryMemberList) of records in the database LibraryMember table
          *************************************************************************************************/
         List<LibraryMember> _libraryMemberList = new List<LibraryMember>();
@@ -38,7 +40,8 @@ namespace library.pages
 
 
         /**************************************************************************************************
-         * 1. functionToLoadLibraryMembers 
+         * (3)
+         * functionToLoadLibraryMembers 
          *      - will load the SQL records from the LibraryMember table into the global _libraryMemberList
          *      - clears contents of _libraryMemberList
          *      - then add all users to global list
@@ -55,7 +58,8 @@ namespace library.pages
 
 
         /**************************************************************************************************
-         * 2. Window_Loaded 
+         * (4)
+         * Window_Loaded 
          *      - preload librarymembers into the global _libraryMemberList
          *      - it runs the functionToLoadLibraryMembers method once the application initialises
          *      
@@ -68,12 +72,13 @@ namespace library.pages
 
 
         /**************************************************************************************************
-         * 3. functionToGetUserDetails
+         * (5)
+         * functionToGetUserDetails
          *      - authenticate librarymember information
          *      - function that will take in the username and password and verify if the 
          *          librarymember exists in global _libraryMemberList
          *      - initialises '_libraryMemberDetails'
-         *      - check each user name and password in the global _libraryMemberList
+         *      - check each username and password in the global _libraryMemberList
          *      - if there is a match then add the details to the local librarymember account
          *      - return the library members details  
          *          
@@ -95,11 +100,12 @@ namespace library.pages
 
 
         /**************************************************************************************************
+        *  (6)
         *  buttons here
-        * 1. instance of librarymember class, called _libraryMemberDetails
-        * 2. gets the username from the tbxUsername and remove unnecessary spaces
-        * 3. gets the password from the tbxPassword and remove unnecessary spaces
-        * 4. runs 'functionToGetLibraryMemberDetails' method with the inputted username and password information 
+        *       - instance of librarymember class, called _libraryMemberDetails
+        *       - gets the username from the tbxUsername and remove unnecessary spaces
+        *       - gets the password from the tbxPassword and remove unnecessary spaces
+        *       - runs 'functionToGetLibraryMemberDetails' method with the inputted username and password information 
         *  
         **************************************************************************************************/
         private void btnLogin_Click(object sender, RoutedEventArgs e)
