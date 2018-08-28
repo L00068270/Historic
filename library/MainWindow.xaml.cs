@@ -48,11 +48,12 @@ namespace library
             pages.login login = new pages.login();
             login.ShowDialog();
         }
-
+        /*
         private void btnDashboard(object sender, RoutedEventArgs e)
         {          
             dashboard.dashboard dashboard = new dashboard.dashboard();
             dashboard.ShowDialog();
         }
+        */
     }
 }

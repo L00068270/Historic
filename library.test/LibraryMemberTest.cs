@@ -131,7 +131,8 @@ namespace library.pages.Tests
                 Classification = 1
             };
 
-            // Act 
+            // Act
+            L1 = L2; 
 
             // Assert
             Assert.AreNotSame(L1, L2, "L1 is the same as L2");

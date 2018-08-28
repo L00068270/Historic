@@ -67,7 +67,6 @@
                 <Button Content="ABOUT" Click="btnAbout"/>
                 <Button Content="REGISTER" Click="btnRegister"/>
                 <Button Content="LOGIN" Click="btnLogin"/>
-                <Button Content="DASHBOARD" Click="btnDashboard"/>
             </WrapPanel>
 
             <!--ROW 5 CONTENT-->
