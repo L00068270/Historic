@@ -34,7 +34,7 @@
                     Book Administration
                 </TextBlock>
 
-                <Grid DataContext="{Binding Source={StaticResource Book}}">
+                <Grid DataContext="{Binding Source={StaticResource Book}}" >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="0"/>
                         <RowDefinition Height="26"/>

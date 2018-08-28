@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace MyClassesLibrary
 {
-    class LibraryMemberCompare : IComparer
+    class LibraryMemberCompare
     {
         // in this method two object are being passed object x and object y
         // these are the objects to be compared
         // compare to LibraryMember objects
 
-
+        /*
         public int Compare(object x, object y)
         {
             LibraryMember L1 = x as LibraryMember;
@@ -23,10 +23,11 @@ namespace MyClassesLibrary
             {
                 return -1;
             }
-            // comparing the properties fo the two Library Member Objects
+
+            comparing the properties fo the two Library Member Objects
             return L1.MemberID.CompareTo(L2.MemberID);
 
-            /*
+            
             return L1.NameFirst.CompareTo(L2.NameFirst);
             return L1.NameInitials.CompareTo(L2.NameInitials);
             return L1.NameLast.CompareTo(L2.NameLast);
@@ -40,7 +41,9 @@ namespace MyClassesLibrary
             return L1.Country.CompareTo(L2.Country);
             return L1.Postcode.CompareTo(L2.Postcode);
             return L1.Classification.CompareTo(L2.Classification);
-            */ 
-        }
+         }   
+         */
+             
     }
 }
+

@@ -19,7 +19,7 @@ namespace library.pages
     {
         /**************************************************************************************************
          * (1)
-         * database framework reference - link to SQL azure database
+         * database framework reference - new instance of SQL azure database
          *************************************************************************************************/
         LinqAzureDatabaseDataContext dc = new LinqAzureDatabaseDataContext
             (Properties.Settings.Default.libraryConnectionString);
@@ -83,7 +83,7 @@ namespace library.pages
          *      - return the library members details  
          *          
          *************************************************************************************************/
-        private LibraryMember functionToGetLibraryMemberDetails(string username, string password)
+        private LibraryMember functionToVerifyLibraryMemberDetails(string username, string password)
         {
             LibraryMember _libraryMemberDetails = new LibraryMember();
                         
@@ -105,21 +105,22 @@ namespace library.pages
         *       - instance of librarymember class, called _libraryMemberDetails
         *       - gets the username from the tbxUsername and remove unnecessary spaces
         *       - gets the password from the tbxPassword and remove unnecessary spaces
-        *       - runs 'functionToGetLibraryMemberDetails' method with the inputted username and password information 
+        *       - runs 'functionToVerifyLibraryMemberDetails' method with the inputted username and password information 
         *  
         **************************************************************************************************/
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             LibraryMember _libraryMemberDetails = new LibraryMember();
-            string currentLibraryMember = tbxUsername.Text.Trim();
+            string currentUsername = tbxUsername.Text.Trim();
             string currentPassword = tbxPassword.Password;
 
-            _libraryMemberDetails = functionToGetLibraryMemberDetails(currentLibraryMember, currentPassword);
+            //Check if credentials are in Azure SQL Database
+            _libraryMemberDetails = functionToVerifyLibraryMemberDetails(currentUsername, currentPassword);
 
             if (_libraryMemberDetails.Classification > 0)
             {
                 this.Hide();
-                //new Dashboard page
+                //new instance of the Dashboard page
                 dashboard.dashboard dashboard = new dashboard.dashboard();
                 dashboard.Owner = this;
 

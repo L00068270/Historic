@@ -15,7 +15,7 @@
                     Library Members Details
                 </TextBlock>
 
-                <DockPanel x:Name="dockUserPanel">
+                <DockPanel x:Name="dockUserPanel" Visibility="Collapsed">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0"/>
@@ -97,7 +97,7 @@
                     </Grid.ColumnDefinitions>
                     <Button x:Name="btnDelete" Content="DELETE" Grid.Row="1" Grid.Column="10" Height="20" Width="56" Foreground="White" Background="#FF374989" Click="btnDelete_Click" ></Button>
                     <Button x:Name="btnUpdate" Content="UPDATE" Grid.Row="1" Grid.Column="11" Height="20" Width="56" Background="#374989" Foreground="White" Click="btnUpdate_Click" ></Button>
-                    <Button x:Name="btnAdd" Content="ADD" Grid.Row="1" Grid.Column="12" Height="20" Width="56" Background="#374989" Foreground="White" Click="btnAddLibraryMember_Click"></Button>
+                    <Button x:Name="btnAdd" Content="ADD" Grid.Row="1" Grid.Column="12" Height="20" Width="56" Background="#374989" Foreground="White" Click="btnAdd_Click"></Button>
                 </Grid>
 
                 <!--CENTRAL SCREEN AREA-->

@@ -24,76 +24,45 @@ namespace MyClassesLibrary
         private string _postcode;
         private int _classification;
 
-        public int MemberID
+       
+
+
+        /**************************************************************************************************
+         * (2)
+         * global list (_libraryMemberList) of records in the database LibraryMember table
+         *************************************************************************************************/
+        List<LibraryMember> _libraryMemberList = new List<LibraryMember>();
+
+
+
+
+        /**************************************************************************************************
+         * (5)
+         * functionToGetUserDetails
+         *      - authenticate librarymember information
+         *      - function that will take in the username and password and verify if the 
+         *          librarymember exists in global _libraryMemberList
+         *      - initialises '_libraryMemberDetails'
+         *      - check each username and password in the global _libraryMemberList
+         *      - if there is a match then add the details to the local librarymember account
+         *      - return the library members details  
+         *          
+         *************************************************************************************************/
+        private LibraryMember functionToVerifyLibraryMemberDetails(string username, string password)
         {
-            get { return _memberID; }
-            set { _memberID = value; }
+            LibraryMember _libraryMemberDetails = new LibraryMember();
+
+            foreach (var _member in _libraryMemberList)
+            {
+                //if (username == _member.Username && password == _member.Password)
+                {
+                    _libraryMemberDetails = _member;
+                }
+            }
+            return _libraryMemberDetails;
         }
-        public string NameFirst
-        {
-            get { return _nameFirst; }
-            set { _nameFirst = value; }
-        }
-        public string NameInitial
-        {
-            get { return _nameInitial; }
-            set { _nameInitial = value; }
-        }
-        public string NameLast
-        {
-            get { return _nameLast; }
-            set { _nameLast = value; }
-        }
-        public string Username
-        {
-            get { return _username; }
-            set { _username = value; }
-        }
-        public string Password
-        {
-            get { return _password; }
-            set { _password = value; }
-        }
-        public string ConfirmPassword
-        {
-            get { return _confirmPassword; }
-            set { _confirmPassword = value; }
-        }
-        public string Address
-        {
-            get { return _address; }
-            set { _address = value; }
-        }
-        public string Street
-        {
-            get { return _street; }
-            set { _street = value; }
-        }
-        public string Town
-        {
-            get { return _town; }
-            set { _town = value; }
-        }
-        public string County
-        {
-            get { return _county; }
-            set { _county = value; }
-        }
-        public string Country
-        {
-            get { return _country; }
-            set { _country = value; }
-        }
-        public string Postcode
-        {
-            get { return _postcode; }
-            set { _postcode = value; }
-        }
-        public int Classification
-        {
-            get { return _classification; }
-            set { _classification = value; }
-        }
+
+        
 
     }
 }

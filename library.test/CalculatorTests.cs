@@ -20,7 +20,7 @@ namespace library.test
             int denominator = 3;
 
             // Act 
-            // invoke functionto be tested
+            // invoke function to be tested
             // result will be stored in variable called 'Actual'
             int actual = MyClassesLibrary.Calculator.Divide(numerator, denominator);
 
@@ -86,7 +86,7 @@ namespace library.test
 
 
             // Act 
-            // invoke functionto be tested
+            // invoke function to be tested
             // result will be stored in variable called 'Actual'
             bool actual = MyClassesLibrary.Calculator.IsPositive(18);
 

@@ -43,7 +43,7 @@ namespace CRUD_Database.pages.view
         /**************************************************************************************************
          * (4)
          * functionToLoadLibraryMembers 
-         *      - will load the SQL records from the LibraryMrmber table into the global _libraryMemberList
+         *      - will load the SQL records from the LibraryMember table into the global _libraryMemberList
          *      - clears contents of _bookList
          *      - then add all books to global list
          * ***********************************************************************************************/
@@ -59,13 +59,14 @@ namespace CRUD_Database.pages.view
         /**************************************************************************************************
         * (5)
         * Window_Loaded 
-        *      - preload books into the global _bookList
+        *      - preload LibraryMember table into the global _libraryMemberList
         *      - it runs the functionToLoadBooks method once the application initialises
         *      
         *************************************************************************************************/
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             functionToLoadLibraryMembers();
+            functionToShowAdministratorButtons(_currentLibraryMember.Classification);
         }
 
 
@@ -81,7 +82,7 @@ namespace CRUD_Database.pages.view
         /**************************************************************************************************
         * (7)
         * myViewList_SelectedChanged
-        * this selects the library member at the at its position in myListView   
+        * this selects the library member at its position in myListView   
         *************************************************************************************************/
         private void myListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -99,11 +100,11 @@ namespace CRUD_Database.pages.view
         /**************************************************************************************************
         * (8)
         * functionToPopulateLibraryMemberDetails
-        * this method will populate the Library Memberinformation within the DockPanel  
+        * this method will populate the Library Member information within the DockPanel  
         *************************************************************************************************/
         private void functionToPopulateLibraryMemberDetails(LibraryMember selectedLibraryMember)
         {
-            dockMainPanel.Visibility = Visibility.Visible;
+            dockUserPanel.Visibility = Visibility.Visible;
             tbxMemberID.Text = selectedLibraryMember.MemberID.ToString();
             tbxNameFirst.Text = selectedLibraryMember.NameFirst;
             tbxNameInitial.Text = selectedLibraryMember.NameInitial;
@@ -156,7 +157,7 @@ namespace CRUD_Database.pages.view
 
             if(_libraryMemberVerified)
             {
-                functionUpdateLibraryMember(_currentLibraryMember, _entityState);
+                functionToUpdateLibraryMember(_currentLibraryMember, _entityState);
                 functionToPopulateLibraryMemberDetails(_currentLibraryMember);
                 myListView.Items.Refresh();
             }           
@@ -167,44 +168,44 @@ namespace CRUD_Database.pages.view
         * functionToUpdateLibraryMember
         *             
         *************************************************************************************************/
-        private void functionUpdateLibraryMember(LibraryMember librarymember, string modifyState)
+        private void functionToUpdateLibraryMember(LibraryMember _librarymember, string modifyState)
         {
             try
             {
                 if (modifyState == "Add")
                 {
-                    librarymember.MemberID = new Int32();
+                    _librarymember.MemberID = new Int32();
                     dc.Configuration.AutoDetectChangesEnabled = false;
                     dc.Configuration.ValidateOnSaveEnabled = false;
-                    dc.Entry(librarymember).State = System.Data.Entity.EntityState.Added;
-                    MessageBox.Show("New user added");
+                    dc.Entry(_librarymember).State = System.Data.Entity.EntityState.Added;
+                    MessageBox.Show("New Library Member Added");
                 }
                 if (modifyState == "Modify")
                 {
-                    foreach (var _LibraryMemberRecord in dc.LibraryMembers.Where(t => t.MemberID == librarymember.MemberID))
+                    foreach (var _LibraryMemberRecord in dc.LibraryMembers.Where(t => t.MemberID == _librarymember.MemberID))
                     {
-                        _LibraryMemberRecord.NameFirst = librarymember.NameFirst;
-                        _LibraryMemberRecord.NameInitial = librarymember.NameInitial;
-                        _LibraryMemberRecord.NameLast = librarymember.NameLast;
-                        _LibraryMemberRecord.Username = librarymember.Username;
-                        _LibraryMemberRecord.Password = librarymember.Password;
-                        _LibraryMemberRecord.ConfirmPassword = librarymember.ConfirmPassword;
-                        _LibraryMemberRecord.Address = librarymember.Address;
-                        _LibraryMemberRecord.Street = librarymember.Street;
-                        _LibraryMemberRecord.Town = librarymember.Town;
-                        _LibraryMemberRecord.County = librarymember.County;
-                        _LibraryMemberRecord.Country = librarymember.Country;
-                        _LibraryMemberRecord.Postcode = librarymember.Postcode;
-                        _LibraryMemberRecord.Classification = librarymember.Classification;
+                        _LibraryMemberRecord.NameFirst = _librarymember.NameFirst;
+                        _LibraryMemberRecord.NameInitial = _librarymember.NameInitial;
+                        _LibraryMemberRecord.NameLast = _librarymember.NameLast;
+                        _LibraryMemberRecord.Username = _librarymember.Username;
+                        _LibraryMemberRecord.Password = _librarymember.Password;
+                        _LibraryMemberRecord.ConfirmPassword = _librarymember.ConfirmPassword;
+                        _LibraryMemberRecord.Address = _librarymember.Address;
+                        _LibraryMemberRecord.Street = _librarymember.Street;
+                        _LibraryMemberRecord.Town = _librarymember.Town;
+                        _LibraryMemberRecord.County = _librarymember.County;
+                        _LibraryMemberRecord.Country = _librarymember.Country;
+                        _LibraryMemberRecord.Postcode = _librarymember.Postcode;
+                        _LibraryMemberRecord.Classification = _librarymember.Classification;
 
-                        MessageBox.Show("User modified");
+                        MessageBox.Show("Library Member Modified");
                     }
                 }
                 if (modifyState == "Delete")
                 {
                     dc.LibraryMembers.RemoveRange(
-                    dc.LibraryMembers.Where(t => t.MemberID == librarymember.MemberID));
-                    MessageBox.Show("User deleted");
+                    dc.LibraryMembers.Where(t => t.MemberID == _librarymember.MemberID));
+                    MessageBox.Show("Library Member Deleted");
                 }
                 dc.SaveChanges();
                 dc.Configuration.AutoDetectChangesEnabled = true;
@@ -230,12 +231,13 @@ namespace CRUD_Database.pages.view
         * button btnAddLibraryMember
         *             
         *************************************************************************************************/
-        private void btnAddLibraryMember_Click(object sender, RoutedEventArgs e)
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             dockUserPanel.Visibility = Visibility.Visible;
             functionToClearLibraryMemberDetails();
             _entityState = "Add";
         }
+        
 
 
         /**************************************************************************************************
@@ -267,62 +269,62 @@ namespace CRUD_Database.pages.view
         * 
         *   function to take the contents of the textboxes and add them to global user list          
         *************************************************************************************************/
-        private bool functionToVerifyLibraryMemberDetails(LibraryMember librarymember)
+        private bool functionToVerifyLibraryMemberDetails(LibraryMember _librarymember)
         {
             bool _libraryMemberVerified = false;
             try
             {
-                if (librarymember.NameFirst == null)
+                if (_librarymember.NameFirst == null)
                 {
-                    librarymember.NameFirst = "";
+                    _librarymember.NameFirst = "";
                 }
-                if (librarymember.NameInitial == null)
+                if (_librarymember.NameInitial == null)
                 {
-                    librarymember.NameInitial = "";
+                    _librarymember.NameInitial = "";
                 }
-                if (librarymember.NameLast == null)
+                if (_librarymember.NameLast == null)
                 {
-                    librarymember.NameLast = "";
+                    _librarymember.NameLast = "";
                 }
-                if (librarymember.Username == null)
+                if (_librarymember.Username == null)
                 {
-                    librarymember.Username = "";
+                    _librarymember.Username = "";
                 }
-                if (librarymember.Password == null)
+                if (_librarymember.Password == null)
                 {
-                    librarymember.Password = "";
+                    _librarymember.Password = "";
                 }
-                if (librarymember.ConfirmPassword == null)
+                if (_librarymember.ConfirmPassword == null)
                 {
-                    librarymember.ConfirmPassword = "";
+                    _librarymember.ConfirmPassword = "";
                 }
-                if (librarymember.Address == null)
+                if (_librarymember.Address == null)
                 {
-                    librarymember.Address = "";
+                    _librarymember.Address = "";
                 }
-                if (librarymember.Street == null)
+                if (_librarymember.Street == null)
                 {
-                    librarymember.Street = "";
+                    _librarymember.Street = "";
                 }
-                if (librarymember.Town == null)
+                if (_librarymember.Town == null)
                 {
-                    librarymember.Town = "";
+                    _librarymember.Town = "";
                 }
-                if (librarymember.County == null)
+                if (_librarymember.County == null)
                 {
-                    librarymember.County = "";
+                    _librarymember.County = "";
                 }
-                if (librarymember.Country == null)
+                if (_librarymember.Country == null)
                 {
-                    librarymember.Country = "";
+                    _librarymember.Country = "";
                 }
-                if (librarymember.Postcode == null)
+                if (_librarymember.Postcode == null)
                 {
-                    librarymember.Postcode = "";
+                    _librarymember.Postcode = "";
                 }
-                if (librarymember.Classification == -1)
+                if (_librarymember.Classification == -1)
                 {
-                    librarymember.Classification = 2;
+                    _librarymember.Classification = 2;
                 }
                 _libraryMemberVerified = true;
             }
@@ -343,10 +345,28 @@ namespace CRUD_Database.pages.view
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             _entityState = "Delete";
-            functionUpdateLibraryMember(_currentLibraryMember, _entityState);
+            functionToUpdateLibraryMember(_currentLibraryMember, _entityState);
             functionToPopulateLibraryMemberDetails(_currentLibraryMember);
             myListView.Items.Refresh();
             dockUserPanel.Visibility = Visibility.Collapsed;
+        }
+
+
+
+        /**************************************************************************************************
+        * (16)
+        * Button Access for Administrator Classification
+        *      
+        *            
+        *************************************************************************************************/
+        private void functionToShowAdministratorButtons(int Classification)
+        {
+            if (Classification == 1)
+            {
+                btnAdd.Visibility = Visibility.Visible;
+                btnUpdate.Visibility = Visibility.Visible;
+                btnDelete.Visibility = Visibility.Visible;
+            }
         }
     }
 }
