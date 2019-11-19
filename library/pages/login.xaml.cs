@@ -25,7 +25,7 @@ namespace library.pages
             (Properties.Settings.Default.libraryConnectionString);
 
 
-
+        
         /**************************************************************************************************
          * (2)
          * global list (_libraryMemberList) of records in the database LibraryMember table
@@ -36,6 +36,7 @@ namespace library.pages
         {
             InitializeComponent();
         }
+        
 
 
 

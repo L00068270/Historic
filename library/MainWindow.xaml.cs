@@ -32,9 +32,9 @@ namespace library
             Main.Content = new pages.index();
         }
 
-        private void btnAbout(object sender, RoutedEventArgs e)
+        private void btnRecords(object sender, RoutedEventArgs e)
         {
-            Main.Content = new pages.about();
+            Main.Content = new pages.records();
         }
 
         private void btnRegister(object sender, RoutedEventArgs e)
@@ -48,12 +48,14 @@ namespace library
             pages.login login = new pages.login();
             login.ShowDialog();
         }
+
+        
         /*
-        private void btnDashboard(object sender, RoutedEventArgs e)
-        {          
-            dashboard.dashboard dashboard = new dashboard.dashboard();
-            dashboard.ShowDialog();
-        }
-        */
+private void btnDashboard(object sender, RoutedEventArgs e)
+{          
+   dashboard.dashboard dashboard = new dashboard.dashboard();
+   dashboard.ShowDialog();
+}
+*/
     }
 }

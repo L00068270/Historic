@@ -67,29 +67,30 @@ namespace library.dashboard
          * 
          **************************************************************************************************/
 
-        private void btnhome_Click(object sender, RoutedEventArgs e)
+        private void btnHome_Click(object sender, RoutedEventArgs e)
         {
             MainWindow MainWindow = new MainWindow();
             MainWindow.ShowDialog();
         }
 
-        private void btnabout_Click(object sender, RoutedEventArgs e)
+        private void btnRecords_Click(object sender, RoutedEventArgs e)
         {
             MainWindow MainWindow = new MainWindow();
             MainWindow.ShowDialog();
         }
 
-        private void btnregister_Click(object sender, RoutedEventArgs e)
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             pages.register register = new pages.register();
-            register.ShowDialog();           
+            register.ShowDialog();
         }
 
-        private void btnlogin_Click(object sender, RoutedEventArgs e)
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             pages.login login = new pages.login();
-            login.ShowDialog();            
+            login.ShowDialog();
         }
+        
 
 
         /***************************************************************************************************
@@ -198,7 +199,5 @@ namespace library.dashboard
             this.Close();
             Environment.Exit(0);
         }
-
-        
     }
 }

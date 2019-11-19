@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:library.pages"
         xmlns:DataClassesLinqSqlLibrary="clr-namespace:MyClassesLibrary;assembly=MyClassesLibrary"
         xmlns:library="clr-namespace:library"
-        mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#5A3921" WindowStartupLocation="CenterScreen" WindowStyle="None"
         Title="register" Height="660" Width="300">
     <Window.Resources>
         <library:LibraryMember x:Key="LibraryMember"/>
@@ -92,8 +92,8 @@
                         <ColumnDefinition Width="80"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="btnInsert" Content="REGISTER" Grid.Row="1" Grid.Column="3" Height="20" Width="70" Background="#374989" Foreground="White" Click="btnInsert_Click"></Button>
-                    <Button x:Name="btnCancel" Content="CANCEL" Grid.Row="1" Grid.Column="2" Height="20" Width="70" Background="#374989" Foreground="White" Click="btnCancel_Click"></Button>
+                    <Button x:Name="btnInsert" Content="REGISTER" Grid.Row="1" Grid.Column="3" Height="20" Width="70" Background="#5A3921" Foreground="White" Click="btnInsert_Click"></Button>
+                    <Button x:Name="btnCancel" Content="CANCEL" Grid.Row="1" Grid.Column="2" Height="20" Width="70" Background="#5A3921" Foreground="White" Click="btnCancel_Click"></Button>
                 </Grid>
             </StackPanel>
         </Border>

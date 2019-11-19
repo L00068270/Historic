@@ -1,10 +1,10 @@
-﻿<Page x:Class="library.pages.about"
+﻿<Page x:Class="library.pages.records"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:library.pages"
-      mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989"
+      mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#5A3921"
       d:DesignHeight="700" d:DesignWidth="300" 
       Title="about" Width="1200" MinWidth="300">
 
@@ -28,7 +28,7 @@
         <Border Grid.Row="1" Grid.Column="1" Padding="20,20,20,20">
             <StackPanel>
                 <TextBlock FontSize="30">
-                    About the Library
+                    HISTORICAL RECORDS
                     <LineBreak/>
                 </TextBlock>
 
@@ -81,7 +81,7 @@
                     <LineBreak/>
                 </TextBlock>
 
-                <Image Source="C:\C# Website\Library\library\library\banners\cr20180528_103343.jpg"/>
+                <Image Source="/library;component/banners/BattleField-2.jpg" />
 
                 <TextBlock TextWrapping="Wrap" TextAlignment="Justify">
                     <LineBreak/>

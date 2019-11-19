@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:library.pages"
-      mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989"
+      mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#5A3921"
       d:DesignHeight="660" d:DesignWidth="300"
       Title="index" Width="1200" MinWidth="300">
 
@@ -22,12 +22,14 @@
         <Rectangle Grid.Row="0" Grid.Column="0"/>
         <Rectangle Grid.Row="1" Grid.Column="1" Fill="FloralWhite"/>
         <Rectangle Grid.Row="1" Grid.Column="2" Fill="White"/>
-        <Rectangle Grid.Row="1" Grid.Column="3" Fill="FloralWhite"/>
+        <Rectangle Grid.Row="1" Grid.Column="3" Fill="FloralWhite"/> 
 
+        <!--SETTING ROWS AND COLUMNS-->
+        <!--ROW 1-->
         <Border Grid.Row="1" Grid.Column="1" Padding="20,20,20,20">
             <StackPanel>
                 <TextBlock FontSize="30">
-                    Home
+                    MAIN
                     <LineBreak/>
                 </TextBlock>
 
@@ -38,8 +40,8 @@
                     Nam pulvinar turpis eget sollicitudin tristique. Sed sodales massa sit amet nisi commodo, in blandit tortor ultrices.
                     <LineBreak/>
                 </TextBlock>
-
-                <Image Source="C:\C# Website\Library\library\library\banners\cr20180528_103312.jpg"/>
+                
+                <Image Source="/library;component/banners/trench-scene.jpg"/>
 
                 <TextBlock TextWrapping="Wrap" TextAlignment="Justify">                  
                     <LineBreak/>
@@ -54,6 +56,8 @@
             </StackPanel>
         </Border>
 
+        <!--SETTING ROWS AND COLUMNS-->
+        <!--ROW 1 COLUMN 2-->
         <Border Grid.Row="1" Grid.Column="2" Padding="20,20,20,20">
             <StackPanel>
                 <TextBlock TextWrapping="Wrap" TextAlignment="Justify">
@@ -86,9 +90,11 @@
             </StackPanel>
         </Border>
 
+        <!--SETTING ROWS AND COLUMNS-->
+        <!--ROW 1 COLUMN 3-->
         <Border Grid.Row="1" Grid.Column="3" Padding="20,20,20,20">
             <StackPanel>
-                <Image Source="C:\C# Website\Library\library\library\banners\cr20180528_102107.jpg"/>
+                <Image Source="/library;component/banners/The-Battle.jpg" />
                 
                 <TextBlock TextWrapping="Wrap" TextAlignment="Justify">
                     <LineBreak/>

@@ -6,17 +6,18 @@
         xmlns:local="clr-namespace:library"
         xmlns:pages="clr-namespace:library.pages"
         mc:Ignorable="d" FontFamily="Arial" FontSize="12" WindowStartupLocation="CenterScreen" WindowState="Maximized"
-        Title="MainWindow" Height="auto" Width="1200" MinWidth="300" Background="#FF868CC5">
-    <Window.Resources>        
+        Title="MainWindow" Height="auto" Width="1200" MinWidth="300" Background="White">
+    <Window.Resources>
+        <!--Global Button Defined-->
         <Style TargetType="Button">
-            <Setter Property="Margin" Value="1"></Setter>
-            <Setter Property="FontFamily" Value="Arial"></Setter>
-            <Setter Property="FontSize" Value="14"></Setter>
-            <Setter Property="Background" Value="#374989"></Setter>
-            <Setter Property="Foreground" Value="FloralWhite"></Setter> 
-            <Setter Property="Width" Value="100"></Setter>
-            <Setter Property="Height" Value="22"></Setter>
-            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="1"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Background" Value="Orange"/>
+            <Setter Property="Foreground" Value="#2F2F3C"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="22"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
         <Style TargetType="ScrollBar">
             <Setter Property="Stylus.IsPressAndHoldEnabled" Value="False"/>
@@ -27,7 +28,8 @@
     </Window.Resources>
     
     <ScrollViewer CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
-        <Grid MaxWidth="1200" Margin="0,6,0,6">
+        <!--Page Layout-->
+        <Grid MaxWidth="1200" Margin="0,6,0,6" Width="1200" Height="Auto">
             <Grid.RowDefinitions>
                 <RowDefinition Height="0"/>
                 <RowDefinition Height="auto"/>
@@ -47,52 +49,70 @@
             </Grid.ColumnDefinitions>
         
             <!--SETTING ROWS AND COLUMNS-->
-            <!--ROW 1-->
-            <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="#374989" Stroke="#374989"/>
-            <TextBlock x:Name="tbxHeader" Grid.Row="1" Grid.ColumnSpan="4" Margin="17,16,37,10" FontFamily="Arial Unicode MS" FontSize="36" Foreground="#FFF50C0C" >
-                <Run Text="Library"/>
-                <Run Text="Letterkenny" Foreground="#FFF5EEEE"/>
+            <!--ROW 1 Header-->
+            <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="FloralWhite"/>
+            <TextBlock x:Name="tbxRollofHonour" Grid.Row="1" Grid.ColumnSpan="4" Margin="10,34,37,10" FontFamily="Arial Unicode MS" >
+                <Run FontSize="24" Foreground="Orange" Text="Book of Honour"/>
             </TextBlock>
-        
-            <!--ROW 2 RED-->
-            <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Height="8" Fill="#FFF50C0C" Stroke="#374989"/>
-        
+
+            <TextBlock x:Name="tbxTheGreatWar" Grid.Row="1" Grid.ColumnSpan="4" Margin="17,20,37,10" HorizontalAlignment="Center" FontFamily="Arial Unicode MS" >
+                <Run FontSize="36" Foreground="#2F2F3C" Text=" The Great War"/>
+            </TextBlock>
+
+            <TextBlock x:Name="tbxYears" Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Right" Margin="17,40,37,10" FontFamily="Arial Unicode MS" >
+                <Run FontSize="18" Foreground="#2F2F3C" Text=" 1914 - 1918"/>
+            </TextBlock>
+
+            
+                     
+            <!--ROW 2 BLACK LINE-->
+            <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Stroke="Black" Height="8" Fill="#2F2F3C"/>
+ 
+            
+                                 
             <!--ROW 3 BANNER-->
-            <Image x:Name="imageBanner" Grid.Row="3" Grid.ColumnSpan="4" Width="1200" Source="banners/20180528_102427-1200x200.jpg"/>
-        
+            <Rectangle Grid.Row="3" Grid.ColumnSpan="4" Stroke="Black" Fill="Orange"/>
+            <Image Grid.Row="3" Grid.ColumnSpan="4" Source="banners/banner 1200-200.jpg"/>
+
+            
+            
             <!--ROW 4 NAVAGATION BAR-->
-            <Rectangle Grid.Row="4" Grid.ColumnSpan="4" Height="40" Fill="#374989" Stroke="#374989"/>
+            <Rectangle Grid.Row="4" Grid.ColumnSpan="4" Height="40" Stroke="Black" Fill="Orange"/>
             <WrapPanel Grid.Row="4" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0">
-                <Button Content="HOME" Click="btnIndex"/>
-                <Button Content="ABOUT" Click="btnAbout"/>
+                <Button Content="MAIN" Click="btnIndex"/>
+                <Button Content="RECORDS" Click="btnRecords"/>
                 <Button Content="REGISTER" Click="btnRegister"/>
                 <Button Content="LOGIN" Click="btnLogin"/>
             </WrapPanel>
 
+            
+            
             <!--ROW 5 CONTENT-->
-            <Rectangle Grid.Row="5" Grid.ColumnSpan="4" Fill="White" Stroke="#374989"/>
+            <Rectangle Grid.Row="5" Grid.ColumnSpan="4" Fill="White" Stroke="#5A3921"/>
                 <Frame x:Name="Main" Grid.Row="5" Grid.ColumnSpan="4" NavigationUIVisibility="Hidden">
                               
                 </Frame>
             <ContentControl Grid.Row="5" Grid.ColumnSpan="4" Content="{Binding}">
                 
             </ContentControl>
+
+            
             
             <!--ROW 6 LINKS-->
-            <Rectangle Grid.Row="6" Grid.ColumnSpan="4" Height="100" Fill="#374989" Stroke="#374989"/>
-            <TextBlock x:Name="tbxFooter" Grid.Row="6" Grid.Column="1" Margin="17,16,37,10" FontFamily="Arial Unicode MS" FontSize="10" Foreground="White" >
-                <Run Text="Links Here"/>
-                <LineBreak/>
+            <Rectangle Grid.Row="6" Grid.ColumnSpan="4" Height="100" Stroke="Black" Fill="Orange"/>
+            <TextBlock x:Name="tbxFooter" Grid.Row="6" Grid.Column="1" Margin="17,16,37,10" FontFamily="Arial Unicode MS" FontSize="10" Foreground="Black" >
                 <Run Text="Follow us on Twitter"/>
                 <LineBreak/>
-                <Run Text="Out and About in Donegal"/>
+                <Run Text="Link 2"/>
                 <LineBreak/>
-                <Run Text="On Campus in Letterkenny"/>
+                <Run Text="Link 3"/>
                 <LineBreak/>
-                <Run Text="Faculty"/>
+                <Run Text="Link 4"/>
+                <LineBreak/>
+                <Run Text="Link 5"/>
             </TextBlock>
 
-            <TextBlock Grid.Row="6" Grid.Column="2" Margin="17,16,37,10" FontFamily="Arial Unicode MS" FontSize="10" Foreground="White" >
+            <TextBlock Grid.Row="6" Grid.Column="2" Margin="17,16,37,10" FontFamily="Arial Unicode MS" FontSize="10" Foreground="Black" >
                 <Run Text="Link 6"/>
                 <LineBreak/>
                 <Run Text="Link 7"/>

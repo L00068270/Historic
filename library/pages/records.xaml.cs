@@ -18,9 +18,9 @@ namespace library.pages
     /// <summary>
     /// Interaction logic for about.xaml
     /// </summary>
-    public partial class about : Page
+    public partial class records : Page
     {
-        public about()
+        public records()
         {
             InitializeComponent();
         }

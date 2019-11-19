@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:library"
         xmlns:pages="clr-namespace:library.pages"
         xmlns:library="clr-namespace:library"        
-        mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#374989" 
+        mc:Ignorable="d" FontFamily="Calibri" FontSize="12" Foreground="#5A3921" 
         Title="login" Height="300" Width="300" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" WindowStyle="None">
     <Window.Resources>
         <library:LibraryMember x:Key="LibraryMember"/>
@@ -62,8 +62,8 @@
                         <ColumnDefinition Width="80"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button x:Name="btnLogin" Content="LOGIN" Grid.Row="1" Grid.Column="3" Height="20" Width="70" Background="#374989" Foreground="White" Click="btnLogin_Click"></Button>
-                    <Button x:Name="btnCancel" Content="CANCEL" Grid.Row="1" Grid.Column="2" Height="20" Width="70" Background="#374989" Foreground="White" Click="btnCancel_Click"></Button>
+                    <Button x:Name="btnLogin" Content="LOGIN" Grid.Row="1" Grid.Column="3" Height="20" Width="70" Background="#5A3921" Foreground="White" Click="btnLogin_Click"></Button>
+                    <Button x:Name="btnCancel" Content="CANCEL" Grid.Row="1" Grid.Column="2" Height="20" Width="70" Background="#5A3921" Foreground="White" Click="btnCancel_Click"></Button>
                 </Grid>
             </StackPanel>
         </Border>

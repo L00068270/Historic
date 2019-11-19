@@ -324,7 +324,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="pages\about.xaml">
+    <Page Include="pages\records.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -364,8 +364,8 @@
     <Compile Include="pages\memberhistory.xaml.cs">
       <DependentUpon>memberhistory.xaml</DependentUpon>
     </Compile>
-    <Compile Include="pages\about.xaml.cs">
-      <DependentUpon>about.xaml</DependentUpon>
+    <Compile Include="pages\records.xaml.cs">
+      <DependentUpon>records.xaml</DependentUpon>
     </Compile>
     <Compile Include="pages\index.xaml.cs">
       <DependentUpon>index.xaml</DependentUpon>
@@ -415,15 +415,6 @@
     <Folder Include="dashboard\models\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="banners\20180528_102114-1200x200.jpg" />
-    <Resource Include="banners\20180528_102337-1200x200.jpg" />
-    <Resource Include="banners\20180528_102427-1200x200.jpg" />
-    <Resource Include="banners\20180528_103327-1200x200.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="banners\20180528_103343-1200x200.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="banners\cr20180528_102107.jpg" />
     <Resource Include="banners\cr20180528_103312.jpg" />
     <Resource Include="banners\cr20180528_103343.jpg" />
@@ -453,6 +444,18 @@
       <Project>{e5afef97-9c8f-4a71-92e9-af1266e42050}</Project>
       <Name>MyClassesLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="banners\banner 1200-200.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="banners\trench-scene.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="banners\The-Battle.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="banners\BattleField-2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

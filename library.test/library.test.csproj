@@ -129,9 +129,9 @@
       <Project>{90caeb78-fe16-48f0-8fbd-08bc2b5f2f03}</Project>
       <Name>CRUD-Database</Name>
     </ProjectReference>
-    <ProjectReference Include="..\library\library.csproj">
+    <ProjectReference Include="..\library\bookofhonoour.csproj">
       <Project>{ab211fa6-f4ab-416d-bc5b-be3fb418c0fd}</Project>
-      <Name>library</Name>
+      <Name>bookofhonoour</Name>
     </ProjectReference>
     <ProjectReference Include="..\MyClassesLibrary\MyClassesLibrary.csproj">
       <Project>{e5afef97-9c8f-4a71-92e9-af1266e42050}</Project>

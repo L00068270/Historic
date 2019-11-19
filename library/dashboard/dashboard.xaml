@@ -10,17 +10,17 @@
         xmlns:view="clr-namespace:CRUD_Database.pages.view;assembly=CRUD-Database"
         xmlns:pages="clr-namespace:library.pages"
         mc:Ignorable="d" FontFamily="Arial" FontSize="12" WindowStartupLocation="CenterScreen" WindowState="Maximized"      
-        Title="dashboard" Width="1200" MinWidth="300" Loaded="Window_Loaded" Background="#FF868CC5">
+        Title="dashboard" Width="1200" MinWidth="300" Loaded="Window_Loaded" Background="white">
     <Window.Resources>
         <Style TargetType="Button">
-            <Setter Property="Margin" Value="1"></Setter>
-            <Setter Property="FontFamily" Value="Arial"></Setter>
-            <Setter Property="FontSize" Value="14"></Setter>
-            <Setter Property="Background" Value="#374989"></Setter>
-            <Setter Property="Foreground" Value="FloralWhite"></Setter>
-            <Setter Property="Width" Value="100"></Setter>
-            <Setter Property="Height" Value="22"></Setter>
-            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="Margin" Value="1"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Background" Value="Orange"/>
+            <Setter Property="Foreground" Value="#2F2F3C"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="22"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
         </Style>
         <Style TargetType="ScrollBar">
             <Setter Property="Stylus.IsPressAndHoldEnabled" Value="False"/>
@@ -66,12 +66,14 @@
         <DataTemplate x:Name="template_publisher" DataType="{x:Type viewmodels:viewmodel_publisher}">
             <views:viewpublisher DataContext="{Binding Path=viewmodel_publisher}"></views:viewpublisher>
         </DataTemplate>
+        <!--
         <DataTemplate x:Name="template_book" DataType="{x:Type viewmodel:viewmodel_book}">
             <view:view_book DataContext="{Binding Path=viewmodel_book}"></view:view_book>
         </DataTemplate>
         <DataTemplate x:Name="template_libMember" DataType="{x:Type viewmodel:viewmodel_libMember}">
             <view:view_libMember DataContext="{Binding Path=viewmodel_book}"></view:view_libMember>
         </DataTemplate>
+        -->
 
 
 
@@ -99,8 +101,10 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
+            
+            
             <!--SETTING ROWS AND COLUMNS-->
-            <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="#374989" Stroke="#374989" Margin="0,0,0.333,0"/>
+            <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="white" Margin="0,0,0.333,0"/>
             <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Height="8" Fill="#FFF50C0C" Stroke="#374989" Margin="0,0,0.333,0"/>
             <Rectangle Grid.Row="4" Grid.ColumnSpan="4" Height="40" Fill="#374989" Stroke="#374989" Margin="0,0,0.333,0"/>
             <Rectangle Grid.Row="5" Grid.ColumnSpan="4" Fill="FloralWhite" Margin="0,0,0.333,0"/>
@@ -108,29 +112,46 @@
             <Rectangle Grid.Row="7" Grid.ColumnSpan="4" Fill="White" Margin="0,0,0.333,80" Grid.RowSpan="2"/>
             <Rectangle Grid.Row="8" Grid.ColumnSpan="4" Height="80" Fill="#374989" Stroke="#374989" VerticalAlignment="Bottom" Margin="0,0,0.333,0"/>
 
+            
+            
             <!--ROW 1 HEADER-->
-            <Border Grid.Row="1" Grid.Column="3" Margin="0.333,0,-0.667,0">
-                <TextBlock x:Name="tbxHeader" Margin="17,16,37,10" FontFamily="Arial Unicode MS" FontSize="36" Foreground="#FFF50C0C" >
-                    <Run Text="Library"/>
-                    <Run Text="Letterkenny" Foreground="#FFF5EEEE"/>
-                </TextBlock>
-            </Border>
+            <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="White"/>
+            <TextBlock x:Name="tbxRollofHonour" Grid.Row="1" Grid.ColumnSpan="4" Margin="10,34,37,10" FontFamily="Arial Unicode MS" >
+                <Run FontSize="24" Foreground="Orange" Text="Book of Honour"/>
+            </TextBlock>
 
+            <TextBlock x:Name="tbxTheGreatWar" Grid.Row="1" Grid.ColumnSpan="4" Margin="17,20,37,10" HorizontalAlignment="Center" FontFamily="Arial Unicode MS" >
+                <Run FontSize="36" Foreground="#2F2F3C" Text=" The Great War"/>
+            </TextBlock>
 
+            <TextBlock x:Name="tbxYears" Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Right" Margin="17,40,37,10" FontFamily="Arial Unicode MS" >
+                <Run FontSize="18" Foreground="#2F2F3C" Text=" 1914 - 1918"/>
+            </TextBlock>
+
+            
+            
+            <!--ROW 2 BLACK LINE-->
+            <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Height="8" Fill="#2F2F3C"/>
+
+            
+            
             <!--ROW 3 BANNER-->
-            <Border Grid.Row="3" Grid.ColumnSpan="4" Margin="0,0,0.333,0">
-                <Image x:Name="imageBanner" Width="1200" Source="C:\C# Website\Library\library\library\banners\20180528_102427-1200x200.jpg"/>
-            </Border>
+            <Rectangle Grid.Row="3" Grid.ColumnSpan="4" Fill="Orange"/>
+            <Image Grid.Row="3" Grid.ColumnSpan="4" Source="/library;component/banners/banner 1200-200.jpg" />
 
 
-            <!--ROW 4 MAIN NAVAGATION BAR-->
-            <WrapPanel Grid.Row="4" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,8,20.333,8" Grid.Column="2">
-                <Button x:Name="btnhome" Content="HOME" Click="btnhome_Click"/>
-                <Button x:Name="btnabout" Content="ABOUT" Click="btnabout_Click"/>
-                <Button x:Name="btnregister" Content="REGISTER" Click="btnregister_Click"/>
-                <Button x:Name="btnlogin" Content="LOGIN" Click="btnlogin_Click"/>
+            
+            <!--ROW 4 NAVAGATION BAR-->
+            <Rectangle Grid.Row="4" Grid.ColumnSpan="4" Height="40" Fill="Orange"/>
+            <WrapPanel Grid.Row="4" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0">
+                <Button Content="MAIN" Click="btnHome_Click"/>
+                <Button Content="RECORDS" Click="btnRecords_Click"/>
+                <Button Content="REGISTER" Click="btnRegister_Click"/>
+                <Button Content="LOGIN" Click="btnLogin_Click"/>
             </WrapPanel>
 
+            
+            
             <!--ROW 5 CONTENT NAVAGATION HYPERLINKS-->
             <Border Grid.Row="5" Grid.ColumnSpan="4" Padding="20,20,20,20" Margin="0,0,0.333,0">
                 <Border.InputBindings>
@@ -223,6 +244,8 @@
                 </Grid>
             </Border>
 
+            
+            
             <!--ROW 6 CONTENT NAVAGATION-->
             <Border Grid.Row="6" Grid.ColumnSpan="4" Padding="20,20,20,20" Margin="0,0,0.333,0">
                 <StackPanel>
@@ -242,10 +265,10 @@
                                     <ColumnDefinition Width="50" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Row="1" Grid.Column="1" Content="User : "></Label>
-                                <Label Grid.Row="1" Grid.Column="2" Name="lblCurrentUser"></Label>
-                                <Label Grid.Row="2" Grid.Column="1" Content="Version : "></Label>
-                                <Label Grid.Row="2" Grid.Column="2" Name="lblVersion" Content="3.0"></Label>
+                                <Label Grid.Row="1" Grid.Column="1" Content="User : "/>
+                                <Label Grid.Row="1" Grid.Column="2" Name="lblCurrentUser"/>
+                                <Label Grid.Row="2" Grid.Column="1" Content="Version : "/>
+                                <Label Grid.Row="2" Grid.Column="2" Name="lblVersion" Content="3.0"/>
                             </Grid>
                         </DockPanel>
 
@@ -308,6 +331,8 @@
                 </StackPanel>
             </Border>
 
+            
+            
             <!--GRID VIEWS FOR MODEL PAGES-->
             <ContentControl Grid.Row="7" Grid.ColumnSpan="4" Content="{Binding}" Margin="0,0,0.333,80" Grid.RowSpan="2">
 
